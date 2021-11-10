@@ -7,47 +7,49 @@
                 {{ session('status') }}
             </div>
         @endif
-
-        <div class="jumbotron">
-            <h5>Welcome, {{ auth()->user()->email }}</h5>
-            <h1 class="display-3">Bootstrap 4 Laravel Fortify Authentication</h1>
-            <p class="lead">This is a simple auth starter setup for laravel 8 projects</p>
-            <hr class="my-4">
-            <h2>Features:</h2>
-            <ul>
-                <li>User Login</li>
-                <li>User Registration</li>
-                <li>Email Verification</li>
-                <li>Forget Password</li>
-                <li>Reset Password</li>
-            </ul>
-            <p class="lead">
-                <a class="btn btn-primary" href="" target="_blank" role="button">Github Source Code</a>
-            </p>
-        </div>
     </div>
 
     <div class="container">
+        <form action="">
+            <div class="mb-3">
+                <label for="search_product" class="form-label">Search product</label>
+                <input type="email" class="form-control" id="search_product" placeholder="">
+            </div>
+            <button>Search</button>
+        </form>
+        <h1>New Arrival</h1>
         <table class="table">
-            <!-- <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead> -->
             <tbody>
                 @foreach($products as $key => $product)
                 <tr>
                     <td>{{$product->name}}</td>
                     <td>
                         <img src="{{url('storage/'.$product->image)}}" alt="" width=200>
-                        </td>
+                    </td>
                     <td>{{$product->harga_produk}}</td>
+                    <td>
+                        <a href="" class="btn btn-primary">Detail</a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
-          </table>
+        </table>
+        <h2>Our Products</h2>
+        <table class="table">
+            <tbody>
+                @foreach($products as $key => $product)
+                <tr>
+                    <td>{{$product->name}}</td>
+                    <td>
+                        <img src="{{url('storage/'.$product->image)}}" alt="" width=200>
+                    </td>
+                    <td>{{$product->harga_produk}}</td>
+                    <td>
+                        <a href="" class="btn btn-primary">Detail</a>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 @endsection
