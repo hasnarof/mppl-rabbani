@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
     {
         //
         $admin =  [
-            'full_name'=> 'Admin Rabbani',
+            'name'=> 'Admin Rabbani',
             'username'=>'adminrabbani',
             'email'=>'admin@rabbani.co.id',
             'password'=>Hash::make('rabbanijaya123'),
@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
 
         $users = [
             [
-                'full_name'=> 'Fairuz Hasna Rofifah',
+                'name'=> 'Fairuz Hasna Rofifah',
                 'username'=>'hasnarof',
                 'email'=>'hasnarof@gmail.com',
                 'password'=>Hash::make('hasnacantik123'),
