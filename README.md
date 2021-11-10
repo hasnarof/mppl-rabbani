@@ -1,9 +1,3 @@
-## Instruksi
-1. Buat **.env** dari **.env.rabbani**
-2. Buat database dengan nama **mppl-rabbani**
-3. `php artisan migrate` untuk migration yang belum di migrate, atau `php artisan migrate:fresh` untuk migration dari awal (ngulang).
-
-
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
