@@ -16,8 +16,8 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('nama_produk');
-            $table->enum('kategori_pakaian', ['atasan', 'bawahan', 'gamis', 'jilbab', 'mukena']);
-            $table->enum('kategori_gender', ['women', 'men', 'universal']);
+            $table->enum('kategori_pakaian', ['Atasan', 'Bawahan', 'Dress', 'Kerudung', 'Mukena']);
+            $table->enum('kategori_gender', ['Women', 'Men', 'Universal']);
             $table->timestamps();
         });
     }

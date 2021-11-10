@@ -23,7 +23,8 @@ class UserSeeder extends Seeder
             'email_verified_at'=>now(),
             'password'=>Hash::make('rabbanijaya123'),
             'role'=>'admin',
-            'phone_number'=>'081256567878'
+            'phone_number'=>'081256567878',
+            'created_at'=>now(),
         ];
 
         DB::table('users')->insert( $admin);
@@ -41,6 +42,8 @@ class UserSeeder extends Seeder
                 'resipient_country'=>'Indonesia',
                 'resipient_province'=>'Jawa Barat',
                 'resipient_postal_code'=>'16418',
+                'created_at'=>now(),
+
             ]
         ];
 
