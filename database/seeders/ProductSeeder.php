@@ -14,11 +14,13 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
+        $dt = mktime(23,59, 59, 1, 1, 2015);
+        $dt = date('Y-m-d H:i:s', $dt);
         $id = DB::table('products')->insertGetId([
             'nama_produk'=>'Kerudung Instan Zerena',
             'kategori_pakaian'=>'Kerudung',
             'kategori_gender'=>'Women',
-            'created_at'=>now(),
+            'created_at'=> $dt,
         ]);
 
         $warna1 = 'Hazelnut'; $warna2 = 'Blue Black'; $warna3 = 'Hitam'; $warna4 = 'Putih';
@@ -33,7 +35,7 @@ class ProductSeeder extends Seeder
                     'ukuran'=>${"ukuran" . $j},
                     'ketersediaan'=>rand(0, 50),
                     'harga_produk'=>83840,
-                    'created_at'=>now(),
+                    'created_at'=>$dt,
                 ];
                 DB::table('product_details')->insert($product_detail);
             }

@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('nama_produk');
             $table->enum('kategori_pakaian', ['Atasan', 'Bawahan', 'Dress', 'Kerudung', 'Mukena']);
             $table->enum('kategori_gender', ['Women', 'Men', 'Universal']);
+            $table->boolean('is_best_seller')->default(0);
             $table->timestamps();
         });
     }
