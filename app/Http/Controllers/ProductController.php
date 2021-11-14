@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use GuzzleHttp\Handler\Proxy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -24,16 +25,19 @@ class ProductController extends Controller
             $product->harga_produk = $product->productDetails->first()->harga_produk;
         }
 
-        $data = [
-            'new_arrivals' => $new_arrivals,
-            'all_products' => $all_products,
-        ];
-
-        return view('product.all')->with(compact('data'));
+        return view('product.all')
+            ->with(compact('new_arrivals'))
+            ->with(compact('all_products'));
     }
 
     public function productDetail($id)
     {
+        $product = Product::find($id);
+        $product->colors = $product->productDetailsByColor();
+        $product->sizes = $product->productDetailsBySize();
 
+        // dd($product);
+
+        return view('product.show')->with(compact('product'));
     }
 }

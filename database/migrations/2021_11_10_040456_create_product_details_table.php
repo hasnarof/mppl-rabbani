@@ -16,12 +16,12 @@ class CreateProductDetailsTable extends Migration
         Schema::create('product_details', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('product_id');
-            $table->string('nama_produk');
+            $table->string('nama');
             $table->string('image');
             $table->string('warna');
             $table->string('ukuran');
             $table->integer('ketersediaan')->default(0);
-            $table->string('harga_produk');
+            $table->string('harga');
             $table->timestamps();
         });
     }

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+All Products
+@endsection
+
 @section('content')
 
 <div class="container">
@@ -13,15 +17,15 @@
     <h1>New Arrival</h1>
     <table class="table">
         <tbody>
-            @foreach($data['new_arrivals'] as $key => $product)
+            @foreach($new_arrivals as $key => $product)
             <tr>
-                <td>{{$product->name}}</td>
+                <td>{{$product->nama}}</td>
                 <td>
                     <img src="{{url('storage/'.$product->image)}}" alt="" width=200>
                 </td>
-                <td>{{$product->harga_produk}}</td>
+                <td>Rp{{$product->harga}}</td>
                 <td>
-                    <a href="" class="btn btn-primary">Detail</a>
+                    <a href="{{url('product/'.$product->id)}}" class="btn btn-primary">Detail</a>
                 </td>
             </tr>
             @endforeach
@@ -30,15 +34,15 @@
     <h2>Our Products</h2>
     <table class="table">
         <tbody>
-            @foreach($data['all_products'] as $key => $product)
+            @foreach($all_products as $key => $product)
             <tr>
-                <td>{{$product->name}}</td>
+                <td>{{$product->nama}}</td>
                 <td>
                     <img src="{{url('storage/'.$product->image)}}" alt="" width=200>
                 </td>
-                <td>{{$product->harga_produk}}</td>
+                <td>Rp{{$product->harga}}</td>
                 <td>
-                    <a href="" class="btn btn-primary">Detail</a>
+                    <a href="{{url('product/'.$product->id)}}" class="btn btn-primary">Detail</a>
                 </td>
             </tr>
             @endforeach
