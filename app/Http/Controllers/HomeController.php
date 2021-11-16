@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class HomeController extends Controller
 {
@@ -17,5 +18,10 @@ class HomeController extends Controller
         }
 
         return view('home')->with(compact('products'));
+    }
+
+    public function testReact()
+    {
+        return Inertia::render('Home');
     }
 }

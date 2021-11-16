@@ -15,11 +15,12 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-// Route::get('/', function () {
+// Route::get('/test_react', function () {
 //     return view('welcome');
 // });
 
 Route::get('/',[HomeController::class, 'landingPage']);
+Route::get('/test_react',[HomeController::class, 'testReact']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     // Route::view('home', 'home')->name('home');
