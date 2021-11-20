@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
 use App\Models\Product;
-use GuzzleHttp\Handler\Proxy;
 use Illuminate\Http\Request;
+use GuzzleHttp\Handler\Proxy;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -16,13 +17,13 @@ class ProductController extends Controller
         $new_arrivals = Product::where('created_at', '>=', DB::raw($sql_string))->get();
         foreach ($new_arrivals as $key => $product) {
             $product->image = $product->productDetails->first()->image;
-            $product->harga_produk = $product->productDetails->first()->harga_produk;
+            $product->harga = $product->productDetails->first()->harga;
         }
 
         $all_products = Product::all();
         foreach ($all_products as $key => $product) {
             $product->image = $product->productDetails->first()->image;
-            $product->harga_produk = $product->productDetails->first()->harga_produk;
+            $product->harga = $product->productDetails->first()->harga;
         }
 
         return view('product.all')
@@ -37,7 +38,14 @@ class ProductController extends Controller
         $product->sizes = $product->productDetailsBySize();
 
         // dd($product);
-
-        return view('product.show')->with(compact('product'));
+        // $product->colors = $product->colors->toArray();
+        // $product = $product->toArray();
+        // $product['colors'] = $product['colors']->toArray();
+        // $product['sizes'] = $product['sizes']->toArray();
+        // dd($product->colors);
+        return Inertia::render('ProductDetail',[
+            'product'=>$product,
+        ]);
+        // return view('product.show')->with(compact('product'));
     }
 }

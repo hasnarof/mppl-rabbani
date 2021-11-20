@@ -15,7 +15,7 @@
     <p>{!!$product->detail!!}</p>
     <h3>Choose Color</h3>
     @foreach($product->colors as $color)
-    <a href="" class="btn btn-secondary">{{$color->warna}}</a>
+    <a class="btn btn-secondary">{{$color->warna}}</a>
     @endforeach
     <h3>Choose Size</h3>
     @foreach($product->sizes as $size)
