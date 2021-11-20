@@ -22,6 +22,7 @@ class Product extends Model
             FROM product_details
             WHERE product_id = ".$this->id."
             GROUP BY warna, harga, image
+            order by id
         "));
 
         return $product_details;
