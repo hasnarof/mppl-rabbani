@@ -11286,3 +11286,11 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+#basket {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  background-color: burlywood;
+  width: 500px;
+}

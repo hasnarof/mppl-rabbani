@@ -1,19 +1,23 @@
 import {useState, useEffect} from 'react'
 import { usePage } from '@inertiajs/inertia-react';
+import App from '../Layouts/App';
 import Navbar from '../Components/Navbar';
-// import route from 'ziggy';
-// import Ziggy from
+import Basket from '../Components/Cart/Basket';
+import AddButton from '../Components/Cart/AddButton';
 
-
-const ProductDetail = () => {
+const ProductDetail = (props) => {
     const { product } = usePage().props;
 
     const [productColor, setProductColor] = useState(product.colors[0]);
     const [productSize, setProductSize] = useState(product.sizes[0]);
 
+    const [cartItems, setCartItems] = useState([]);
+
+    console.log(props);
     return (
-        <div>
-            <Navbar></Navbar>
+        <App>
+            <h1>halo</h1>
+
             <div className="container">
                 <h1>{product.nama}</h1>
                 <img src={`/storage/${productColor.image}`} width="300"/>
@@ -35,10 +39,10 @@ const ProductDetail = () => {
                     </div>
                 })}
 
-                <button className="btn btn-primary">Add to Cart</button>
 
             </div>
-        </div>
+            <AddButton className="btn btn-primary" product={product} productColor={productColor} productSize={productSize}>Add to Cart</AddButton>
+        </App>
     );
 };
 

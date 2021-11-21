@@ -6118,6 +6118,93 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./resources/js/Components/Cart/AddButton.js":
+/*!***************************************************!*\
+  !*** ./resources/js/Components/Cart/AddButton.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+var AddButton = function AddButton(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+    className: props.className,
+    onClick: function onClick() {
+      return props.onAdd(props.product, props.productColor, props.productSize);
+    },
+    children: props.children
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddButton);
+
+/***/ }),
+
+/***/ "./resources/js/Components/Cart/Basket.js":
+/*!************************************************!*\
+  !*** ./resources/js/Components/Cart/Basket.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var Basket = function Basket(props) {
+  var cartItems = props.cartItems,
+      totalPrice = props.totalPrice;
+  var onAdd = props.onAdd,
+      onRemove = props.onRemove;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: "",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "",
+        id: "basket",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+          children: "Cart"
+        }), cartItems.map(function (item) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+            children: [item.product.nama, ", ", item.productColor.warna, ", ", item.productSize.ukuran, " - ", item.qty, " x ", item.productColor.harga, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+              className: "btn btn-danger",
+              onClick: function onClick() {
+                return onRemove(item.product, item.productColor, item.productSize);
+              },
+              children: "-"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+              className: "btn btn-primary",
+              onClick: function onClick() {
+                return onAdd(item.product, item.productColor, item.productSize);
+              },
+              children: "+"
+            })]
+          });
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
+          children: ["Total: Rp", totalPrice]
+        })]
+      })
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Basket);
+
+/***/ }),
+
 /***/ "./resources/js/Components/Navbar.js":
 /*!*******************************************!*\
   !*** ./resources/js/Components/Navbar.js ***!
@@ -6228,6 +6315,147 @@ var Navbar = function Navbar() {
 
 /***/ }),
 
+/***/ "./resources/js/Layouts/App.js":
+/*!*************************************!*\
+  !*** ./resources/js/Layouts/App.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Components_Navbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Components/Navbar */ "./resources/js/Components/Navbar.js");
+/* harmony import */ var _Components_Cart_Basket__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/Cart/Basket */ "./resources/js/Components/Cart/Basket.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+
+
+var App = function App(props) {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      cartItems = _useState2[0],
+      setCartItems = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(0),
+      _useState4 = _slicedToArray(_useState3, 2),
+      totalPrice = _useState4[0],
+      setTotalPrice = _useState4[1];
+
+  var onAdd = function onAdd(product, productColor, productSize) {
+    console.log('on add berhasil dipanggil'); // if(localStorage.getItem('cartItems')){
+    //     cartItems = JSON.parse(localStorage.getItem('cartItems'));
+    // }
+
+    var exist = cartItems.find(function (x) {
+      return x.product == product && x.productColor == productColor && x.productSize == productSize;
+    });
+
+    if (exist) {
+      setCartItems(cartItems.map(function (x) {
+        return x.product == product && x.productColor == productColor && x.productSize == productSize ? _objectSpread(_objectSpread({}, exist), {}, {
+          qty: exist.qty + 1
+        }) : x;
+      }));
+    } else {
+      setCartItems([].concat(_toConsumableArray(cartItems), [{
+        product: product,
+        productColor: productColor,
+        productSize: productSize,
+        qty: 1
+      }]));
+    }
+
+    setTotalPrice(totalPrice + Number(productColor.harga)); // localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  };
+
+  var onRemove = function onRemove(product, productColor, productSize) {
+    var exist = cartItems.find(function (x) {
+      return x.product == product && x.productColor == productColor && x.productSize == productSize;
+    });
+
+    if (exist.qty === 1) {
+      setCartItems(cartItems.filter(function (x) {
+        return x.product != product || x.productColor != productColor || x.productSize != productSize;
+      }));
+    } else {
+      setCartItems(cartItems.map(function (x) {
+        return x.product == product && x.productColor == productColor && x.productSize == productSize ? _objectSpread(_objectSpread({}, exist), {}, {
+          qty: exist.qty - 1
+        }) : x;
+      }));
+    }
+
+    setTotalPrice(totalPrice - Number(productColor.harga));
+  };
+
+  var childrenWithProps = react__WEBPACK_IMPORTED_MODULE_2__.Children.map(props.children, function (child) {
+    // Checking isValidElement is the safe way and avoids a typescript
+    // error too.
+    if ( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.isValidElement(child)) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.cloneElement(child, {
+        onAdd: onAdd,
+        onRemove: onRemove
+      });
+    }
+
+    return child;
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components_Navbar__WEBPACK_IMPORTED_MODULE_0__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components_Cart_Basket__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        cartItems: cartItems,
+        totalPrice: totalPrice,
+        onAdd: onAdd,
+        onRemove: onRemove
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("main", {
+      children: childrenWithProps
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Home.js":
 /*!************************************!*\
   !*** ./resources/js/Pages/Home.js ***!
@@ -6269,8 +6497,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var _Components_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/Navbar */ "./resources/js/Components/Navbar.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Layouts_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Layouts/App */ "./resources/js/Layouts/App.js");
+/* harmony import */ var _Components_Navbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Navbar */ "./resources/js/Components/Navbar.js");
+/* harmony import */ var _Components_Cart_Basket__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/Cart/Basket */ "./resources/js/Components/Cart/Basket.js");
+/* harmony import */ var _Components_Cart_AddButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Components/Cart/AddButton */ "./resources/js/Components/Cart/AddButton.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -6285,13 +6516,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
- // import route from 'ziggy';
-// import Ziggy from
 
 
 
 
-var ProductDetail = function ProductDetail() {
+
+
+
+var ProductDetail = function ProductDetail(props) {
   var product = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.product;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(product.colors[0]),
@@ -6304,60 +6536,71 @@ var ProductDetail = function ProductDetail() {
       productSize = _useState4[0],
       setProductSize = _useState4[1];
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState6 = _slicedToArray(_useState5, 2),
+      cartItems = _useState6[0],
+      setCartItems = _useState6[1];
+
+  console.log(props);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_Layouts_App__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
+      children: "halo"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "container",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
         children: product.nama
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
         src: "/storage/".concat(productColor.image),
         width: "300"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h3", {
         children: "Detail Produk"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         dangerouslySetInnerHTML: {
           __html: product.detail
         }
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h3", {
         children: "Choose Color"
       }), product.colors.map(function (product, index) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           onClick: function onClick() {
             return setProductColor(product);
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
             type: "radio",
             id: product.warna,
             value: product.warna,
             name: "color",
             checked: productColor == product
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
             htmlFor: product.warna,
             children: product.warna
           })]
         });
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h3", {
         children: "Choose Size"
       }), product.sizes.map(function (product, index) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           onClick: function onClick() {
             return setProductSize(product);
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
             type: "radio",
             id: product.ukuran,
             value: product.ukuran,
             name: "size",
             checked: productSize == product
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
             htmlFor: product.ukuran,
             children: product.ukuran
           })]
         });
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-        className: "btn btn-primary",
-        children: "Add to Cart"
       })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Cart_AddButton__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      className: "btn btn-primary",
+      product: product,
+      productColor: productColor,
+      productSize: productSize,
+      children: "Add to Cart"
     })]
   });
 };
@@ -76878,6 +77121,18 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
 /******/ 		};
 /******/ 	})();
 /******/ 	

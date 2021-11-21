@@ -6,3 +6,12 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+#basket {
+    position: absolute;
+    z-index: 100;
+    top:0;
+    right: 0;
+    background-color: burlywood;
+    width: 500px;
+}
