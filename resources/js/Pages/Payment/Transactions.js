@@ -1,4 +1,4 @@
-import { usePage } from "@inertiajs/inertia-react";
+import { Link, usePage } from "@inertiajs/inertia-react";
 import App from "../../Layouts/App";
 
 const Transactions = () => {
@@ -21,7 +21,7 @@ const Transactions = () => {
                             <td>{item.created_at}</td>
                             <td>{item.total_harga}</td>
                             <td>{item.status_transaksi}</td>
-                            <td><button className="btn btn-primary">Detail</button></td>
+                            <td><Link href={`/transaction/${item.id}`} className="btn btn-primary">Detail</Link></td>
                         </tr>
                     ))}
 

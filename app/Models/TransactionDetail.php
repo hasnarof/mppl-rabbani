@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\ProductDetail;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class TransactionDetail extends Model
 {
@@ -11,4 +12,9 @@ class TransactionDetail extends Model
 
     protected $fillable = ['transaction_id','product_detail_id','jumlah_produk','harga_per_produk',
         'ukuran_produk','variasi_warna'];
+
+    public function productDetail()
+    {
+        return $this->belongsTo(ProductDetail::class);
+    }
 }

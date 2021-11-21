@@ -10,7 +10,7 @@ use App\Models\TransactionDetail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
-class PaymentController extends Controller
+class TransactionController extends Controller
 {
     public function cart()
     {
@@ -66,6 +66,12 @@ class PaymentController extends Controller
 
     public function transactionDetail($id)
     {
-
+        $transaction = Transaction::find($id);
+        $transaction_details = TransactionDetail::where('transaction_id',$id)->with('productDetail')->get();
+        // dd($transaction_details);
+        return Inertia::render('Payment/TransactionDetail',[
+            'transaction'=>$transaction,
+            'transactionDetails'=>$transaction_details,
+        ]);
     }
 }

@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,8 +31,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/products',[ProductController::class, 'products']);
     Route::get('/product/{id}',[ProductController::class, 'productDetail']);
 
-    Route::get('/cart', [PaymentController::class, 'cart']);
-    Route::post('/checkout', [PaymentController::class, 'checkout']);
+    Route::get('/cart', [TransactionController::class, 'cart']);
+    Route::post('/checkout', [TransactionController::class, 'checkout']);
 
-    Route::get('/transactions', [PaymentController::class, 'transactions']);
+    Route::get('/transactions', [TransactionController::class, 'transactions']);
+    Route::get('/transaction/{id}', [TransactionController::class, 'transactionDetail']);
 });
