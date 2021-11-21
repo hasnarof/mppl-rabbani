@@ -16,14 +16,29 @@ require('./components/Example');
 
 import React from 'react'
 import { render } from 'react-dom'
+import { InertiaApp } from "@inertiajs/inertia-react"
 import { createInertiaApp } from '@inertiajs/inertia-react'
 import { InertiaProgress } from '@inertiajs/progress'
 
-createInertiaApp({
-  resolve: name => require(`./Pages/${name}`),
-  setup({ el, App, props }) {
-    render(<App {...props} />, el)
-  },
-})
+// createInertiaApp({
+//   resolve: name => require(`./Pages/${name}`),
+//   setup({ el, App, props }) {
+//     //   createApp({render: () => h(App, props)})
+//     //   .use(plugin)
+//     //   .mount(el)
+//     render(<App {...props} />, el)
+//   },
+// })
 
-InertiaProgress.init()
+const el = document.getElementById('app')
+
+render(
+    <InertiaApp
+        initialPage={el ? JSON.parse(el.dataset.page) : "{}"}
+        resolveComponent={(name) => require(`./Pages/${name}`).default}
+    />,
+    el
+);
+
+InertiaProgress.init();
+// InertiaProgress.init({ color: '#4B5563' })

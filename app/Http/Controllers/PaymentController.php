@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\ProductDetail;
 use App\Models\TransactionDetail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class PaymentController extends Controller
 {
@@ -52,6 +53,7 @@ class PaymentController extends Controller
         $transaction->total_harga = $total_price;
         $transaction->save();
 
+        return Inertia::render('Home');
         dd('berhasil');
 
     }
