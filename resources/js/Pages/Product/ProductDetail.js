@@ -1,9 +1,7 @@
 import {useState, useEffect} from 'react'
 import { usePage } from '@inertiajs/inertia-react';
-import App from '../Layouts/App';
-import Navbar from '../Components/Navbar';
-import Basket from '../Components/Cart/Basket';
-import AddButton from '../Components/Cart/AddButton';
+import App from '../../Layouts/App';
+import AddButton from '../../Components/Cart/AddButton';
 
 const ProductDetail = (props) => {
     const { product } = usePage().props;

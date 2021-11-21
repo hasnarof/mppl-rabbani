@@ -43,7 +43,7 @@ class ProductController extends Controller
         // $product['colors'] = $product['colors']->toArray();
         // $product['sizes'] = $product['sizes']->toArray();
         // dd($product->colors);
-        return Inertia::render('ProductDetail',[
+        return Inertia::render('Product/ProductDetail',[
             'product'=>$product,
         ]);
         // return view('product.show')->with(compact('product'));

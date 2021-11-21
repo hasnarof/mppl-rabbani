@@ -1,8 +1,13 @@
+import { Inertia } from '@inertiajs/inertia';
 import {useState, useEffect} from 'react'
 
 const Basket = (props) => {
     const {cartItems, totalPrice} = props;
     const {onAdd, onRemove} = props;
+
+    const checkout=()=>{
+        Inertia.get('/cart');
+    }
     return (
         <div className="">
             <div className="">
@@ -15,6 +20,7 @@ const Basket = (props) => {
                         </ul>
                     ))}
                     <p>Total: Rp{totalPrice}</p>
+                    <button className="btn btn-primary" onClick={checkout}>Checkout</button>
                 </div>
             </div>
 

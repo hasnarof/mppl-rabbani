@@ -1,21 +1,27 @@
 import Navbar from "../Components/Navbar";
 import Basket from "../Components/Cart/Basket";
-import { Component } from "react";
 import React from 'react';
 import {useState, useEffect} from 'react'
-import { set } from "lodash";
 
 
 const App =(props)=> {
-    const [cartItems, setCartItems] = useState([]);
-    const [totalPrice, setTotalPrice] = useState(0);
+    function useStickyState(defaultValue, key) {
+        const [value, setValue] = React.useState(() => {
+          const stickyValue = window.localStorage.getItem(key);
+          return stickyValue !== null
+            ? JSON.parse(stickyValue)
+            : defaultValue;
+        });
+        React.useEffect(() => {
+          window.localStorage.setItem(key, JSON.stringify(value));
+        }, [key, value]);
+        return [value, setValue];
+    }
+
+    const [cartItems, setCartItems] = useStickyState([], "cartItems");
+    const [totalPrice, setTotalPrice] = useStickyState(0, "totalPrice");
 
     const onAdd = (product, productColor, productSize) => {
-        console.log('on add berhasil dipanggil');
-
-        // if(localStorage.getItem('cartItems')){
-        //     cartItems = JSON.parse(localStorage.getItem('cartItems'));
-        // }
         const exist = cartItems.find((x) => x.product == product && x.productColor == productColor && x.productSize == productSize);
         if (exist) {
           setCartItems(
@@ -28,7 +34,6 @@ const App =(props)=> {
 
         }
         setTotalPrice(totalPrice+Number(productColor.harga));
-        // localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
       };
 
