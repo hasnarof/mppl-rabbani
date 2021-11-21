@@ -20,7 +20,7 @@ const Basket = (props) => {
                         </ul>
                     ))}
                     <p>Total: Rp{totalPrice}</p>
-                    <button className="btn btn-primary" onClick={checkout}>Checkout</button>
+                    <button className="bCtn btn-primary" onClick={checkout}>Checkout</button>
                 </div>
             </div>
 

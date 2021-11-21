@@ -1,6 +1,8 @@
 import App from '../../Layouts/App';
 import React from 'react';
 import { usePage } from '@inertiajs/inertia-react';
+import RemoveButton from '../../Components/Cart/RemoveButton';
+import AddButton from '../../Components/Cart/AddButton';
 
 
 const BasketFull = (props) => {
@@ -19,18 +21,24 @@ const BasketFull = (props) => {
 
     const [cartItems, setCartItems] = useStickyState([], "cartItems");
     const [totalPrice, setTotalPrice] = useStickyState(0, "totalPrice");
+    const {onAdd, onRemove} = props;
 
+    const checkout=()=>{
+        Inertia.get('/checkout', {cartItems:cartItems});
+    }
     return (
         <App>
             <div className="container">
             <h1>Cart</h1>
                 {cartItems.map(item => (
                     <ul>{item.product.nama}, {item.productColor.warna}, {item.productSize.ukuran} - {item.qty} x {item.productColor.harga}
-                        <button className="btn btn-danger" onClick={()=>onRemove(item.product, item.productColor, item.productSize)}>-</button>
-                        <button className="btn btn-primary" onClick={()=>onAdd(item.product, item.productColor, item.productSize)}>+</button>
+                        <RemoveButton className="btn btn-danger" product={item.product} productColor={item.productColor} productSize={item.productSize}>-</RemoveButton>
+                        <AddButton className="btn btn-primary" product={item.product} productColor={item.productColor} productSize={item.productSize}>+</AddButton>
                     </ul>
                 ))}
                 <p>Total: Rp{totalPrice}</p>
+                <button className="btn btn-primary" onClick={checkout}>Checkout</button>
+
             </div>
         </App>
     );

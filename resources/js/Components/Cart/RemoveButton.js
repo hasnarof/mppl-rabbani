@@ -1,6 +1,6 @@
 const RemoveButton = (props) => {
     return (
-        <button className={props.className} onClick={()=>props.onAdd(props.product, props.productColor, props.productSize)}>{props.children}</button>
+        <button className={props.className} onClick={()=>props.onRemove(props.product, props.productColor, props.productSize)}>{props.children}</button>
     );
 };
 

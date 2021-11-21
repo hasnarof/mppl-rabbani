@@ -6215,7 +6215,7 @@ var Basket = function Basket(props) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
           children: ["Total: Rp", totalPrice]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-          className: "btn btn-primary",
+          className: "bCtn btn-primary",
           onClick: checkout,
           children: "Checkout"
         })]
@@ -6225,6 +6225,34 @@ var Basket = function Basket(props) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Basket);
+
+/***/ }),
+
+/***/ "./resources/js/Components/Cart/RemoveButton.js":
+/*!******************************************************!*\
+  !*** ./resources/js/Components/Cart/RemoveButton.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+var RemoveButton = function RemoveButton(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+    className: props.className,
+    onClick: function onClick() {
+      return props.onRemove(props.product, props.productColor, props.productSize);
+    },
+    children: props.children
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RemoveButton);
 
 /***/ }),
 
@@ -6528,7 +6556,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_App__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Layouts/App */ "./resources/js/Layouts/App.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Components_Cart_RemoveButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Components/Cart/RemoveButton */ "./resources/js/Components/Cart/RemoveButton.js");
+/* harmony import */ var _Components_Cart_AddButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Components/Cart/AddButton */ "./resources/js/Components/Cart/AddButton.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -6540,6 +6570,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
@@ -6573,29 +6605,42 @@ var BasketFull = function BasketFull(props) {
       totalPrice = _useStickyState4[0],
       setTotalPrice = _useStickyState4[1];
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Layouts_App__WEBPACK_IMPORTED_MODULE_0__["default"], {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  var onAdd = props.onAdd,
+      onRemove = props.onRemove;
+
+  var checkout = function checkout() {
+    Inertia.get('/checkout', {
+      cartItems: cartItems
+    });
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Layouts_App__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "container",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
         children: "Cart"
       }), cartItems.map(function (item) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
-          children: [item.product.nama, ", ", item.productColor.warna, ", ", item.productSize.ukuran, " - ", item.qty, " x ", item.productColor.harga, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
+          children: [item.product.nama, ", ", item.productColor.warna, ", ", item.productSize.ukuran, " - ", item.qty, " x ", item.productColor.harga, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Cart_RemoveButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
             className: "btn btn-danger",
-            onClick: function onClick() {
-              return onRemove(item.product, item.productColor, item.productSize);
-            },
+            product: item.product,
+            productColor: item.productColor,
+            productSize: item.productSize,
             children: "-"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Cart_AddButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
             className: "btn btn-primary",
-            onClick: function onClick() {
-              return onAdd(item.product, item.productColor, item.productSize);
-            },
+            product: item.product,
+            productColor: item.productColor,
+            productSize: item.productSize,
             children: "+"
           })]
         });
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
         children: ["Total: Rp", totalPrice]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+        className: "btn btn-primary",
+        onClick: checkout,
+        children: "Checkout"
       })]
     })
   });
