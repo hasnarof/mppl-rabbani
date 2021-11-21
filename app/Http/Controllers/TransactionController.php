@@ -74,4 +74,18 @@ class TransactionController extends Controller
             'transactionDetails'=>$transaction_details,
         ]);
     }
+
+    public function uploadPaymentProof(Request $request)
+    {
+        $image = $request['buktiPembayaran'];
+
+        $uploadFolder = 'Payments';
+        $image->store($uploadFolder, 'public');
+
+        dd($request['buktiPembayaran']);
+
+        // $path = request()->file('file')->storeAs('teacher/'.time().'_'.Auth::user()->id, $module->title, 'public');
+
+        dd($request);
+    }
 }
