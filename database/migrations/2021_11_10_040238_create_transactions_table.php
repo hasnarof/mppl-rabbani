@@ -16,11 +16,12 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->decimal('total_harga');
-            $table->enum('status_transaksi', ['']);
-            $table->string('kode_voucher');
-            $table->string('jenis_pengiriman'); // masih ngawang
-            $table->string('jenis_pembayaran'); // masih ngawang
+            $table->decimal('total_harga')->nullable();
+            $table->enum('status_transaksi', ['To Pay','To Ship','To Receive','Completed','Cancelled'])
+                ->default('To Pay');
+            $table->string('kode_voucher')->nullable();
+            $table->string('jenis_pengiriman')->nullable(); // masih ngawang
+            $table->string('jenis_pembayaran')->nullable(); // masih ngawang
             $table->timestamps();
         });
     }

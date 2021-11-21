@@ -30,5 +30,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/products',[ProductController::class, 'products']);
     Route::get('/product/{id}',[ProductController::class, 'productDetail']);
+
     Route::get('/cart', [PaymentController::class, 'cart']);
+    Route::post('/checkout', [PaymentController::class, 'checkout']);
 });

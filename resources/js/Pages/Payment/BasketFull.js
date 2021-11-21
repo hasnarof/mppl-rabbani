@@ -3,7 +3,7 @@ import React from 'react';
 import { usePage } from '@inertiajs/inertia-react';
 import RemoveButton from '../../Components/Cart/RemoveButton';
 import AddButton from '../../Components/Cart/AddButton';
-
+import { Inertia } from '@inertiajs/inertia';
 
 const BasketFull = (props) => {
     function useStickyState(defaultValue, key) {
@@ -24,7 +24,7 @@ const BasketFull = (props) => {
     const {onAdd, onRemove} = props;
 
     const checkout=()=>{
-        Inertia.get('/checkout', {cartItems:cartItems});
+        Inertia.post('/checkout', {cartItems:cartItems});
     }
     return (
         <App>
