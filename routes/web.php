@@ -33,4 +33,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/cart', [PaymentController::class, 'cart']);
     Route::post('/checkout', [PaymentController::class, 'checkout']);
+
+    Route::get('/transactions', [PaymentController::class, 'transactions']);
 });

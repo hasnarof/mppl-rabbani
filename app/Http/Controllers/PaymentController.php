@@ -54,7 +54,18 @@ class PaymentController extends Controller
         $transaction->save();
 
         return Inertia::render('Home');
-        dd('berhasil');
+    }
+
+    public function transactions()
+    {
+        $transactions = Transaction::where('user_id', Auth::id())->with('transactionDetails')->get();
+        return Inertia::render('Payment/Transactions',[
+            'transactions'=>$transactions,
+        ]);
+    }
+
+    public function transactionDetail($id)
+    {
 
     }
 }
