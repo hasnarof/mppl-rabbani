@@ -79,13 +79,14 @@ class TransactionController extends Controller
     {
         $image = $request['buktiPembayaran'];
 
-        $uploadFolder = 'Payments';
-        $image->store($uploadFolder, 'public');
+        $uploadFolder = 'payments';
+        $path = $image->store($uploadFolder, 'public');
 
-        dd($request['buktiPembayaran']);
+        $transaction = Transaction::find($request['transactionId']);
+        $transaction->image = $path;
+        $transaction->status_transaksi = 'To Payment Confirm';
+        $transaction->save();
 
-        // $path = request()->file('file')->storeAs('teacher/'.time().'_'.Auth::user()->id, $module->title, 'public');
-
-        dd($request);
+        return Redirect::back()->with('success','Hey hey!');
     }
 }

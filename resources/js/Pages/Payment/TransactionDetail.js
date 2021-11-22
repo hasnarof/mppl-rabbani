@@ -2,26 +2,21 @@ import { Link, usePage } from "@inertiajs/inertia-react";
 import { Inertia } from '@inertiajs/inertia';
 import {useState} from 'react'
 import App from "../../Layouts/App";
+import { useForm } from '@inertiajs/inertia-react'
 
 const TransactionDetail = () => {
     const {transaction, transactionDetails} = usePage().props;
 
-    const [values, setValues] = useState({
-        buktiPembayaran: "",
-      })
-
-    function handleChange(e) {
-    const key = e.target.id;
-    const value = e.target.value
-    setValues(values => ({
-        ...values,
-        [key]: value,
-    }))
-    }
+    const { data, setData, post, progress } = useForm({
+        transactionId: transaction.id,
+        buktiPembayaran: null,
+    })
 
     function handleSubmit(e) {
-    e.preventDefault()
-    Inertia.post('/transaction/upload_payment_proof', values)
+        e.preventDefault()
+        post('/transaction/upload_payment_proof', data, {
+            forceFormData: true,
+        });
     }
 
     return (
@@ -52,10 +47,16 @@ const TransactionDetail = () => {
                     </tbody>
                 </table>
                 <p>Total: Rp{transaction.total_harga}</p>
-                <form onSubmit={handleSubmit}>
-                    <label>Upload Bukti Pembayaran</label>
-                    <input type="file" id="buktiPembayaran" value={values.buktiPembayaran} onChange={handleChange}/>
-                    <button type="submit" className="btn btn-primary">Submit</button>
+
+                <form onSubmit={handleSubmit} >
+                    {/* <input type="hidden" value={transaction.id} name="transaction_id"/> */}
+                    <input type="file" value={undefined} onChange={e => setData('buktiPembayaran', e.target.files[0])}/>
+                    {progress && (
+                    <progress value={progress.percentage} max="100">
+                        {progress.percentage}%
+                    </progress>
+                    )}
+                    <button type="submit">Submit</button>
                 </form>
             </div>
         </App>
