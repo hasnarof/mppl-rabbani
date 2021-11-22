@@ -7,6 +7,7 @@ use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Models\ProductDetail;
 use App\Models\TransactionDetail;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
@@ -87,6 +88,6 @@ class TransactionController extends Controller
         $transaction->status_transaksi = 'To Payment Confirm';
         $transaction->save();
 
-        return Redirect::back()->with('success','Hey hey!');
+        return redirect()->route('transaction', ['id' => 1])->with('alert',['type'=>'success','message'=>'Berhasil mengupload bukti pembayaran.']);
     }
 }

@@ -49,7 +49,6 @@ const TransactionDetail = () => {
                 <p>Total: Rp{transaction.total_harga}</p>
 
                 <form onSubmit={handleSubmit} >
-                    {/* <input type="hidden" value={transaction.id} name="transaction_id"/> */}
                     <input type="file" value={undefined} onChange={e => setData('buktiPembayaran', e.target.files[0])}/>
                     {progress && (
                     <progress value={progress.percentage} max="100">

@@ -1,7 +1,8 @@
 import Navbar from "../Components/Navbar";
 import Basket from "../Components/Cart/Basket";
 import React from 'react';
-import {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react';
+import { usePage } from '@inertiajs/inertia-react';
 
 
 const App =(props)=> {
@@ -20,6 +21,7 @@ const App =(props)=> {
 
     const [cartItems, setCartItems] = useStickyState([], "cartItems");
     const [totalPrice, setTotalPrice] = useStickyState(0, "totalPrice");
+    const { alert } = usePage().props;
 
     const onAdd = (product, productColor, productSize) => {
         const exist = cartItems.find((x) => x.product == product && x.productColor == productColor && x.productSize == productSize);
@@ -52,27 +54,32 @@ const App =(props)=> {
 
     };
 
-        const childrenWithProps = React.Children.map(props.children, child => {
-            // Checking isValidElement is the safe way and avoids a typescript
-            // error too.
-            if (React.isValidElement(child)) {
-              return React.cloneElement(child, {
-                  onAdd: onAdd,
-                  onRemove: onRemove,
-               });
-            }
-            return child;
-          });
+    const childrenWithProps = React.Children.map(props.children, child => {
+        // Checking isValidElement is the safe way and avoids a typescript
+        // error too.
+        if (React.isValidElement(child)) {
+            return React.cloneElement(child, {
+                onAdd: onAdd,
+                onRemove: onRemove,
+            });
+        }
+        return child;
+    });
 
-          return (
-            <>
-            <div>
-                <Navbar></Navbar>
-                <Basket cartItems={cartItems} totalPrice={totalPrice} onAdd={onAdd} onRemove={onRemove}></Basket>
-            </div>
-            <main>{childrenWithProps}</main>
-            </>
-          )
+    return (
+    <>
+    <div>
+        <Navbar></Navbar>
+        <Basket cartItems={cartItems} totalPrice={totalPrice} onAdd={onAdd} onRemove={onRemove}></Basket>
+    </div>
+    {alert && <div className="container"><div className={`alert alert-${alert.type} alert-dismissible fade show`} role="alert">
+        {alert.message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div></div>}
+
+    <main>{childrenWithProps}</main>
+    </>
+    )
 }
 
 export default App;

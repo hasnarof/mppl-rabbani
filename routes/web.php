@@ -35,6 +35,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/checkout', [TransactionController::class, 'checkout']);
 
     Route::get('/transactions', [TransactionController::class, 'transactions']);
-    Route::get('/transaction/{id}', [TransactionController::class, 'transactionDetail']);
+    Route::get('/transaction/{id}', [TransactionController::class, 'transactionDetail'])->name('transaction');
     Route::post('/transaction/upload_payment_proof', [TransactionController::class, 'uploadPaymentProof']);
 });
