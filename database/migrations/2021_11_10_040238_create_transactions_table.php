@@ -19,7 +19,7 @@ class CreateTransactionsTable extends Migration
             $table->decimal('total_harga')->nullable();
             $table->enum('status_transaksi', ['To Pay','To Payment Confirm','To Ship','To Receive','Completed','Cancelled'])
                 ->default('To Pay');
-            $table->string('image')->nullable();
+            $table->string('bukti_pembayaran')->nullable();
             $table->string('kode_voucher')->nullable();
             $table->string('jenis_pengiriman')->nullable(); // masih ngawang
             $table->string('jenis_pembayaran')->nullable(); // masih ngawang

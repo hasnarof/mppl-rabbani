@@ -84,7 +84,7 @@ class TransactionController extends Controller
         $path = $image->store($uploadFolder, 'public');
 
         $transaction = Transaction::find($request['transactionId']);
-        $transaction->image = $path;
+        $transaction->bukti_pembayaran = $path;
         $transaction->status_transaksi = 'To Payment Confirm';
         $transaction->save();
 

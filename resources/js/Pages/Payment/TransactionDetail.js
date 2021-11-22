@@ -19,6 +19,8 @@ const TransactionDetail = () => {
         });
     }
 
+    console.log(transaction);
+
     return (
         <App>
             <div className="container">
@@ -48,7 +50,7 @@ const TransactionDetail = () => {
                 </table>
                 <p>Total: Rp{transaction.total_harga}</p>
 
-                <form onSubmit={handleSubmit} >
+                {!transaction.bukti_pembayaran && <form onSubmit={handleSubmit} >
                     <input type="file" value={undefined} onChange={e => setData('buktiPembayaran', e.target.files[0])}/>
                     {progress && (
                     <progress value={progress.percentage} max="100">
@@ -56,7 +58,7 @@ const TransactionDetail = () => {
                     </progress>
                     )}
                     <button type="submit">Submit</button>
-                </form>
+                </form>}
             </div>
         </App>
     );
