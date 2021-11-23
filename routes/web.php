@@ -20,6 +20,8 @@ use App\Http\Controllers\TransactionController;
 //     return view('welcome');
 // });
 
+Route::get('raja_ongkir', [HomeController::class, 'rajaOngkir']);
+
 Route::get('/',[HomeController::class, 'landingPage']);
 Route::get('/test_react',[HomeController::class, 'testReact']);
 
