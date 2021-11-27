@@ -2,8 +2,6 @@
 
 namespace App\Repositories;
 
-use Illuminate\Database\Eloquent\Model;
-
 abstract class Repository
 {
     abstract public function save(array $data, $id = null);

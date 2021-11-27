@@ -2,17 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\TransactionResource;
 use Inertia\Inertia;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Models\ProductDetail;
 use App\Models\TransactionDetail;
+use App\Repositories\TransactionRepository;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class TransactionController extends Controller
 {
+    public function __construct(TransactionRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
     public function cart()
     {
         return Inertia::render('Payment/BasketFull');
@@ -59,35 +66,40 @@ class TransactionController extends Controller
 
     public function transactions()
     {
-        $transactions = Transaction::where('user_id', Auth::id())->with('transactionDetails')->get();
-        return Inertia::render('Payment/Transactions',[
-            'transactions'=>$transactions,
-        ]);
+        $userId = Auth::id();
+        $response = $this->repository->getById($userId);
+
+        if ($response['success'] !== false) {
+            return Inertia::render('Payment/Transactions',[
+                'transactions'=>$response['data'],
+            ]);
+        }
+        // redirect to error
     }
 
     public function transactionDetail($id)
     {
-        $transaction = Transaction::find($id);
-        $transaction_details = TransactionDetail::where('transaction_id',$id)->with('productDetail')->get();
-        // dd($transaction_details);
-        return Inertia::render('Payment/TransactionDetail',[
-            'transaction'=>$transaction,
-            'transactionDetails'=>$transaction_details,
-        ]);
+        $response = $this->repository->findOne($id);
+        if ($response['success'] !== false) {
+            return Inertia::render('Payment/TransactionDetail',[
+                'transaction'=> new TransactionResource($response['data']),
+            ]);
+        }
     }
 
     public function uploadPaymentProof(Request $request)
     {
-        $image = $request['buktiPembayaran'];
+        $data = $request->all();
+        $response = $this->repository->uploadPaymentProof($data);
 
-        $uploadFolder = 'payments';
-        $path = $image->store($uploadFolder, 'public');
-
-        $transaction = Transaction::find($request['transactionId']);
-        $transaction->bukti_pembayaran = $path;
-        $transaction->status_transaksi = 'To Payment Confirm';
-        $transaction->save();
-
-        return redirect()->route('transaction', ['id' => 1])->with('alert',['type'=>'success','message'=>'Berhasil mengupload bukti pembayaran.']);
+        if ($response['success'] !== false) {
+            return redirect()->route(
+                'transaction', ['id' => 1])->with(
+                    'alert',
+                    [
+                        'type' => 'success',
+                        'message' => $response['message']
+                    ]);
+        }
     }
 }
