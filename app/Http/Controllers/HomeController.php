@@ -22,6 +22,10 @@ class HomeController extends Controller
         $response = $this->repository->getAll();
         $products = ProductResource::collection($response['all_products']);
 
+        return Inertia::render('Home', [
+            'products'=>$products,
+        ]);
+
         return view('home')->with(compact('products'));
     }
 

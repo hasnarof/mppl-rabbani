@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\ProductDetail;
 use App\Models\TransactionDetail;
 use App\Repositories\TransactionRepository;
+use App\Providers\RajaOngkir;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -28,6 +29,8 @@ class TransactionController extends Controller
     public function checkout(Request $request)
     {
         $cart_items = $request['cartItems'];
+        $ongkir = $request['ongkir'];
+        $kurir = $request['kurir'];
 
         $transaction = Transaction::create([
             'user_id'=>Auth::id(),
@@ -59,6 +62,9 @@ class TransactionController extends Controller
         }
 
         $transaction->total_harga = $total_price;
+        $transaction->ongkir = $ongkir;
+        $transaction->total_bersama_ongkir = $total_price + $ongkir;
+        $transaction->kurir = $kurir;
         $transaction->save();
 
         return Inertia::render('Home');
@@ -103,5 +109,34 @@ class TransactionController extends Controller
                         'message' => $response['message']
                     ]);
         }
+    }
+
+    public function receiveOrder(Request $request)
+    {
+        $transactionId = $request['transactionId'];
+        $transaction = Transaction::find($transactionId);
+        $transaction->status_transaksi = 'Completed';
+        $transaction->save();
+
+        return redirect()->back()->with(
+            'alert',
+            [
+                'type' => 'success',
+                'message' => 'Sukses mengubah status'
+            ]);
+    }
+
+    public function cekOngkir($kotaPembeli, $kurir)
+    // public function cekOngkir()
+    {
+        $init = new RajaOngkir(false);
+        $cost = $init->getCost(55,$kotaPembeli, 1, $kurir); // asal bekasi kota
+        // $cost = $init->getCost(55,155, 1, 'pos'); // asal bekasi kota
+        $cost = array( json_decode($cost) );
+        $cost = $cost[0]->rajaongkir->results;
+        $jenisLayanan = $cost[0]->costs[0]; // ekonomis
+        $end = $jenisLayanan->cost[0]->value;
+
+        return json_encode($end);
     }
 }

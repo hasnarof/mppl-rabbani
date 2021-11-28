@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\Admin\AdminTransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,4 +40,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/transactions', [TransactionController::class, 'transactions']);
     Route::get('/transaction/{id}', [TransactionController::class, 'transactionDetail'])->name('transaction');
     Route::post('/transaction/upload_payment_proof', [TransactionController::class, 'uploadPaymentProof']);
+    Route::post('transaction/receive_order/', [TransactionController::class, 'receiveOrder']);
+
+
 });
+
+    Route::get('cek_ongkir/{kota_pembeli}/{kurir}', [TransactionController::class, 'cekOngkir']);
+
+    Route::get('admin/transactions', [AdminTransactionController::class, 'transactions']);
+    // Route::get('admin/confirm_payment/{transaction_id}', [AdminTransactionController::class, 'confirmPayment']);
+    Route::post('admin/confirm_payment/', [AdminTransactionController::class, 'confirmPayment']);

@@ -41,6 +41,8 @@ class UserSeeder extends Seeder
                 'resipient_address'=>'Jl. Kembang Sepatu No. 1',
                 'resipient_country'=>'Indonesia',
                 'resipient_province'=>'Jawa Barat',
+                'resipient_city_id'=>115,
+                'resipient_city'=>'Depok',
                 'resipient_postal_code'=>'16418',
                 'created_at'=>now(),
 

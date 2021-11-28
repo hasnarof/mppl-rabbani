@@ -11,11 +11,8 @@ const ProductDetail = (props) => {
 
     const [cartItems, setCartItems] = useState([]);
 
-    console.log(props);
     return (
         <App>
-            <h1>halo</h1>
-
             <div className="container">
                 <h1>{product.nama}</h1>
                 <img src={`/storage/${productColor.image}`} width="300"/>

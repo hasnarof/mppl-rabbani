@@ -21,7 +21,7 @@
                     </td>
                     <td> {{ number_format($product->harga, 2) }}</td>
                     <td>
-                        <a href="" class="btn btn-primary">Detail</a>
+                        <a href="{{url('product/'.$product->id)}}" class="btn btn-primary">Detail</a>
                     </td>
                 </tr>
                 @endforeach
