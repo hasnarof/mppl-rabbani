@@ -6603,7 +6603,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Cart_RemoveButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Components/Cart/RemoveButton */ "./resources/js/Components/Cart/RemoveButton.js");
 /* harmony import */ var _Components_Cart_AddButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Components/Cart/AddButton */ "./resources/js/Components/Cart/AddButton.js");
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -6625,9 +6627,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
 var BasketFull = function BasketFull(props) {
   function useStickyState(defaultValue, key) {
-    var _React$useState = React.useState(function () {
+    var _React$useState = react__WEBPACK_IMPORTED_MODULE_1__.useState(function () {
       var stickyValue = window.localStorage.getItem(key);
       return stickyValue !== null ? JSON.parse(stickyValue) : defaultValue;
     }),
@@ -6635,11 +6639,16 @@ var BasketFull = function BasketFull(props) {
         value = _React$useState2[0],
         setValue = _React$useState2[1];
 
-    React.useEffect(function () {
+    react__WEBPACK_IMPORTED_MODULE_1__.useEffect(function () {
       window.localStorage.setItem(key, JSON.stringify(value));
     }, [key, value]);
     return [value, setValue];
   }
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('123'),
+      _useState2 = _slicedToArray(_useState, 2),
+      ongkir = _useState2[0],
+      setOngkir = _useState2[1];
 
   var _useStickyState = useStickyState([], "cartItems"),
       _useStickyState2 = _slicedToArray(_useStickyState, 2),
@@ -6651,34 +6660,49 @@ var BasketFull = function BasketFull(props) {
       totalPrice = _useStickyState4[0],
       setTotalPrice = _useStickyState4[1];
 
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('jne'),
+      _useState4 = _slicedToArray(_useState3, 2),
+      kurir = _useState4[0],
+      setKurir = _useState4[1];
+
   var onAdd = props.onAdd,
       onRemove = props.onRemove;
-
-  var _useState = react__WEBPACK_IMPORTED_MODULE_1__('jne'),
-      kurir = _useState.kurir,
-      setKurir = _useState.setKurir;
+  var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.auth;
 
   var checkout = function checkout() {
     _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_5__.Inertia.post('/checkout', {
-      cartItems: cartItems
+      cartItems: cartItems,
+      ongkir: ongkir,
+      kurir: kurir
     });
   };
 
-  useEffect(function () {}, [kurir]);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Layouts_App__WEBPACK_IMPORTED_MODULE_0__["default"], {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+  var changeKurir = function changeKurir(newKurir) {
+    setKurir(newKurir);
+  };
+
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    setOngkir('Loading ...');
+    axios__WEBPACK_IMPORTED_MODULE_6___default().get('/cek_ongkir/' + auth.user.resipient_city_id + '/' + kurir).then(function (response) {
+      setOngkir(response.data);
+    }, function (error) {
+      console.log(error);
+    });
+  }, [kurir]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layouts_App__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
       className: "container",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h1", {
         children: "Cart"
       }), cartItems.map(function (item) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("ul", {
-          children: [item.product.nama, ", ", item.productColor.warna, ", ", item.productSize.ukuran, " - ", item.qty, " x ", item.productColor.harga, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Cart_RemoveButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("ul", {
+          children: [item.product.nama, ", ", item.productColor.warna, ", ", item.productSize.ukuran, " - ", item.qty, " x ", item.productColor.harga, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Cart_RemoveButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
             className: "btn btn-danger",
             product: item.product,
             productColor: item.productColor,
             productSize: item.productSize,
             children: "-"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Cart_AddButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Cart_AddButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
             className: "btn btn-primary",
             product: item.product,
             productColor: item.productColor,
@@ -6686,32 +6710,35 @@ var BasketFull = function BasketFull(props) {
             children: "+"
           })]
         });
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("p", {
         children: ["Total Biaya: Rp", totalPrice]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
         children: "Pilih kurir:"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("select", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("select", {
         name: "kurir",
         id: "kurir",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+        onChange: function onChange(e) {
+          return changeKurir(e.target.value);
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
           value: "jne",
           children: "JNE"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
           value: "tiki",
           children: "TIKI"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
           value: "pos",
           children: "POS Indonesia"
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("p", {
         children: ["Lokasi alamat: ", auth.user.resipient_address, ", ", auth.user.resipient_city, ", ", auth.user.resipient_province, " ", auth.user.resipient_postal_code]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
         children: "Alamat Rabbani: Bekasi, Jawa Barat"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("p", {
         children: ["Ongkir: Rp", ongkir]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
-        children: ["Total Biaya dengan Ongkir: Rp", totalPrice]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("p", {
+        children: ["Total Biaya dengan Ongkir: Rp", totalPrice + ongkir]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
         className: "btn btn-primary",
         onClick: checkout,
         children: "Checkout"
@@ -6956,11 +6983,8 @@ var ProductDetail = function ProductDetail(props) {
       cartItems = _useState6[0],
       setCartItems = _useState6[1];
 
-  console.log(props);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_Layouts_App__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
-      children: "halo"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "container",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
         children: product.nama
@@ -78033,6 +78057,18 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
 /******/ 		};
 /******/ 	})();
 /******/ 	

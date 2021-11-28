@@ -1,9 +1,11 @@
 import App from '../../Layouts/App';
-import useState from 'react';
+import React from 'react';
+import {useState, useEffect} from 'react'
 import { usePage } from '@inertiajs/inertia-react';
 import RemoveButton from '../../Components/Cart/RemoveButton';
 import AddButton from '../../Components/Cart/AddButton';
 import { Inertia } from '@inertiajs/inertia';
+import axios from 'axios';
 
 const BasketFull = (props) => {
     function useStickyState(defaultValue, key) {
@@ -19,16 +21,29 @@ const BasketFull = (props) => {
         return [value, setValue];
     }
 
+    const [ongkir, setOngkir] = useState('123');
     const [cartItems, setCartItems] = useStickyState([], "cartItems");
     const [totalPrice, setTotalPrice] = useStickyState(0, "totalPrice");
+    const [kurir, setKurir] = useState('jne');
     const {onAdd, onRemove} = props;
-    const {kurir, setKurir} = useState('jne');
+    const { auth } = usePage().props;
 
     const checkout=()=>{
-        Inertia.post('/checkout', {cartItems:cartItems});
+        Inertia.post('/checkout', {cartItems:cartItems, ongkir: ongkir, kurir: kurir});
+    }
+
+    const changeKurir = (newKurir) => {
+        setKurir(newKurir);
     }
 
     useEffect(()=>{
+        setOngkir('Loading ...');
+        axios.get('/cek_ongkir/'+auth.user.resipient_city_id+'/'+kurir)
+            .then((response) => {
+                setOngkir(response.data);
+            }, (error) => {
+            console.log(error);
+        });
 
     }, [kurir])
     return (
@@ -43,7 +58,7 @@ const BasketFull = (props) => {
                 ))}
                 <p>Total Biaya: Rp{totalPrice}</p>
                 <p>Pilih kurir:</p>
-                <select name="kurir" id="kurir">
+                <select name="kurir" id="kurir" onChange={ e => changeKurir(e.target.value) }>
                     <option value="jne">JNE</option>
                     <option value="tiki">TIKI</option>
                     <option value="pos">POS Indonesia</option>
@@ -51,7 +66,7 @@ const BasketFull = (props) => {
                 <p>Lokasi alamat: {auth.user.resipient_address}, {auth.user.resipient_city}, {auth.user.resipient_province} {auth.user.resipient_postal_code}</p>
                 <p>Alamat Rabbani: Bekasi, Jawa Barat</p>
                 <p>Ongkir: Rp{ongkir}</p>
-                <p>Total Biaya dengan Ongkir: Rp{totalPrice}</p>
+                <p>Total Biaya dengan Ongkir: Rp{totalPrice + ongkir}</p>
                 <button className="btn btn-primary" onClick={checkout}>Checkout</button>
 
             </div>

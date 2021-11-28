@@ -176,5 +176,6 @@ class RajaOngkir
 		$this->minify = true;
 
 		return $response;
+		// return $data;
 	}
 }

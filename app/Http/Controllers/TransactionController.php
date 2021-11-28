@@ -29,6 +29,8 @@ class TransactionController extends Controller
     public function checkout(Request $request)
     {
         $cart_items = $request['cartItems'];
+        $ongkir = $request['ongkir'];
+        $kurir = $request['kurir'];
 
         $transaction = Transaction::create([
             'user_id'=>Auth::id(),
@@ -60,6 +62,9 @@ class TransactionController extends Controller
         }
 
         $transaction->total_harga = $total_price;
+        $transaction->ongkir = $ongkir;
+        $transaction->total_bersama_ongkir = $total_price + $ongkir;
+        $transaction->kurir = $kurir;
         $transaction->save();
 
         return Inertia::render('Home');
@@ -105,9 +110,16 @@ class TransactionController extends Controller
     }
 
     public function cekOngkir($kotaPembeli, $kurir)
+    // public function cekOngkir()
     {
-        $init = new RajaOngkir(true);
+        $init = new RajaOngkir(false);
         $cost = $init->getCost(55,$kotaPembeli, 1, $kurir); // asal bekasi kota
-        return json_decode($cost);
+        // $cost = $init->getCost(55,155, 1, 'pos'); // asal bekasi kota
+        $cost = array( json_decode($cost) );
+        $cost = $cost[0]->rajaongkir->results;
+        $jenisLayanan = $cost[0]->costs[0]; // ekonomis
+        $end = $jenisLayanan->cost[0]->value;
+
+        return json_encode($end);
     }
 }

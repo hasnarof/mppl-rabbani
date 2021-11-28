@@ -23,7 +23,7 @@ class CreateTransactionsTable extends Migration
                 ->default('To Pay');
             $table->string('bukti_pembayaran')->nullable();
             $table->string('kode_voucher')->nullable();
-            $table->string('kurir');
+            $table->string('kurir')->nullable();
             $table->string('jenis_pengiriman')->nullable(); // masih ngawang
             $table->string('jenis_pembayaran')->nullable(); // masih ngawang
             $table->timestamps();

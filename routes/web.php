@@ -40,5 +40,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/transaction/{id}', [TransactionController::class, 'transactionDetail'])->name('transaction');
     Route::post('/transaction/upload_payment_proof', [TransactionController::class, 'uploadPaymentProof']);
 
-    Route::get('cek_ongkir/{$kota_pembeli}/{$kurir}', [TransactionController::class, 'cekOngkir']);
+    // Route::get('cek_ongkir', [TransactionController::class, 'cekOngkir']);
+    // Route::get('cek_ongkir/{kota_pembeli}/{kurir}', function () {
+        // dd('hoy');
+    // });s
 });
+
+    Route::get('cek_ongkir/{kota_pembeli}/{kurir}', [TransactionController::class, 'cekOngkir']);
