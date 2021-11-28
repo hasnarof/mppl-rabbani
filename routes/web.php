@@ -40,6 +40,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/transactions', [TransactionController::class, 'transactions']);
     Route::get('/transaction/{id}', [TransactionController::class, 'transactionDetail'])->name('transaction');
     Route::post('/transaction/upload_payment_proof', [TransactionController::class, 'uploadPaymentProof']);
+    Route::post('/transaction/upload_payment_proof', [TransactionController::class, 'uploadPaymentProof']);
 
     // Route::get('cek_ongkir', [TransactionController::class, 'cekOngkir']);
     // Route::get('cek_ongkir/{kota_pembeli}/{kurir}', function () {
@@ -50,4 +51,5 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('cek_ongkir/{kota_pembeli}/{kurir}', [TransactionController::class, 'cekOngkir']);
 
     Route::get('admin/transactions', [AdminTransactionController::class, 'transactions']);
-    Route::get('admin/confirm_payment/{transaction_id}', [AdminTransactionController::class, 'confirmPayment']);
+    // Route::get('admin/confirm_payment/{transaction_id}', [AdminTransactionController::class, 'confirmPayment']);
+    Route::post('admin/confirm_payment/', [AdminTransactionController::class, 'confirmPayment']);

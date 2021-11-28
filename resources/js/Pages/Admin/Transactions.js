@@ -1,8 +1,12 @@
 import { Link, usePage } from "@inertiajs/inertia-react";
+import { Inertia } from '@inertiajs/inertia';
 import AppAdmin from "../../Layouts/AppAdmin";
 
 const Transactions = () => {
     const {transactions} = usePage().props;
+    const confirmPayment=(transactionId)=>{
+        Inertia.post('/admin/confirm_payment', {transactionId:transactionId});
+    }
     return (
         <AppAdmin>
             <h1>All Transactions</h1>
@@ -25,7 +29,7 @@ const Transactions = () => {
                             <td>{item.status_transaksi}</td>
                             <td>
                                 <Link href={`/transaction/${item.id}`} className="btn btn-primary">Detail</Link>
-                                <Link href={`/admin/confirm_payment/${item.id}`} className="btn btn-primary">Confirm Payment</Link>
+                                <button className="btn btn-primary" onClick={()=>{confirmPayment(item.id)}}>Confirm Payment</button>
                             </td>
                         </tr>
                     ))}

@@ -18,8 +18,9 @@ class AdminTransactionController extends Controller
         ]);
     }
 
-    public function confirmPayment($transactionId)
+    public function confirmPayment(Request $request)
     {
+        $transactionId = $request['transactionId'];
         $transaction = Transaction::find($transactionId);
         $transaction->status_transaksi = 'To Ship';
         $transaction->save();
