@@ -18,6 +18,10 @@ class HomeController extends Controller
             $product->harga_produk = $product->productDetails->first()->harga_produk;
         }
 
+        return Inertia::render('Home', [
+            'products'=>$products,
+        ]);
+
         return view('home')->with(compact('products'));
     }
 
