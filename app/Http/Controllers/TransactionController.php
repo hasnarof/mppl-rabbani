@@ -107,8 +107,6 @@ class TransactionController extends Controller
                         'message' => $response['message']
                     ]);
         }
-
-        dd('hey');
     }
 
     public function cekOngkir($kotaPembeli, $kurir)
