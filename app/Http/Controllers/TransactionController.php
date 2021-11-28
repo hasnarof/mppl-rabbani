@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\ProductDetail;
 use App\Models\TransactionDetail;
 use App\Repositories\TransactionRepository;
+use App\Providers\RajaOngkir;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -101,5 +102,12 @@ class TransactionController extends Controller
                         'message' => $response['message']
                     ]);
         }
+    }
+
+    public function cekOngkir($kotaPembeli, $kurir)
+    {
+        $init = new RajaOngkir(true);
+        $cost = $init->getCost(55,$kotaPembeli, 1, $kurir); // asal bekasi kota
+        return json_decode($cost);
     }
 }

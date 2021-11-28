@@ -6627,7 +6627,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var BasketFull = function BasketFull(props) {
   function useStickyState(defaultValue, key) {
-    var _React$useState = react__WEBPACK_IMPORTED_MODULE_1__.useState(function () {
+    var _React$useState = React.useState(function () {
       var stickyValue = window.localStorage.getItem(key);
       return stickyValue !== null ? JSON.parse(stickyValue) : defaultValue;
     }),
@@ -6635,7 +6635,7 @@ var BasketFull = function BasketFull(props) {
         value = _React$useState2[0],
         setValue = _React$useState2[1];
 
-    react__WEBPACK_IMPORTED_MODULE_1__.useEffect(function () {
+    React.useEffect(function () {
       window.localStorage.setItem(key, JSON.stringify(value));
     }, [key, value]);
     return [value, setValue];
@@ -6654,12 +6654,17 @@ var BasketFull = function BasketFull(props) {
   var onAdd = props.onAdd,
       onRemove = props.onRemove;
 
+  var _useState = react__WEBPACK_IMPORTED_MODULE_1__('jne'),
+      kurir = _useState.kurir,
+      setKurir = _useState.setKurir;
+
   var checkout = function checkout() {
     _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_5__.Inertia.post('/checkout', {
       cartItems: cartItems
     });
   };
 
+  useEffect(function () {}, [kurir]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Layouts_App__WEBPACK_IMPORTED_MODULE_0__["default"], {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "container",
@@ -6682,7 +6687,30 @@ var BasketFull = function BasketFull(props) {
           })]
         });
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
-        children: ["Total: Rp", totalPrice]
+        children: ["Total Biaya: Rp", totalPrice]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+        children: "Pilih kurir:"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("select", {
+        name: "kurir",
+        id: "kurir",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+          value: "jne",
+          children: "JNE"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+          value: "tiki",
+          children: "TIKI"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+          value: "pos",
+          children: "POS Indonesia"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+        children: ["Lokasi alamat: ", auth.user.resipient_address, ", ", auth.user.resipient_city, ", ", auth.user.resipient_province, " ", auth.user.resipient_postal_code]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+        children: "Alamat Rabbani: Bekasi, Jawa Barat"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+        children: ["Ongkir: Rp", ongkir]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+        children: ["Total Biaya dengan Ongkir: Rp", totalPrice]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
         className: "btn btn-primary",
         onClick: checkout,

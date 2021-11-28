@@ -1,5 +1,5 @@
 import App from '../../Layouts/App';
-import React from 'react';
+import useState from 'react';
 import { usePage } from '@inertiajs/inertia-react';
 import RemoveButton from '../../Components/Cart/RemoveButton';
 import AddButton from '../../Components/Cart/AddButton';
@@ -22,10 +22,15 @@ const BasketFull = (props) => {
     const [cartItems, setCartItems] = useStickyState([], "cartItems");
     const [totalPrice, setTotalPrice] = useStickyState(0, "totalPrice");
     const {onAdd, onRemove} = props;
+    const {kurir, setKurir} = useState('jne');
 
     const checkout=()=>{
         Inertia.post('/checkout', {cartItems:cartItems});
     }
+
+    useEffect(()=>{
+
+    }, [kurir])
     return (
         <App>
             <div className="container">
@@ -36,7 +41,17 @@ const BasketFull = (props) => {
                         <AddButton className="btn btn-primary" product={item.product} productColor={item.productColor} productSize={item.productSize}>+</AddButton>
                     </ul>
                 ))}
-                <p>Total: Rp{totalPrice}</p>
+                <p>Total Biaya: Rp{totalPrice}</p>
+                <p>Pilih kurir:</p>
+                <select name="kurir" id="kurir">
+                    <option value="jne">JNE</option>
+                    <option value="tiki">TIKI</option>
+                    <option value="pos">POS Indonesia</option>
+                </select>
+                <p>Lokasi alamat: {auth.user.resipient_address}, {auth.user.resipient_city}, {auth.user.resipient_province} {auth.user.resipient_postal_code}</p>
+                <p>Alamat Rabbani: Bekasi, Jawa Barat</p>
+                <p>Ongkir: Rp{ongkir}</p>
+                <p>Total Biaya dengan Ongkir: Rp{totalPrice}</p>
                 <button className="btn btn-primary" onClick={checkout}>Checkout</button>
 
             </div>

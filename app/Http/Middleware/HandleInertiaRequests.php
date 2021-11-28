@@ -38,6 +38,14 @@ class HandleInertiaRequests extends Middleware
     {
         return array_merge(parent::share($request), [
             'alert' => fn () => $request->session()->get('alert'),
+            // Synchronously
+            'appName' => config('app.name'),
+
+            // Lazily
+            'auth.user' => fn () => $request->user()
+                // ? $request->user()->only('id', 'name', 'email')
+                ? $request->user()
+                : null,
         ]);
     }
 }

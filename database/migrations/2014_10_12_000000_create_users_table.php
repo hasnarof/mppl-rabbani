@@ -28,6 +28,8 @@ class CreateUsersTable extends Migration
             $table->string('resipient_address')->nullable();
             $table->string('resipient_country')->nullable();
             $table->string('resipient_province')->nullable();
+            $table->unsignedInteger('resipient_city_id')->nullable();
+            $table->string('resipient_city')->nullable();
             $table->string('resipient_postal_code')->nullable();
             $table->rememberToken();
             $table->timestamps();
