@@ -6776,12 +6776,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var TransactionDetail = function TransactionDetail() {
-  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props,
-      transaction = _usePage$props.transaction,
-      transactionDetails = _usePage$props.transactionDetails;
+  var transaction = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.transaction;
+  var transactionData = transaction.data;
 
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.useForm)({
-    transactionId: transaction.id,
+    transactionId: transactionData.id,
     buktiPembayaran: null
   }),
       data = _useForm.data,
@@ -6796,7 +6795,8 @@ var TransactionDetail = function TransactionDetail() {
     });
   }
 
-  console.log(transaction);
+  console.log(transactionData);
+  console.log(transaction.data.transaction_details);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Layouts_App__WEBPACK_IMPORTED_MODULE_3__["default"], {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "container",
@@ -6819,16 +6819,9 @@ var TransactionDetail = function TransactionDetail() {
             })]
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("tbody", {
-          children: transactionDetails.map(function (item, index) {
+          children: transactionData.transaction_details.map(function (item, index) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("tr", {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-                  src: "/storage/".concat(item.product_detail.image),
-                  width: 100
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
-                children: item.product_detail.nama
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
                 children: item.jumlah_produk
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
                 children: item.harga_per_produk
@@ -6839,8 +6832,8 @@ var TransactionDetail = function TransactionDetail() {
           })
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
-        children: ["Total: Rp", transaction.total_harga]
-      }), !transaction.bukti_pembayaran && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
+        children: ["Total: Rp", transactionData.total_harga]
+      }), !transactionData.bukti_pembayaran && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
         onSubmit: handleSubmit,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
           type: "file",
