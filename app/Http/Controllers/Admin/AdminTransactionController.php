@@ -22,7 +22,7 @@ class AdminTransactionController extends Controller
     {
         $transactionId = $request['transactionId'];
         $transaction = Transaction::find($transactionId);
-        $transaction->status_transaksi = 'To Ship';
+        $transaction->status_transaksi = 'To Receive';
         $transaction->save();
 
         return redirect()->back()->with(

@@ -109,6 +109,21 @@ class TransactionController extends Controller
         }
     }
 
+    public function receiveOrder(Request $request)
+    {
+        $transactionId = $request['transactionId'];
+        $transaction = Transaction::find($transactionId);
+        $transaction->status_transaksi = 'Completed';
+        $transaction->save();
+
+        return redirect()->back()->with(
+            'alert',
+            [
+                'type' => 'success',
+                'message' => 'Sukses mengubah status'
+            ]);
+    }
+
     public function cekOngkir($kotaPembeli, $kurir)
     // public function cekOngkir()
     {
