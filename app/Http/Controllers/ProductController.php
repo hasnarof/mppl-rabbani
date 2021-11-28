@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ProductResource;
 use Inertia\Inertia;
 use App\Repositories\ProductRepository;
 
@@ -14,11 +15,12 @@ class ProductController extends Controller
 
     public function products()
     {
-        $response = $this->repository->getAll();
+        $responseAll = $this->repository->getAll();
+        $responseRecent = $this->repository->getRecent();
 
-        if ($response['success'] !== false) {
-            $new_arrivals = $response['new_arrivals'];
-            $all_products = $response['all_products'];
+        if ($responseAll['success'] !== false && $responseRecent['success'] !== false) {
+            $all_products = ProductResource::collection($responseAll['data']);
+            $new_arrivals = ProductResource::collection($responseRecent['data']);
 
             return view('product.all')
                 ->with(compact('new_arrivals'))

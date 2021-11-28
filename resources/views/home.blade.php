@@ -15,11 +15,11 @@
             <tbody>
                 @foreach($products as $key => $product)
                 <tr>
-                    <td>{{$product->name}}</td>
+                    <td>{{$product->nama}}</td>
                     <td>
                         <img src="{{url('storage/'.$product->image)}}" alt="" width=200>
                     </td>
-                    <td>{{$product->harga_produk}}</td>
+                    <td> {{ number_format($product->harga, 2) }}</td>
                     <td>
                         <a href="" class="btn btn-primary">Detail</a>
                     </td>

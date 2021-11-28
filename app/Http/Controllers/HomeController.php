@@ -2,21 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Providers\RajaOngkir;
+use App\Repositories\ProductRepository;
 
 class HomeController extends Controller
 {
+    public function __construct(ProductRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
     public function landingPage()
     {
-        $products = Product::all();
-        foreach ($products as $key => $product) {
-            $product->image = $product->productDetails->first()->image;
-            $product->harga_produk = $product->productDetails->first()->harga_produk;
-        }
+        $response = $this->repository->getAll();
+        $products = ProductResource::collection($response['all_products']);
 
         return view('home')->with(compact('products'));
     }
@@ -30,6 +34,6 @@ class HomeController extends Controller
     {
         $init = new RajaOngkir(true);
         $cost = $init->getCost(152,444, 1, 'jne');
-        echo "<pre>", var_dump(json_decode($cost)), "</pre>";
+        // echo "<pre>", var_dump(json_decode($cost)), "</pre>";
     }
 }
