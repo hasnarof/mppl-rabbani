@@ -5,15 +5,13 @@ import { usePage } from '@inertiajs/inertia-react';
 const Products = () => {
     const { new_arrivals, all_products } = usePage().props;
 
-    console.log('products');
-
     return (
         <App>
             <div className="container">
                 <h1>New Arrivals</h1>
                 <table className="table">
                     <tbody>
-                        {new_arrivals.map((item, index)=> (
+                        {new_arrivals.data.map((item, index)=> (
                             <tr>
                                 <td>{item.name}</td>
                                 <td>
@@ -30,7 +28,7 @@ const Products = () => {
                 <h1>Our Products</h1>
                 <table className="table">
                     <tbody>
-                        {all_products.map((item, index)=> (
+                        {all_products.data.map((item, index)=> (
                             <tr>
                                 <td>{item.name}</td>
                                 <td>

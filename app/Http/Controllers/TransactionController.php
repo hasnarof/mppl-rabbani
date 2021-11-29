@@ -89,7 +89,7 @@ class TransactionController extends Controller
 
         if ($response['success'] !== false) {
             return Inertia::render('Payment/TransactionDetail',[
-                'transactionDetail' => new TransactionResource($response['data']),
+                'transaction' => new TransactionResource($response['data']),
             ]);
         }
         // redirect to error

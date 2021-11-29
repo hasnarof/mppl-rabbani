@@ -22,6 +22,8 @@ class ProductController extends Controller
             $all_products = ProductResource::collection($responseAll['data']);
             $new_arrivals = ProductResource::collection($responseRecent['data']);
 
+            // dd($all_products['data']);
+
             return Inertia::render('Product/Products',[
                 'new_arrivals'=>$new_arrivals,
                 'all_products'=>$all_products,

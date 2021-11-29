@@ -20,7 +20,7 @@ const Transactions = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {transactions.map((item, index)=>(
+                    {transactions.data.map((item, index)=>(
                         <tr>
                             <td>{item.created_at}</td>
                             <td>{item.total_harga}</td>

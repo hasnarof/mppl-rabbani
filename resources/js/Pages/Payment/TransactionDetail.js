@@ -6,10 +6,10 @@ import { useForm } from '@inertiajs/inertia-react'
 
 const TransactionDetail = () => {
     const {transaction} = usePage().props;
-    const transactionData = transaction.data;
+    // const transactionData = transaction.data;
 
     const { data, setData, post, progress } = useForm({
-        transactionId: transactionData.id,
+        transactionId: transaction.data.id,
         buktiPembayaran: null,
     })
 
@@ -19,9 +19,6 @@ const TransactionDetail = () => {
             forceFormData: true,
         });
     }
-
-    console.log(transactionData);
-    console.log(transaction.data.transaction_details);
 
     return (
         <App>
@@ -38,10 +35,10 @@ const TransactionDetail = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {transactionData.transaction_details.map((item, index)=>(
+                        {transaction.data.transaction_details.map((item, index)=>(
                             <tr>
-                                {/* <td><img src={`/storage/${item.product_detail.image}`} width={100} /></td> */}
-                                {/* <td>{item.product_detail.nama}</td> */}
+                                <td><img src={`/storage/${item.product_detail.image}`} width={100} /></td>
+                                <td>{item.product_detail.nama}</td>
                                 <td>{item.jumlah_produk}</td>
                                 <td>{item.harga_per_produk}</td>
                                 <td>{item.jumlah_produk * item.harga_per_produk}</td>
@@ -50,9 +47,9 @@ const TransactionDetail = () => {
 
                     </tbody>
                 </table>
-                <p>Total: Rp{transactionData.total_harga}</p>
+                {<p>Total: Rp{transaction.data.total_harga}</p>}
 
-                {!transactionData.bukti_pembayaran && <form onSubmit={handleSubmit} >
+                {!transaction.data.bukti_pembayaran && <form onSubmit={handleSubmit} >
                     <input type="file" value={undefined} onChange={e => setData('buktiPembayaran', e.target.files[0])}/>
                     {progress && (
                     <progress value={progress.percentage} max="100">
