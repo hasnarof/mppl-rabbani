@@ -44,7 +44,7 @@ class TransactionRepository extends Repository
     public function findOne($id)
     {
         try {
-            $data = $this->model->with('transactionDetails')->find($id);
+            $data = $this->model->with('transactionDetails.productDetail')->find($id);
             return ['success' => true, 'data' => $data];
         } catch (Exception $e) {
             return ['success' => false, 'message' => $e->getMessage()];

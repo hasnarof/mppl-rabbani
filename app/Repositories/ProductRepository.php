@@ -33,22 +33,8 @@ class ProductRepository extends Repository
     public function getAll()
     {
         try {
-            $dt = date("Y-m-d", strtotime("-1 months"));
-            $sql_string = "'".$dt."'";
-
-            $new_arrivals = Product::where('created_at', '>=', DB::raw($sql_string))->get();
-            foreach ($new_arrivals as $key => $product) {
-                $product->image = $product->productDetails->first()->image;
-                $product->harga = $product->productDetails->first()->harga;
-            }
-
-            $all_products = Product::all();
-            foreach ($all_products as $key => $product) {
-                $product->image = $product->productDetails->first()->image;
-                $product->harga = $product->productDetails->first()->harga;
-            }
-
-            return ['success' => true, 'new_arrivals' => $new_arrivals, 'all_products' => $all_products];
+            $data = $this->model->all();
+            return ['success' => true, 'data' => $data];
         } catch (Exception $e) {
             return ['success' => false, 'message' => $e->getMessage()];
         }
@@ -72,6 +58,19 @@ class ProductRepository extends Repository
             $product = $this->model->find($id);
             $product->delete();
             return ['success' => true, 'message' => 'Product deleted successfully'];
+        } catch (Exception $e) {
+            return ['success' => false, 'message' => $e->getMessage()];
+        }
+    }
+
+    public function getRecent()
+    {
+        try {
+            $dt = date("Y-m-d", strtotime("-1 months"));
+            $sql_string = "'".$dt."'";
+
+            $data = Product::where('created_at', '>=', DB::raw($sql_string))->get();
+            return ['success' => true, 'data' => $data];
         } catch (Exception $e) {
             return ['success' => false, 'message' => $e->getMessage()];
         }

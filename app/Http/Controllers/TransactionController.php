@@ -77,7 +77,7 @@ class TransactionController extends Controller
 
         if ($response['success'] !== false) {
             return Inertia::render('Payment/Transactions',[
-                'transactions'=>$response['data'],
+                'transactions' => TransactionResource::collection($response['data']),
             ]);
         }
         // redirect to error
@@ -86,11 +86,13 @@ class TransactionController extends Controller
     public function transactionDetail($id)
     {
         $response = $this->repository->findOne($id);
+
         if ($response['success'] !== false) {
             return Inertia::render('Payment/TransactionDetail',[
-                'transaction'=> new TransactionResource($response['data']),
+                'transactionDetail' => new TransactionResource($response['data']),
             ]);
         }
+        // redirect to error
     }
 
     public function uploadPaymentProof(Request $request)

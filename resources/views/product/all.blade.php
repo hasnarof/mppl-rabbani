@@ -23,7 +23,7 @@ All Products
                 <td>
                     <img src="{{url('storage/'.$product->image)}}" alt="" width=200>
                 </td>
-                <td>Rp{{$product->harga}}</td>
+                <td>Rp{{number_format($product->harga, 2)}}</td>
                 <td>
                     <a href="{{url('product/'.$product->id)}}" class="btn btn-primary">Detail</a>
                 </td>
@@ -40,7 +40,7 @@ All Products
                 <td>
                     <img src="{{url('storage/'.$product->image)}}" alt="" width=200>
                 </td>
-                <td>Rp{{$product->harga}}</td>
+                <td>Rp{{number_format($product->harga, 2)}}</td>
                 <td>
                     <a href="{{url('product/'.$product->id)}}" class="btn btn-primary">Detail</a>
                 </td>
