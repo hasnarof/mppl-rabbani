@@ -7,6 +7,42 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// DAFTAR PRODUK
+#daftar-produk .row{
+    margin-top: 2% !important;
+    margin-bottom: 2%;
+}
+#daftar-produk .row .search{
+    background: white;
+}
+#daftar-produk .col-2 .card h5{
+    font-weight: 600;
+}
+#daftar-produk .col-10 h1{
+    font-weight: 600;
+    color: #D93081;
+}
+#daftar-produk .col-10 .card h5{
+    color: #D93081;
+    text-align: center;
+    font-weight: 600;
+    font-size: large;
+}
+#daftar-produk .col-10 .card p{
+    text-align: center;
+    font-weight: 600;
+}
+#daftar-produk .col-10 .card .center{
+    text-align: center;
+}
+#daftar-produk .col-10 .card a{
+    border-color: #D93081;
+    background: #D93081;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+}
+
 #basket {
     position: absolute;
     z-index: 100;
