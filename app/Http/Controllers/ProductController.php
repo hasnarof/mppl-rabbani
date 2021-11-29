@@ -20,6 +20,11 @@ class ProductController extends Controller
             $new_arrivals = $response['new_arrivals'];
             $all_products = $response['all_products'];
 
+            return Inertia::render('Product/Products',[
+                'new_arrivals'=>$new_arrivals,
+                'all_products'=>$all_products,
+            ]);
+
             return view('product.all')
                 ->with(compact('new_arrivals'))
                 ->with(compact('all_products'));
