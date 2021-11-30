@@ -20,13 +20,11 @@ class HomeController extends Controller
     public function landingPage()
     {
         $response = $this->repository->getAll();
-        $products = ProductResource::collection($response['all_products']);
+        $products = ProductResource::collection($response['data']);
 
         return Inertia::render('Home', [
             'products'=>$products,
         ]);
-
-        return view('home')->with(compact('products'));
     }
 
     public function testReact()
@@ -38,6 +36,6 @@ class HomeController extends Controller
     {
         $init = new RajaOngkir(true);
         $cost = $init->getCost(152,444, 1, 'jne');
-        // echo "<pre>", var_dump(json_decode($cost)), "</pre>";
+        echo "<pre>", var_dump(json_decode($cost)), "</pre>";
     }
 }
