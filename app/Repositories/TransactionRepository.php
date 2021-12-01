@@ -83,7 +83,33 @@ class TransactionRepository extends Repository
             $transaction->status_transaksi = 'To Payment Confirm';
             $transaction->save();
 
-            return ['success' => true, 'data' => $data, 'message' => 'Payment proof uploaded successfully'];
+            return ['success' => true, 'message' => 'Payment proof uploaded successfully'];
+        } catch (Exception $e) {
+            return ['success' => false, 'message' => $e->getMessage()];
+        }
+    }
+
+    public function updateStatusTransaksi($transactionId)
+    {
+        try {
+            $transaction = $this->model->find($transactionId);
+            $transaction->status_transaksi = 'Completed';
+            $transaction->save();
+
+            return ['success' => true, 'message' => 'status_transaksi uploaded successfully'];
+        } catch (Exception $e) {
+            return ['success' => false, 'message' => $e->getMessage()];
+        }
+    }
+
+
+    public function saveWithRequired(array $data, $id = null)
+    {
+        try {
+            $model = ($id === null) ? new Transaction() : Transaction::find($id);
+            $model->user_id = $data['user_id'];
+            $model->save();
+            return ['success' => true, 'data' => $model, 'message' => 'Transaction saved successfully'];
         } catch (Exception $e) {
             return ['success' => false, 'message' => $e->getMessage()];
         }

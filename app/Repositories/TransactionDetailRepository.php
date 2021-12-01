@@ -19,6 +19,7 @@ class TransactionDetailRepository extends Repository
             $model->product_detail_id       = $data['product_detail_id'];
             $model->jumlah_produk           = $data['jumlah_produk'];
             $model->harga_per_produk        = $data['harga_per_produk'];
+            $model->ukuran_produk           = $data['ukuran_produk'];
             $model->variasi_warna           = $data['variasi_warna'];
             $model->save();
 

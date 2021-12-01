@@ -33,7 +33,7 @@ class ProductRepository extends Repository
     public function getAll()
     {
         try {
-            $data = $this->model->all();
+            $data = $this->model->with('productDetails')->get();
             return ['success' => true, 'data' => $data];
         } catch (Exception $e) {
             return ['success' => false, 'message' => $e->getMessage()];
@@ -43,7 +43,7 @@ class ProductRepository extends Repository
     public function findOne($id)
     {
         try {
-            $data = $this->model->find($id);
+            $data = $this->model->with('productDetails')->find($id);
             $data->colors = $this->productDetailsByColor($id);
             $data->sizes = $this->productDetailsBySize($id);
             return ['success' => true, 'data' => $data];

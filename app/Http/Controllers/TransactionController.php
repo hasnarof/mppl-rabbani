@@ -4,21 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\TransactionResource;
 use Inertia\Inertia;
-use App\Models\Transaction;
 use Illuminate\Http\Request;
-use App\Models\ProductDetail;
-use App\Models\TransactionDetail;
 use App\Repositories\TransactionRepository;
 use App\Providers\RajaOngkir;
-use Illuminate\Routing\Route;
+use App\Repositories\ProductDetailRepository;
+use App\Repositories\TransactionDetailRepository;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 
 class TransactionController extends Controller
 {
-    public function __construct(TransactionRepository $repository)
+    public function __construct(TransactionRepository $repository, TransactionDetailRepository $transactionDetailRepository, ProductDetailRepository $productDetailRepository)
     {
         $this->repository = $repository;
+        $this->transactionDetailRepository = $transactionDetailRepository;
+        $this->productDetailRepository = $productDetailRepository;
     }
 
     public function cart()
@@ -32,31 +31,44 @@ class TransactionController extends Controller
         $ongkir = $request['ongkir'];
         $kurir = $request['kurir'];
 
-        $transaction = Transaction::create([
-            'user_id'=>Auth::id(),
-        ]);
+        $response = $this->repository->saveWithRequired(['user_id' => Auth::id()]);
+
+        if ($response['success'] !== false) {
+            $transaction = $response['data'];
+        } else {
+            return $response['message'];
+        }
 
         $total_price = 0;
-        foreach($cart_items as $c) {
-            $product_id = $c['product']['id'];
-            $color = $c['productColor']['warna'];
-            $size = $c['productSize']['ukuran'];
+        foreach ($cart_items as $c) {
+            $productId = $c['product']['id'];
+            $warna = $c['productColor']['warna'];
+            $ukuran = $c['productSize']['ukuran'];
             $price = $c['productSize']['harga'];
             $quantity = $c['qty'];
 
-            $product_detail = ProductDetail::where('product_id', $product_id)
-                ->where('warna', $color)
-                ->where('ukuran', $size)
-                ->first();
+            $productDetailResponse = $this
+                ->productDetailRepository
+                ->getWhereWarnaUkuranProductid($productId, $warna, $ukuran);
 
-            $transaction_detail = TransactionDetail::create([
-                'transaction_id'=>$transaction->id,
-                'product_detail_id'=>$product_detail->id,
-                'jumlah_produk'=>$quantity,
-                'harga_per_produk'=>$price,
-                'ukuran_produk'=>$size,
-                'variasi_warna'=>$color,
+            if ($productDetailResponse['success'] !== false) {
+                $productDetail = $productDetailResponse['data'];
+            } else {
+                return $productDetailResponse['message'];
+            }
+
+            $transactionDetailResponse = $this->transactionDetailRepository->save([
+                'transaction_id' => $transaction->id,
+                'product_detail_id' => $productDetail->id,
+                'jumlah_produk' => $quantity,
+                'harga_per_produk' => $price,
+                'ukuran_produk' => $warna,
+                'variasi_warna' => $ukuran,
             ]);
+
+            if ($transactionDetailResponse['success'] === false) {
+                return $transactionDetailResponse['message'];
+            }
 
             $total_price += $quantity * $price;
         }
@@ -65,9 +77,11 @@ class TransactionController extends Controller
         $transaction->ongkir = $ongkir;
         $transaction->total_bersama_ongkir = $total_price + $ongkir;
         $transaction->kurir = $kurir;
-        $transaction->save();
 
-        return Inertia::render('Home');
+        $this->repository->save((array) $transaction);
+
+        // return Inertia::render('Home');
+        return redirect('transactions');
     }
 
     public function transactions()
@@ -80,7 +94,7 @@ class TransactionController extends Controller
                 'transactions' => TransactionResource::collection($response['data']),
             ]);
         }
-        // redirect to error
+        return $response['message'];
     }
 
     public function transactionDetail($id)
@@ -92,7 +106,7 @@ class TransactionController extends Controller
                 'transaction' => new TransactionResource($response['data']),
             ]);
         }
-        // redirect to error
+        return $response['message'];
     }
 
     public function uploadPaymentProof(Request $request)
@@ -109,21 +123,21 @@ class TransactionController extends Controller
                         'message' => $response['message']
                     ]);
         }
+        return $response['message'];
     }
 
     public function receiveOrder(Request $request)
     {
-        $transactionId = $request['transactionId'];
-        $transaction = Transaction::find($transactionId);
-        $transaction->status_transaksi = 'Completed';
-        $transaction->save();
+        $response = $this->repository->updateStatusTransaksi($request['transactionId']);
 
-        return redirect()->back()->with(
-            'alert',
-            [
-                'type' => 'success',
-                'message' => 'Sukses mengubah status'
-            ]);
+        if ($response['success'] !== false) {
+            return redirect()->back()->with(
+                'alert',
+                [
+                    'type' => 'success',
+                    'message' => $response['message']
+                ]);
+        }
     }
 
     public function cekOngkir($kotaPembeli, $kurir)
@@ -132,7 +146,7 @@ class TransactionController extends Controller
         $init = new RajaOngkir(false);
         $cost = $init->getCost(55,$kotaPembeli, 1, $kurir); // asal bekasi kota
         // $cost = $init->getCost(55,155, 1, 'pos'); // asal bekasi kota
-        $cost = array( json_decode($cost) );
+        // $cost = array( json_decode($cost) );
         $cost = $cost[0]->rajaongkir->results;
         $jenisLayanan = $cost[0]->costs[0]; // ekonomis
         $end = $jenisLayanan->cost[0]->value;
