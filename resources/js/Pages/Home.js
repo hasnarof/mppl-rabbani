@@ -16,7 +16,7 @@ const Home = () => {
                 <h1>Best Seller</h1>
                 <table className="table">
                     <tbody>
-                        {products.map((item, index)=> (
+                        {products.data.map((item, index)=> (
                             <tr>
                                 <td>{item.name}</td>
                                 <td>
@@ -32,7 +32,7 @@ const Home = () => {
                 </table>
             </div>
         </App>
-        
+
     );
 };
 
