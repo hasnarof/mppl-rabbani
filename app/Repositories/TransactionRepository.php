@@ -18,9 +18,12 @@ class TransactionRepository extends Repository
             $model = ($id === null) ? new Transaction() : Transaction::find($id);
             $model->user_id             = $data['user_id'];
             $model->total_harga         = $data['total_harga'];
+            $model->ongkir              = $data['ongkir'];
+            $model->total_bersama_ongkir= $data['total_bersama_ongkir'];
             $model->status_transaksi    = $data['status_transaksi'];
             $model->bukti_pembayaran    = $data['bukti_pembayaran'];
             $model->kode_voucher        = $data['kode_voucher'];
+            $model->kurir               = $data['kurir'];
             $model->jenis_pengiriman    = $data['jenis_pengiriman'];
             $model->jenis_pembayaran    = $data['jenis_pembayaran'];
             $model->save();
@@ -108,6 +111,11 @@ class TransactionRepository extends Repository
         try {
             $model = ($id === null) ? new Transaction() : Transaction::find($id);
             $model->user_id = $data['user_id'];
+            $model->status_transaksi = 'To Pay';
+            $model->bukti_pembayaran = null;
+            $model->kode_voucher = null;
+            $model->jenis_pengiriman = null;
+            $model->jenis_pembayaran = null;
             $model->save();
             return ['success' => true, 'data' => $model, 'message' => 'Transaction saved successfully'];
         } catch (Exception $e) {

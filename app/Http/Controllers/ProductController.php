@@ -27,7 +27,7 @@ class ProductController extends Controller
                 'all_products'=>$all_products,
             ]);
         }
-        // return to error page
+        return abort(500);
     }
 
     public function productDetail($id)
@@ -39,6 +39,6 @@ class ProductController extends Controller
                 'product'=>$response['data'],
             ]);
         }
-        // return to error page
+        return abort(404);
     }
 }

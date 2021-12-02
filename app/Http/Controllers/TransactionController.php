@@ -78,10 +78,13 @@ class TransactionController extends Controller
         $transaction->total_bersama_ongkir = $total_price + $ongkir;
         $transaction->kurir = $kurir;
 
-        $this->repository->save((array) $transaction);
+        $response = $this->repository->save($transaction->toArray(), $transaction->id);
 
-        // return Inertia::render('Home');
-        return redirect('transactions');
+        if ($response['success'] !== false) {
+            // return Inertia::render('Home');
+            return redirect('transactions');
+        }
+        return $response['message'];
     }
 
     public function transactions()
@@ -112,6 +115,11 @@ class TransactionController extends Controller
     public function uploadPaymentProof(Request $request)
     {
         $data = $request->all();
+
+        if ($data['buktiPembayaran'] === null) {
+            return abort(403);
+        }
+
         $response = $this->repository->uploadPaymentProof($data);
 
         if ($response['success'] !== false) {

@@ -20,11 +20,13 @@ class HomeController extends Controller
     public function landingPage()
     {
         $response = $this->repository->getAll();
-        $products = ProductResource::collection($response['data']);
 
-        return Inertia::render('Home', [
-            'products'=>$products,
-        ]);
+        if ($response['success'] !== false) {
+            return Inertia::render('Home', [
+                'products'=>ProductResource::collection($response['data']),
+            ]);
+        }
+        return $response['message'];
     }
 
     public function testReact()
