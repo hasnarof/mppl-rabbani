@@ -15,6 +15,11 @@ class ProductController extends Controller
 
     public function products()
     {
+        if (request()->all()) {
+            $response = $this->repository->filterBy(request()->all());
+            return $response; // handle
+        }
+
         $responseAll = $this->repository->getAll();
         $responseRecent = $this->repository->getRecent();
 
