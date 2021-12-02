@@ -43,6 +43,99 @@
     font-weight: 500;
 }
 
+// DETAIL PRODUK
+#detail-produk .row{
+    margin-top: 2% !important;
+    margin-bottom: 2%;
+}
+#detail-produk .row .col .vertical-center {
+    position: absolute;
+    // top: 50%;
+    left: 50%;
+    // -ms-transform: translateY(-50%);
+    // transform: translateY(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+#detail-produk .col-4 .container {
+    padding: 16px;
+    margin: 16px 0;
+    background-color: transparent;
+    border-color: none;
+}
+#detail-produk .container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+#detail-produk h2, 
+#detail-produk .container .text {
+    font-size: 20px;
+    margin-right: 15px;
+} 
+#detail-produk .col-4 .image {
+    float: left;
+    margin-right: 10px;
+    border-radius: 50%;
+    width:60px;
+}
+#detail-produk .col-4 .text, 
+#detail-produk .col-4 .back, 
+#detail-produk .col-4 .info h3{
+    font-size: 18px;
+    font-weight: 600;
+    margin-right: 15px;
+}
+#detail-produk .col-4 .title, 
+#detail-produk .col-4 h1, 
+#detail-produk .col-4 .back{
+    color: #D93081;
+}
+#detail-produk .col-4 h2, 
+#detail-produk .col-4 h1{
+    font-weight: 600;
+    font-size: 24px;
+}
+#detail-produk .col-4 .info{
+    margin-top: 20px;
+}
+#detail-produk .col-4 p, 
+#detail-produk .info p{
+    font-size: 16px;
+}
+#detail-produk .col-4 .btn-primary{
+    margin-top: 20px;
+    background-color: #D93081;
+    color: #fff;
+    width: 100%;
+    border-color: #D93081;
+    border-radius: 20px;
+}
+#detail-produk .col-4 .btn-primary:hover{
+    background-color: #fff;
+    color: #D93081;
+    border-color: #D93081;
+}
+#detail-produk .col-4 .testi{
+    color: #D93081;
+    font-size: 16px;
+    font-weight: 600;
+}
+#detail-produk .col-4 .right{
+    text-align: end;
+}
+
+@media (max-width: 500px) {
+    #detail-produk .container {
+        text-align: center;
+    }
+    #detail-produk .col-4 .image {
+      margin: auto;
+      float: none;
+      display: block;
+    }
+}
+
 #basket {
     position: absolute;
     z-index: 100;
