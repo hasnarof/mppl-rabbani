@@ -83,13 +83,22 @@ const Products = () => {
                         </div>
                     </div>
                     <div className="col-10">
-                        <div className="input-group rounded">
-                            <input type="search" className="form-control rounded-pill search" placeholder="Search" aria-label="Search"
-                            aria-describedby="search-addon" />
-                            <span className="input-group-text border-0" id="search-addon">
-                                <i className="fas fa-search"></i>
-                            </span>
-                        </div>
+                        <form action="/products" method="GET" role="search">
+                            <div className="input-group rounded">
+                                <input
+                                    type="search"
+                                    className="form-control rounded-pill search"
+                                    placeholder="Search"
+                                    aria-label="Search"
+                                    aria-describedby="search-addon"
+                                    required
+                                    id="nama"
+                                />
+                                <span className="input-group-text border-0" id="search-addon">
+                                    <i className="fas fa-search"></i>
+                                </span>
+                            </div>
+                        </form>
                         <h1 className="mt-4">New Arrivals</h1>
                         <div className="row row-cols-1 row-cols-md-4 g-4">
                             {/* <div className="col">

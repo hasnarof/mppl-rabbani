@@ -76,6 +76,16 @@ class ProductRepository extends Repository
         }
     }
 
+    public function filterBy($filter)
+    {
+        try {
+            $data = $this->model->filterBy($filter)->get();
+            return ['success' => true, 'data' => $data];
+        } catch (Exception $e) {
+            return ['success' => false, 'message' => $e->getMessage()];
+        }
+    }
+
     private function productDetailsByColor($id)
     {
         // TODO - refactor raw query

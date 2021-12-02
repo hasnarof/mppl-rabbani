@@ -15,6 +15,11 @@ class ProductController extends Controller
 
     public function products()
     {
+        if (request()->all()) {
+            $response = $this->repository->filterBy(request()->all());
+            return $response; // handle
+        }
+
         $responseAll = $this->repository->getAll();
         $responseRecent = $this->repository->getRecent();
 
@@ -27,7 +32,7 @@ class ProductController extends Controller
                 'all_products'=>$all_products,
             ]);
         }
-        // return to error page
+        return abort(500);
     }
 
     public function productDetail($id)
@@ -39,6 +44,6 @@ class ProductController extends Controller
                 'product'=>$response['data'],
             ]);
         }
-        // return to error page
+        return abort(404);
     }
 }

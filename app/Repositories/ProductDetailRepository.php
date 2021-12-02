@@ -17,7 +17,13 @@ class ProductDetailRepository extends Repository
     {
         try {
             $model = ($id === null) ? new ProductDetail() : ProductDetail::find($id);
-
+            $model->product_id      = $data['product_id'];
+            $model->nama            = $data['nama'];
+            $model->image           = $data['image'];
+            $model->warna           = $data['warna'];
+            $model->ukuran          = $data['ukuran'];
+            $model->ketersediaan    = $data['ketersediaan'];
+            $model->harga           = $data['harga'];
             $model->save();
 
             return ['success' => true, 'data' => $model, 'message' => 'ProductDetail saved successfully'];
