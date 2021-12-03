@@ -11,6 +11,8 @@ const ProductDetail = (props) => {
 
     const [cartItems, setCartItems] = useState([]);
 
+    console.log(product);
+
     return (
         <App>
             <div id="detail-produk" className="container">
@@ -21,17 +23,10 @@ const ProductDetail = (props) => {
                             <p className="back">Back</p>
                         </div>
                         <h1>{product.nama}</h1>
-                        <h2>Rp 339.000</h2>
+                        <h2>{product.product_details[0].harga}</h2>
                         <div className="info">
                             <h3>Detail Produk</h3>
-                            <p>Outfit oneset multifungsi yang bisa digunakan untuk hangout, kegiatan formal, ataupun untuk outfit rumahan. Terdapat dua item yaitu pants dan tops yang bisa dibeli satu set atau terpisah. Dilengkapi empat saku masing-masing dua dibagian depan tops dan disamping pantsnya. Bagian bawah pants dan topsnya terdapat tali serut. Wudhu Friendly</p>
-                        </div>
-                        <div className="info">
-                            <h3>Bahan</h3>
-                            <p>Cotton Linen
-                                <br></br>
-                                Kain berserat, tebal, tidak menerawang, dan sejuk
-                            </p>
+                            <p dangerouslySetInnerHTML={{ __html: product.detail }}></p>
                         </div>
                         <div className="info">
                             <h3>Choose Color</h3>
@@ -55,9 +50,9 @@ const ProductDetail = (props) => {
                             })}
                             </p>
                         </div>
-                        
+
                         <AddButton className="btn btn-primary" product={product} productColor={productColor} productSize={productSize}>Add to Cart</AddButton>
-                        
+
                     </div>
                     <div className="col col-4 center">
                         <img src={`/storage/${productColor.image}`} width="300" className="vertical-center"/>

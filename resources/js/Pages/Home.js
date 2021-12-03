@@ -5,7 +5,7 @@ import { usePage } from '@inertiajs/inertia-react';
 const Home = () => {
     const { products } = usePage().props;
 
-    console.log('products');
+    console.log(products);
 
     return (
         <App>
@@ -42,7 +42,7 @@ const Home = () => {
             <div className="container">
                 <h1 id="bestseller" className="mb-8 mt-8"><strong>Best Seller</strong></h1>
                     <div className="row row-cols-1 row-cols-md-3 g-4">
-                        {products.map((item, index)=> (
+                        {products.data.map((item, index)=> (
                             <div id="home-best-seller" className="col">
                                 <div className="card  mx-auto">
                                     <a href={`/product/${item.id}`} >
@@ -66,7 +66,7 @@ const Home = () => {
             <div className="container">
                 <h1 id="bestseller" className="mb-8 mt-8"><strong>Best Seller</strong></h1>
                     <div className="row row-cols-1 row-cols-md-3 g-4">
-                        {products.map((item, index)=> (
+                        {products.data.map((item, index)=> (
                             <div id="home-best-seller" className="col">
                                 <div className="card  mx-auto">
                                     <a href={`/product/${item.id}`} >
