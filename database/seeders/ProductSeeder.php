@@ -16,6 +16,7 @@ class ProductSeeder extends Seeder
     {
         $dt = mktime(23,59, 59, 1, 1, 2015);
         $dt = date('Y-m-d H:i:s', $dt);
+        
         $id = DB::table('products')->insertGetId([
             'nama'=>'Kerudung Instan Zerena',
             'detail'=>
@@ -63,25 +64,25 @@ class ProductSeeder extends Seeder
         }
 
         $id = DB::table('products')->insertGetId([
-            'nama'=>'Tunik Dara Ziva Kuma',
-            'detail'=>'.',
-            'kategori_pakaian'=>'Atasan',
+            'nama'=>'Ginka Set',
+            'detail'=>'Outfit oneset multifungsi yang bisa digunakan untuk hangout, kegiatan formal, ataupun untuk outfit rumahan. Terdapat dua item yaitu pants dan tops. Dilengkapi empat saku masing-masing dua dibagian depan tops dan disamping pantsnya. Bagian bawah pants dan topsnya terdapat tali serut dan Wudhu Friendly.',
+            'kategori_pakaian'=>'Clothing',
             'kategori_gender'=>'Women',
             'created_at'=>now(),
         ]);
 
-        $warna1 = 'Mustard'; $warna2 = 'Merah Maroon'; $warna3 = 'Hitam';
+        $warna1 = 'Beige'; $warna2 = 'Terracota'; $warna3 = 'Dusty Pink'; $warna4 = 'Dark Grey';
         $ukuran1 = 'L'; $ukuran2 = 'S'; $ukuran3 = 'M';
-        for ($i=1; $i <= 3; $i++) {
-            for ($j=1; $j <= 3; $j++) {
+        for ($i=1; $i <= 4; $i++) {
+            for ($j=1; $j <= 4; $j++) {
                 $product_detail = [
                     'product_id'=>$id,
-                    'nama'=>'Tunik Dara Ziva Kuma',
-                    'image'=>'products/tunik_dara_ziva_kuma_'.$i.'.jpg',
+                    'nama'=>'Ginka Set',
+                    'image'=>'products/CLOTHING/GINKA_SET_'.$i.'.jpg',
                     'warna'=>${"warna" . $i},
                     'ukuran'=>${"ukuran" . $j},
                     'ketersediaan'=>rand(0, 50),
-                    'harga'=>211840,
+                    'harga'=>369000,
                     'created_at'=>now(),
                 ];
                 DB::table('product_details')->insert($product_detail);
@@ -89,25 +90,49 @@ class ProductSeeder extends Seeder
         }
 
         $id = DB::table('products')->insertGetId([
-            'nama'=>'Tunik Khufa',
-            'detail'=>'.',
-            'kategori_pakaian'=>'Atasan',
+            'nama'=>'Aiza Instan',
+            'detail'=>'Hijab instan dengan bahan bubble bertekstur jeruk yang timbul, dilengkapi pet anti tembem, bahan adem menyerap keringat, cocok dipakai sebagai hijab rumah dan kegiatan sehari-hari.',
+            'kategori_pakaian'=>'Kerudung',
             'kategori_gender'=>'Women',
             'created_at'=>now(),
         ]);
 
-        $warna1 = 'Hitam'; $warna2 = 'Abu muda/Light Grey'; $warna3 = 'Navy';
-        $ukuran1 = 'S'; $ukuran2 = 'M'; $ukuran3 = 'L'; $ukuran4 = 'XL';
-        for ($i=1; $i <= 3; $i++) {
+        $warna1 = 'Maroon'; $warna2 = 'Light Grey'; $warna3 = 'Pink Pastel'; $warna4 = 'Lavender';
+        for ($i=1; $i <= 4; $i++) {
             for ($j=1; $j <= 4; $j++) {
                 $product_detail = [
                     'product_id'=>$id,
-                    'nama'=>'Tunik Khufa',
-                    'image'=>'products/tunik_khufa_'.$i.'.jpg',
+                    'nama'=>'Aiza Instan',
+                    'image'=>'products/HIJAB/AIZA_INSTAN_'.$i.'.jpg',
                     'warna'=>${"warna" . $i},
                     'ukuran'=>${"ukuran" . $j},
                     'ketersediaan'=>rand(0, 50),
-                    'harga'=>211840,
+                    'harga'=>49000,
+                    'created_at'=>now(),
+                ];
+                DB::table('product_details')->insert($product_detail);
+            }
+        }
+
+        $id = DB::table('products')->insertGetId([
+            'nama'=>'Mima',
+            'detail'=>'Hijab pashmina yang lembut dengan bahan yang mudah diatur, adem, dan tegak di dahi. Bisa digunakan daily maupun formal. Dilengkapi dengan berbagai varian warna bold, netral dan pastel.',
+            'kategori_pakaian'=>'Pashmina',
+            'kategori_gender'=>'Women',
+            'created_at'=>now(),
+        ]);
+
+        $warna1 = 'Brown Sugar'; $warna2 = 'Grey'; $warna3 = 'Wheat'; $warna4 = 'Sage';
+        for ($i=1; $i <= 4; $i++) {
+            for ($j=1; $j <= 4; $j++) {
+                $product_detail = [
+                    'product_id'=>$id,
+                    'nama'=>'Mima',
+                    'image'=>'products/PASHMINA/MIMA_'.$i.'.jpg',
+                    'warna'=>${"warna" . $i},
+                    'ukuran'=>${"ukuran" . $j},
+                    'ketersediaan'=>rand(0, 50),
+                    'harga'=>79000,
                     'created_at'=>now(),
                 ];
                 DB::table('product_details')->insert($product_detail);

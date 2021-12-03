@@ -125,10 +125,6 @@ const Home = () => {
                                             <FontAwesomeIcon icon={faLinkedin}></FontAwesomeIcon>
                                         </button>
                                     </a>
-                                    {/* <a href="#" class="facebook"><i class="fab fa-twitter"></i></a> */}
-                                    {/* <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                                    <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                                    <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a> */}
                                 </div>
                                 </div>
                             </div>
