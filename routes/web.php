@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\Admin\AdminTransactionController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,23 +25,27 @@ use App\Http\Controllers\Admin\AdminTransactionController;
 Route::get('raja_ongkir', [HomeController::class, 'rajaOngkir']);
 
 Route::get('/',[HomeController::class, 'landingPage']);
-Route::get('/test_react',[HomeController::class, 'testReact']);
+Route::get('test_react',[HomeController::class, 'testReact']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     // Route::view('home', 'home')->name('home');
 
     Route::get('home',[HomeController::class, 'landingPage']);
 
-    Route::get('/products',[ProductController::class, 'products']);
-    Route::get('/product/{id}',[ProductController::class, 'productDetail']);
+    Route::get('products',[ProductController::class, 'products']);
+    Route::get('product/{id}',[ProductController::class, 'productDetail']);
 
-    Route::get('/cart', [TransactionController::class, 'cart']);
-    Route::post('/checkout', [TransactionController::class, 'checkout']);
+    Route::get('cart', [TransactionController::class, 'cart']);
+    Route::post('checkout', [TransactionController::class, 'checkout']);
 
-    Route::get('/transactions', [TransactionController::class, 'transactions']);
-    Route::get('/transaction/{id}', [TransactionController::class, 'transactionDetail'])->name('transaction');
-    Route::post('/transaction/upload_payment_proof', [TransactionController::class, 'uploadPaymentProof']);
+    Route::get('transactions', [TransactionController::class, 'transactions']);
+    Route::get('transaction/{id}', [TransactionController::class, 'transactionDetail'])->name('transaction');
+    Route::post('transaction/upload_payment_proof', [TransactionController::class, 'uploadPaymentProof']);
     Route::post('transaction/receive_order/', [TransactionController::class, 'receiveOrder']);
+
+    Route::get('product/{product_id}/reviews');
+    Route::get('create_review/{product_id}', [ReviewController::class, 'create']);
+    Route::post('create_review/{product_id}', [ReviewController::class, 'store']);
 
 
 });
