@@ -32,6 +32,7 @@
         "@inertiajs/inertia-react": "^0.7.1",
         "@inertiajs/progress": "^0.2.6",
         "@popperjs/core": "^2.10.2",
-        "cross-env": "^7.0.3"
+        "cross-env": "^7.0.3",
+        "react-rating": "^2.0.5"
     }
 }

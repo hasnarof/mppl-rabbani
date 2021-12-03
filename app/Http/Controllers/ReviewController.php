@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Inertia\Inertia;
+use App\Models\Review;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Repositories\ProductRepository;
+use stdClass;
 
 class ReviewController extends Controller
 {
@@ -20,6 +24,17 @@ class ReviewController extends Controller
 
     public function store(Request $request)
     {
+        $form = array();
+        parse_str($request['form'], $form);
+        Review::create([
+            'user_id'=>Auth::id(),
+            'product_id'=>$request['product_id'],
+            'rating'=>$request['rating'],
+            'ulasan'=>$form['testimonial'],
+            'is_recommended'=>$form['is_recommended'],
+        ]);
 
+        $alert = ['type'=>'success','message' => 'Successfully created new review.'];
+        return redirect('product/'.$request['product_id'])->with($alert);
     }
 }
