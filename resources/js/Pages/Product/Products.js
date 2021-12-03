@@ -5,6 +5,8 @@ import { usePage } from '@inertiajs/inertia-react';
 const Products = () => {
     const { new_arrivals, all_products } = usePage().props;
 
+    console.log('products');
+
     return (
         <App>
             <div id="daftar-produk" className="container">
@@ -83,22 +85,13 @@ const Products = () => {
                         </div>
                     </div>
                     <div className="col-10">
-                        <form action="/products" method="GET" role="search">
-                            <div className="input-group rounded">
-                                <input
-                                    type="search"
-                                    className="form-control rounded-pill search"
-                                    placeholder="Search"
-                                    aria-label="Search"
-                                    aria-describedby="search-addon"
-                                    required
-                                    id="nama"
-                                />
-                                <span className="input-group-text border-0" id="search-addon">
-                                    <i className="fas fa-search"></i>
-                                </span>
-                            </div>
-                        </form>
+                        <div className="input-group rounded">
+                            <input type="search" className="form-control rounded-pill search" placeholder="Search" aria-label="Search"
+                            aria-describedby="search-addon" />
+                            <span className="input-group-text border-0" id="search-addon">
+                                <i className="fas fa-search"></i>
+                            </span>
+                        </div>
                         <h1 className="mt-4">New Arrivals</h1>
                         <div className="row row-cols-1 row-cols-md-4 g-4">
                             {/* <div className="col">
