@@ -1,14 +1,13 @@
 import React from 'react';
-import logo from '../../../public/img/logo_rabbani.png';
 
+//navbar page home
 const Navbar = () => {
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-light shadow-sm p-3 mb-5 bg-body rounded">
+            <nav className="navbar navbar-expand-lg navbar-light shadow-sm p-3 mb-5 bg-body rounded fixed-top">
                 <div className="container">
                     <a href="/" className="navbar-brand">
-                    {/* <!-- Logo Image --> */}
-                        <img src="{logo}" width="115" alt="logo" className="d-inline-block align-middle mr-2"/>
+                        <img src={`/img/logo_rabbani.png`} width="115" alt="logo" className="d-inline-block align-middle mr-2"/>
                     </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -19,10 +18,21 @@ const Navbar = () => {
                                 <a className="nav-link active" aria-current="page" href="/">HOME</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">EXPLORE</a>
+                                <a className="nav-link" href="/products">EXPLORE</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">TRANSACTION</a>
+                            </li>
+                        </ul>
+
+                        {/* <!-- Right Side Of Navbar --> */}
+                        <ul id="btn-login-regis" class="navbar-nav ml-auto">
+                            {/* <!-- Authentication Links masih belommmm --> */}
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-primary mx-2 rounded-pill w-" href="/login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-primary rounded-pill" href="/register">Register</a>
                             </li>
                         </ul>
                     </div>
