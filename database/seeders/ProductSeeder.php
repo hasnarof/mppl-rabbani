@@ -16,7 +16,7 @@ class ProductSeeder extends Seeder
     {
         $dt = mktime(23,59, 59, 1, 1, 2015);
         $dt = date('Y-m-d H:i:s', $dt);
-        
+
         $id = DB::table('products')->insertGetId([
             'nama'=>'Kerudung Instan Zerena',
             'detail'=>
@@ -74,7 +74,7 @@ class ProductSeeder extends Seeder
         $warna1 = 'Beige'; $warna2 = 'Terracota'; $warna3 = 'Dusty Pink'; $warna4 = 'Dark Grey';
         $ukuran1 = 'L'; $ukuran2 = 'S'; $ukuran3 = 'M';
         for ($i=1; $i <= 4; $i++) {
-            for ($j=1; $j <= 4; $j++) {
+            for ($j=1; $j <= 3; $j++) {
                 $product_detail = [
                     'product_id'=>$id,
                     'nama'=>'Ginka Set',
@@ -98,8 +98,9 @@ class ProductSeeder extends Seeder
         ]);
 
         $warna1 = 'Maroon'; $warna2 = 'Light Grey'; $warna3 = 'Pink Pastel'; $warna4 = 'Lavender';
+        $ukuran1 = 'All Size';
         for ($i=1; $i <= 4; $i++) {
-            for ($j=1; $j <= 4; $j++) {
+            for ($j=1; $j <= 1; $j++) {
                 $product_detail = [
                     'product_id'=>$id,
                     'nama'=>'Aiza Instan',
@@ -123,8 +124,9 @@ class ProductSeeder extends Seeder
         ]);
 
         $warna1 = 'Brown Sugar'; $warna2 = 'Grey'; $warna3 = 'Wheat'; $warna4 = 'Sage';
+        $ukuran1 = 'All Size';
         for ($i=1; $i <= 4; $i++) {
-            for ($j=1; $j <= 4; $j++) {
+            for ($j=1; $j <= 1; $j++) {
                 $product_detail = [
                     'product_id'=>$id,
                     'nama'=>'Mima',

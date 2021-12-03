@@ -63,11 +63,11 @@ const Home = () => {
                         <a href={`/products`} className="btn btn-primary">View All Products</a>
                     </div>
                 </div>
-                
+
                 <a href="/products">
                     <img src={`/img/pleats.gif`} className="d-block w-100"/>
                 </a>
-                
+
                 <div className="container">
                     <h1 id="bestseller" className="mb-8 mt-8"><strong>Best Seller</strong></h1>
                         <div className="row row-cols-1 row-cols-md-3 g-4">
@@ -159,7 +159,7 @@ const Home = () => {
                         </div>
                     </div>
                 </footer>
-            </div>    
+            </div>
         </App>
     );
 };

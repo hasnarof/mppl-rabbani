@@ -17,7 +17,8 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('nama');
             $table->longText('detail');
-            $table->enum('kategori_pakaian', ['Atasan', 'Bawahan', 'Dress', 'Kerudung', 'Mukena']);
+            // $table->enum('kategori_pakaian', ['Atasan', 'Bawahan', 'Dress', 'Kerudung', 'Mukena','Clothing']);
+            $table->string('kategori_pakaian');
             $table->enum('kategori_gender', ['Women', 'Men', 'Universal']);
             $table->boolean('is_best_seller')->default(0);
             $table->timestamps();
