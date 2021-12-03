@@ -7,6 +7,11 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+//background color
+.background-color{
+    background: #FFF4FD;
+}
+
 // DAFTAR PRODUK
 #daftar-produk .row{
     margin-top: 2% !important;
@@ -142,7 +147,8 @@
     top:0;
     right: 0;
     background-color: burlywood;
-    width: 20px;
+    width: 1000px;
+    margin-top: 8px;
 }
 
 // page Home start
@@ -207,16 +213,16 @@
 
 //footer 
 #footer {
-    background: #7D34E3;
+    background: #D93081;
     padding: 0 0 30px 0;
     color:black;
     font-size: 14px;
   }
   
   #footer .footer-top {
-    background: #fff;
-    border-top: 1px solid #FA2F86;
-    border-bottom: 1px solid #FA2F86;
+    background: #FFF4FD;  
+    border-top: 1px solid #D93081;
+    border-bottom: 1px solid #D93081;
     padding: 60px 0 30px 0;
   }
   
@@ -241,10 +247,10 @@
     color: #0c0b09;
   }
   
-  #footer .footer-top .social-links a {
+  #footer .footer-top .social-links a button{
     font-size: 18px;
     display: inline-block;
-    background: #FA2F86;
+    background: #D93081;
     color: #fff;
     line-height: 1;
     padding: 8px 0;
@@ -256,8 +262,8 @@
     transition: 0.3s;
   }
   
-  #footer .footer-top .social-links a:hover {
-    background: #FA2F86;
+  #footer .footer-top .social-links a button:hover {
+    background: #D93081;
     color: #0c0b09;
     text-decoration: none;
   }
@@ -282,7 +288,7 @@
   
   #footer .footer-top .footer-links ul i {
     padding-right: 2px;
-    color: #FA2F86;
+    color: #D93081;
     font-size: 18px;
     line-height: 1;
   }
@@ -305,7 +311,7 @@
   }
   
   #footer .footer-top .footer-links ul a:hover {
-    color: #FA2F86;
+    color: #D93081;
   }
   
   #footer .footer-top .footer-newsletter form {
