@@ -49,7 +49,7 @@ const Home = () => {
                                 <div id="home-best-seller" className="col">
                                     <div className="card  mx-auto">
                                         <a href={`/product/${item.id}`} >
-                                            <img src={`/storage/app/public/products/CLOTHING/${item.image}`} className="card-img-top" alt="img"></img>
+                                            <img src={`/storage/${item.image}`} className="card-img-top" alt="img"></img>
                                         </a>
                                         <div className="card-body">
                                             <h5 className="card-title">{item.nama}</h5>
