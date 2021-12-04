@@ -68,11 +68,6 @@ const ProductDetail = (props) => {
                                 </div>
                                 <div className="col-9">
                                     <p className="text">{item.user.name}</p>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
                                     <Rating readonly initialRating={item.rating}
                                         emptySymbol=// <FontAwesomeIcon icon="fa-solid fa-star-sharp" /> // <span className="fa fa-star"></span> //{[1, 2, 3, 4, 5].map((n) => (
                                         // "far fa-star"

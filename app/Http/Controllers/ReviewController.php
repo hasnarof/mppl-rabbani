@@ -37,4 +37,15 @@ class ReviewController extends Controller
         $alert = ['type'=>'success','message' => 'Successfully created new review.'];
         return redirect('product/'.$request['product_id'])->with($alert);
     }
+
+    public function reviews($product_id)
+    {
+        $product = Product::with('reviews.user')->find($product_id);
+        $product->colors = $product->productDetailsByColor();
+        $product->sizes = $product->productDetailsBySize();
+        // $reviews = Review::where('product_id',$product_id)->get();
+        return Inertia::render('Review/Reviews', [
+            'product'=>$product,
+        ]);
+    }
 }
