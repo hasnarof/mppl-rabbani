@@ -1,12 +1,15 @@
 import React from 'react';
 import { usePage } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingCart, faBell } from '@fortawesome/free-solid-svg-icons'
 
 
 
 //navbar page home
-const Navbar = () => {
+const Navbar = (props) => {
     const { auth, csrfToken } = usePage().props;
+    const {setCartOpen} = props;
 
     const handleSubmit=()=>{
         console.log('helo');
@@ -39,6 +42,12 @@ const Navbar = () => {
                         </ul>
 
                         {/* <!-- Right Side Of Navbar --> */}
+                        <a href="/notifications">
+                            <FontAwesomeIcon icon={faBell} size="lg" className="m-2"></FontAwesomeIcon>
+                        </a>
+                        <a href="#">
+                            <FontAwesomeIcon icon={faShoppingCart} size="lg" className="m-2" onClick={()=>setCartOpen(true)}></FontAwesomeIcon>
+                        </a>
                         <ul id="btn-login-regis" className="">
                             {/* <!-- Authentication Links masih belommmm --> */}
                             {auth.user == null ?

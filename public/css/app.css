@@ -11497,10 +11497,8 @@ textarea.form-control-lg {
   position: absolute;
   z-index: 100;
   top: 100px;
-  right: 0;
-  background-color: burlywood;
-  width: 10px;
-  margin-top: 8px;
+  right: 30px;
+  width: 900px;
 }
 
 #carouselExampleInterval {

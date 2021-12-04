@@ -21,6 +21,7 @@ const App =(props)=> {
 
     const [cartItems, setCartItems] = useStickyState([], "cartItems");
     const [totalPrice, setTotalPrice] = useStickyState(0, "totalPrice");
+    const [isCartOpen, setCartOpen] = useState(false);
     const { alert } = usePage().props;
 
     const onAdd = (product, productColor, productSize) => {
@@ -69,10 +70,10 @@ const App =(props)=> {
     return (
     <>
     <div>
-        <Navbar></Navbar>
+        <Navbar setCartOpen={setCartOpen}></Navbar>
         <div style={{paddingTop: '100px'}}>
 
-                <Basket cartItems={cartItems} totalPrice={totalPrice} onAdd={onAdd} onRemove={onRemove}></Basket>
+                {isCartOpen && <Basket cartItems={cartItems} totalPrice={totalPrice} onAdd={onAdd} onRemove={onRemove} setCartOpen={setCartOpen}></Basket>}
             </div>
             {alert && <div className="container"><div className={`alert alert-${alert.type} alert-dismissible fade show`} role="alert">
                 {alert.message}
