@@ -12,6 +12,20 @@
     background: #FFF4FD;
 }
 
+#btn-logout .dropdown-item {
+    background-color: #fff;
+    color: #D93081;
+    width: 100%;
+    border-color: #D93081;
+    // border-radius: 20px;
+}
+
+#btn-logout .dropdown-item:hover {
+    background-color: #D93081;
+    color: #fff;
+    border-color: #D93081;
+}
+
 // LOGIN 
 #login .image{
     margin-top: -6%;
@@ -139,6 +153,27 @@
     color: white;
     text-align: center;
     font-weight: 500;
+}
+
+#daftar-produk #search-addon a button {
+    font-size: 18px;
+    display: inline-block;
+    background: #D93081;
+    color: #fff;
+    line-height: 1;
+    padding: 8px 0;
+    margin-right: 4px;
+    border-radius: 50%;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+}
+
+#daftar-produk #search-addon a button {
+    background: #D93081;
+    color: #0c0b09;
+    text-decoration: none;
 }
 
 // DETAIL PRODUK

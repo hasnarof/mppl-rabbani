@@ -18,7 +18,7 @@ class ProductSeeder extends Seeder
         $dt = date('Y-m-d H:i:s', $dt);
 
         $id = DB::table('products')->insertGetId([
-            'nama'=>'Kerudung Instan Zerena',
+            'nama'=>'Zerena Instan',
             'detail'=>
             'Material<br>
             - Bahan HYGET POLOS<br>

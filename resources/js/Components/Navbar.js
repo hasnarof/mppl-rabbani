@@ -56,7 +56,7 @@ const Navbar = () => {
                                     {auth.user.name}
                                 </a>
 
-                                <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div id="btn-logout" className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a onClick={handleSubmit} href="#" className="dropdown-item">
                                     Logout
                                     </a>

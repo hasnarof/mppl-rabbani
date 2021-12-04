@@ -1,6 +1,9 @@
 import React from 'react';
 import App from '../../Layouts/App';
 import { usePage } from '@inertiajs/inertia-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 const Products = () => {
     const { new_arrivals, all_products } = usePage().props;
@@ -89,9 +92,13 @@ const Products = () => {
                             <div className="input-group rounded">
                                 <input type="search" className="form-control rounded-pill search" placeholder="Search" aria-label="Search"
                                 aria-describedby="search-addon" />
-                                <span className="input-group-text border-0" id="search-addon">
-                                    <i className="fas fa-search"></i>
-                                </span>
+                                <div className="ms-1" id="search-addon"> 
+                                    <a href="#" class="search">
+                                        <button>
+                                            <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
+                                        </button>
+                                    </a>
+                                </div>    
                             </div>
 
                             <h1 className="mt-4">New Arrivals</h1>
@@ -130,6 +137,76 @@ const Products = () => {
                         </div>
                     </div>
                 </div>
+                
+                <footer id="footer">
+                    <div class="footer-top">
+                        <div class="container">
+                            <div class="row">
+
+                            <div class="col-lg-3 col-md-6">
+                                <div class="footer-info">
+                                <h3><b>Rabbani Mall</b></h3>
+                                <p>
+                                    Keputih Street <br></br>
+                                    Surabaya, Indonesia<br></br><br></br>
+                                    <strong>Phone:</strong> +62 8775 5775 223<br></br>
+                                    <strong>Email:</strong> rabbanimall@gmail.com<br></br>
+                                </p>
+                                <div class="social-links mt-3">
+                                    <a href="#" class="twitter">
+                                        <button>
+                                            <FontAwesomeIcon icon={faTwitter}></FontAwesomeIcon>
+                                        </button>
+                                    </a>
+                                    <a href="#" class="facebook">
+                                        <button>
+                                            <FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon>
+                                        </button>
+                                    </a>
+                                    <a href="#" class="instagram">
+                                        <button>
+                                            <FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon>
+                                        </button>
+                                    </a>
+                                    <a href="#" class="linkedin">
+                                        <button>
+                                            <FontAwesomeIcon icon={faLinkedin}></FontAwesomeIcon>
+                                        </button>
+                                    </a>
+                                </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2 col-md-6 footer-links">
+                                <h4>INFORMATION</h4>
+                                <ul>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Contact Us</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">FAQ</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">How to Order</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">How to Pay</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6 footer-links">
+                                <h4>Our Products</h4>
+                                <ul>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Clothing</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Hijab</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Pashmina</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 footer-newsletter">
+                                <h4>ABOUT US</h4>
+                                <p>Founded in 1994, Rabbani comes with a variety of kind and sweet colors as a characteristic of Muslim women who always spread kindness. Rabbaners always inspires us to present a comfortable hijab daily and many color choices that can express Rabbaners days.</p>
+
+                                <p>Express your day with Rabbani colors</p>
+                            </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </footer>
             </div>
         </App>
 
