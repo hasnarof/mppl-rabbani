@@ -11290,6 +11290,60 @@ textarea.form-control-lg {
   background: #FFF4FD;
 }
 
+#login .image {
+  margin-top: -6%;
+}
+
+#login .center-left {
+  position: absolute;
+  top: 250px;
+  left: 100px;
+}
+
+#login .center-left .center {
+  left: 50px;
+}
+
+#login .form-group {
+  width: 400px;
+  margin-top: 8px;
+}
+
+#login #button-login .btn-primary {
+  margin-top: 4px;
+  background-color: #D93081;
+  color: #fff;
+  width: 100%;
+  border-color: #D93081;
+  border-radius: 20px;
+}
+
+#login #button-login .btn-primary:hover {
+  background-color: #fff;
+  color: #D93081;
+  border-color: #D93081;
+}
+
+#login #button-link {
+  color: #D93081;
+  margin-left: 125px;
+}
+
+#app #button .btn-primary {
+  border-color: #D93081;
+  background: #D93081;
+  color: white;
+  text-align: center;
+  font-weight: 500;
+  width: 100px;
+}
+
+#app #button .btn-primary:hover {
+  background-color: #fff;
+  color: #D93081;
+  border-color: #D93081;
+}
+
 #daftar-produk .row {
   margin-top: 2% !important;
   margin-bottom: 2%;

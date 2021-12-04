@@ -29,7 +29,7 @@ const Navbar = () => {
                         <ul id="btn-login-regis" class="navbar-nav ml-auto">
                             {/* <!-- Authentication Links masih belommmm --> */}
                             <li class="nav-item">
-                                <a class="nav-link btn btn-primary mx-2 rounded-pill w-" href="/login">Login</a>
+                                <a class="nav-link btn btn-primary mx-2 rounded-pill" href="/login">Login</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link btn btn-primary rounded-pill" href="/register">Register</a>

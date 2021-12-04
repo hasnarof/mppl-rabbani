@@ -12513,7 +12513,7 @@ var Navbar = function Navbar() {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
               "class": "nav-item",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-                "class": "nav-link btn btn-primary mx-2 rounded-pill w-",
+                "class": "nav-link btn btn-primary mx-2 rounded-pill",
                 href: "/login",
                 children: "Login"
               })
@@ -13091,7 +13091,7 @@ var Home = function Home() {
             children: "Best Seller"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: "row row-cols-1 row-cols-md-3 g-4",
+          className: "row row-cols-1 row-cols-md-4 g-4",
           children: products.data.map(function (item, index) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               id: "home-best-seller",
@@ -13142,7 +13142,7 @@ var Home = function Home() {
             children: "Best Seller"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: "row row-cols-1 row-cols-md-3 g-4",
+          className: "row row-cols-1 row-cols-md-4 g-4",
           children: products.data.map(function (item, index) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               id: "home-best-seller",
