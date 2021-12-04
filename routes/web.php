@@ -50,6 +50,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('test_notify', [NotificationController::class, 'testNotify']);
     Route::get('notifications', [NotificationController::class, 'viewUserNotifications']);
+    Route::post('/read_notification', [NotificationController::class, 'readNotification']);
 
 
 });
