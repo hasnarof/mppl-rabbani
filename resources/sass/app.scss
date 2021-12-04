@@ -148,6 +148,9 @@
     padding-top: 1%;
     padding-bottom: 1%;
 }
+#daftar-transaksi .card{
+    padding: 30px;
+}
 #daftar-transaksi h1{
     font-weight: 600;
     color: #D93081;
@@ -162,6 +165,51 @@
     color: #D93081;
     background-color: #ffffff;
     border-color: #D93081;
+}
+
+// DETAIL TRANSAKSI
+#detail-transaksi {
+    margin-bottom: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+#detail-transaksi .card{
+    padding: 10px;
+    margin: 10px;
+}
+#detail-transaksi h1{
+    font-weight: 600;
+    color: #D93081;
+}
+#detail-transaksi .col-3 .address{
+    margin-top: 10px;
+}
+#detail-transaksi .col-3 .address h4,
+#detail-transaksi .col-8 h4,
+#detail-transaksi .col-8 thead th{
+    font-weight: 600;
+    font-size: 18px;
+}
+#detail-transaksi .col-8 .status-order{
+    margin: 10px;
+    padding: 20px;
+}
+#detail-transaksi .col-8 .status-order span{
+    font-weight: 600;
+    font-size: 18px;
+    color: #D93081;
+}
+#detail-transaksi .col-3 .address p,
+#detail-transaksi td{
+    font-size: 16px;
+}
+#detail-transaksi .bukti-bayar button{
+    background-color: #D93081;
+    color: #fff;
+    border-color: #D93081;
+    margin-top: 20px;
+    padding: 5px;
+    width: 100px;
 }
 
 // Daftar Testimonial
@@ -180,15 +228,23 @@
 }
 #testimonial .col-2 .image {
     border-radius: 50%;
-    width:60px;
+    width:80px;
 }
-#testimonial .col-3 .text{
+#testimonial .col-4 .text{
     font-size: 18px;
     font-weight: 600;
     margin-right: 15px;
 }
-#testimonial .col-3 .rating{
+#testimonial .col-4 .rating{
     padding-top: -20px;
+}
+#testimonial .col-6 p{
+    font-size: 16px;
+}
+@media (min-width: 992px) {
+    #testimonial .col-6 p{
+        margin-left: -6rem !important;
+    }
 }
 
 #basket {

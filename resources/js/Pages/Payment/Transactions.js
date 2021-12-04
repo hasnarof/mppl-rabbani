@@ -28,7 +28,7 @@ const Transactions = () => {
                                 {/* {transactions.map((item, index)=>( */}
                                     <tr>
                                         <td scope="row">5 days ago</td>
-                                        <td>503040.00</td>
+                                        <td>Rp 503040.00</td>
                                         <td>Completed</td>
                                         <td>
                                             <Link href="" className="btn btn-primary rounded-pill">Detail</Link>
@@ -37,7 +37,7 @@ const Transactions = () => {
                                     </tr>
                                     <tr>
                                         <td scope="row">4 days ago</td>
-                                        <td>503040.00</td>
+                                        <td>Rp 503040.00</td>
                                         <td>To Receive</td>
                                         <td>
                                             <Link href="" className="btn btn-primary rounded-pill">Detail</Link>
@@ -46,7 +46,7 @@ const Transactions = () => {
                                     </tr>
                                     <tr>
                                         <td scope="row">3 days ago</td>
-                                        <td>503040.00</td>
+                                        <td>Rp 503040.00</td>
                                         <td>Completed</td>
                                         <td>
                                             <Link href="" className="btn btn-primary rounded-pill">Detail</Link>
