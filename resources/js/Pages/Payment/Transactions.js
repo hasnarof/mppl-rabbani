@@ -9,7 +9,55 @@ const Transactions = () => {
     }
     return (
         <App>
-            <h1>My Order</h1>
+            <div id="daftar-transaksi" className="container card">
+                <h1>My Order</h1>
+                <div className="table-responsive">
+                    <table class="table align-middle">
+                        <thead>
+                            <tr>
+                            <th scope="col">Checkout Date</th>
+                            <th scope="col">Total Cost</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        {/* {transactions.map((item, index)=>( */}
+                            <tr>
+                                <td scope="row">5 days ago</td>
+                                <td>503040.00</td>
+                                <td>Completed</td>
+                                <td>
+                                    <Link href="" className="btn btn-primary rounded-pill">Detail</Link>
+                                    <button className="btn btn-primary rounded-pill">Receive Order</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">4 days ago</td>
+                                <td>503040.00</td>
+                                <td>To Receive</td>
+                                <td>
+                                    <Link href="" className="btn btn-primary rounded-pill">Detail</Link>
+                                    <button className="btn btn-primary rounded-pill">Receive Order</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">3 days ago</td>
+                                <td>503040.00</td>
+                                <td>Completed</td>
+                                <td>
+                                    <Link href="" className="btn btn-primary rounded-pill">Detail</Link>
+                                    <button className="btn btn-primary rounded-pill">Receive Order</button>
+                                </td>
+                            </tr>
+                        {/* ))} */}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            {/* <h1>My Order</h1>
             <table class="table">
                 <thead>
                     <tr>
@@ -34,7 +82,7 @@ const Transactions = () => {
                     ))}
 
                 </tbody>
-            </table>
+            </table> */}
         </App>
     );
 }
