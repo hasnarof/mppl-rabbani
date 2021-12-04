@@ -13360,6 +13360,54 @@ var Home = function Home() {
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Notification/Notifications.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/Pages/Notification/Notifications.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Layouts_App__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Layouts/App */ "./resources/js/Layouts/App.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var Reviews = function Reviews(props) {
+  var notifications = props.notifications;
+  console.log(notifications);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_Layouts_App__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      id: "testimonial",
+      className: "container",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+        children: "My Notifications"
+      }), notifications.map(function (item, index) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "container card shadow",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            className: "row",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+              className: "col-2 text-center",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+                children: item.data['body']
+              })
+            })
+          })
+        });
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Reviews);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Payment/BasketFull.js":
 /*!**************************************************!*\
   !*** ./resources/js/Pages/Payment/BasketFull.js ***!
@@ -86954,6 +87002,8 @@ var map = {
 	"./Admin/Transactions.js": "./resources/js/Pages/Admin/Transactions.js",
 	"./Home": "./resources/js/Pages/Home.js",
 	"./Home.js": "./resources/js/Pages/Home.js",
+	"./Notification/Notifications": "./resources/js/Pages/Notification/Notifications.js",
+	"./Notification/Notifications.js": "./resources/js/Pages/Notification/Notifications.js",
 	"./Payment/BasketFull": "./resources/js/Pages/Payment/BasketFull.js",
 	"./Payment/BasketFull.js": "./resources/js/Pages/Payment/BasketFull.js",
 	"./Payment/TransactionDetail": "./resources/js/Pages/Payment/TransactionDetail.js",

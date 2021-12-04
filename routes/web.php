@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\Admin\AdminTransactionController;
-use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('product/{product_id}/reviews', [ReviewController::class, 'reviews']);
     Route::get('create_review/{product_id}', [ReviewController::class, 'create']);
     Route::post('create_review/{product_id}', [ReviewController::class, 'store']);
+
+    Route::get('test_notify', [NotificationController::class, 'testNotify']);
+    Route::get('notifications', [NotificationController::class, 'viewUserNotifications']);
 
 
 });
