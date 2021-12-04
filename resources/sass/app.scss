@@ -136,6 +136,29 @@
     }
 }
 
+// DAFTAR TRANSAKSI
+#daftar-transaksi {
+    margin-top: 2% !important;
+    margin-bottom: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+#daftar-transaksi h1{
+    font-weight: 600;
+    color: #D93081;
+}
+#daftar-transaksi .btn{
+    color: #ffffff;
+    background-color: #D93081;
+    margin: 20px 10px 20px 10px;
+    border-color: #D93081;
+}
+#daftar-transaksi .btn:hover{
+    color: #D93081;
+    background-color: #ffffff;
+    border-color: #D93081;
+}
+
 #basket {
     position: absolute;
     z-index: 100;
