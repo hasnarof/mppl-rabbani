@@ -68,6 +68,43 @@
     border-color: #D93081;
 }
 
+//REGISTER
+#button-register .btn-primary{
+    margin-top: 4px;
+    background-color: #D93081;
+    color: #fff;
+    width: 25%;
+    border-color: #D93081;
+    border-radius: 20px;
+}
+
+#button-register .btn-primary:hover{
+    background-color: #fff;
+    color: #D93081;
+    border-color: #D93081;
+}
+
+#btn-link-register {
+    margin-left: 33%;
+    margin-top: 1%;
+}
+
+//FORGOT PASSWORD
+#btn-reset-pass .btn-primary{
+    margin-top: 4px;
+    background-color: #D93081;
+    color: #fff;
+    width: 50%;
+    border-color: #D93081;
+    border-radius: 20px;
+}
+
+#btn-reset-pass .btn-primary:hover{
+    background-color: #fff;
+    color: #D93081;
+    border-color: #D93081;
+}
+
 // DAFTAR PRODUK
 #daftar-produk .row{
     margin-top: 2%;

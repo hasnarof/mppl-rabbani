@@ -68,7 +68,7 @@ const App =(props)=> {
 
     return (
     <>
-    <div>
+    <div className="background-color">
         <Navbar></Navbar>
         <div style={{paddingTop: '100px'}}>
 
