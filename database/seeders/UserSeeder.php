@@ -38,7 +38,7 @@ class UserSeeder extends Seeder
                 'password'=>Hash::make('hasnacantik123'),
                 'role'=>'user',
                 'phone_number'=>'081234345656',
-                'avatar'=>'avatar/2.jpg',
+                'avatar'=>'avatars/2.jpg',
                 'resipient_address'=>'Jl. Kembang Sepatu No. 1',
                 'resipient_country'=>'Indonesia',
                 'resipient_province'=>'Jawa Barat',
@@ -47,9 +47,7 @@ class UserSeeder extends Seeder
                 'resipient_postal_code'=>'16418',
                 'created_at'=>now(),
 
-            ]
-        ];
-        $users = [
+            ],
             [
                 'name'=> 'Muthia Qurrota Akyun',
                 'username'=>'ayu.muth',
@@ -58,7 +56,7 @@ class UserSeeder extends Seeder
                 'password'=>Hash::make('muthiacantik123'),
                 'role'=>'user',
                 'phone_number'=>'081234345656',
-                'avatar'=>'avatar/3.jpg',
+                'avatar'=>'avatars/3.jpg',
                 'resipient_address'=>'Jl. Kembang Sepatu No. 1',
                 'resipient_country'=>'Indonesia',
                 'resipient_province'=>'Jawa Timur',

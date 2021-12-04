@@ -38,12 +38,14 @@ class ProductController extends Controller
 
     public function productDetail($id)
     {
-        // $product = Product::with('productDetails','reviews.user')->find($id);
-
-        // dd($product);
+        $product = Product::with('productDetails','reviews.user')->find($id);
+        $product->colors = $product->productDetailsByColor();
+        $product->sizes = $product->productDetailsBySize();
         return Inertia::render('Product/ProductDetail',[
-                'product'=>$response['data'],
+                'product'=>$product,
         ]);
+
+        // punya krisna
         $response = $this->repository->findOne($id);
         dd($response);
         if ($response['success'] !== false) {
