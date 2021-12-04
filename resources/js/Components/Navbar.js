@@ -49,7 +49,7 @@ const Navbar = (props) => {
                             <FontAwesomeIcon icon={faShoppingCart} size="lg" className="m-2" onClick={()=>setCartOpen(true)}></FontAwesomeIcon>
                         </a>
                         <ul id="btn-login-regis" className="">
-                            {/* <!-- Authentication Links masih belommmm --> */}
+                            {/* <!-- Authentication Links --> */}
                             {auth.user == null ?
                             <div className="navbar-nav me-auto">
                                 <li className="nav-item">
@@ -65,7 +65,7 @@ const Navbar = (props) => {
                                     {auth.user.name}
                                 </a>
 
-                                <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div id="btn-logout" className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a onClick={handleSubmit} href="#" className="dropdown-item">
                                     Logout
                                     </a>

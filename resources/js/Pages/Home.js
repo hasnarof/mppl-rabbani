@@ -99,8 +99,8 @@ const Home = () => {
                                 <p>
                                     Keputih Street <br></br>
                                     Surabaya, Indonesia<br></br><br></br>
-                                    <strong>Phone:</strong> +1 5589 55488 55<br></br>
-                                    <strong>Email:</strong> hektofurniture@gmail.com<br></br>
+                                    <strong>Phone:</strong> +62 8775 5775 223<br></br>
+                                    <strong>Email:</strong> rabbanimall@gmail.com<br></br>
                                 </p>
                                 <div class="social-links mt-3">
                                     <a href="#" class="twitter">
