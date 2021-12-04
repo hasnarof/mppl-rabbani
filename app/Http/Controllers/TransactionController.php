@@ -124,7 +124,7 @@ class TransactionController extends Controller
 
         if ($response['success'] !== false) {
             return redirect()->route(
-                'transaction', ['id' => 1])->with(
+                'transaction', ['id' => $request['transactionId']])->with(
                     'alert',
                     [
                         'type' => 'success',

@@ -27,35 +27,35 @@ const Transactions = () => {
                                 </thead>
                                 <tbody>
 
-                                {/* {transactions.map((item, index)=>( */}
+                                {transactions.data.map((item, index)=>(
                                     <tr>
-                                        <td scope="row">5 days ago</td>
-                                        <td>Rp 503040.00</td>
-                                        <td>Completed</td>
+                                        <td scope="row">{item.created_at}</td>
+                                        <td>Rp {(item.total_harga/1000).toFixed(3)}</td>
+                                        <td>{item.status_transaksi}</td>
                                         <td>
-                                            <Link href="" className="btn btn-primary rounded-pill">Detail</Link>
-                                            <button className="btn btn-primary rounded-pill">Receive Order</button>
+                                            <Link href={`/transaction/${item.id}`} className="btn btn-primary rounded-pill">Detail Transaction</Link>
+                                            {item.status_transaksi == 'To Receive' && <button className="btn btn-primary rounded-pill" onClick={()=>{receiveOrder(item.id)}}>Receive Order</button>}
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td scope="row">4 days ago</td>
-                                        <td>Rp 503040.00</td>
-                                        <td>To Receive</td>
-                                        <td>
-                                            <Link href="" className="btn btn-primary rounded-pill">Detail</Link>
-                                            <button className="btn btn-primary rounded-pill">Receive Order</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td scope="row">3 days ago</td>
-                                        <td>Rp 503040.00</td>
-                                        <td>Completed</td>
-                                        <td>
-                                            <Link href="" className="btn btn-primary rounded-pill">Detail</Link>
-                                            <button className="btn btn-primary rounded-pill">Receive Order</button>
-                                        </td>
-                                    </tr>
-                                {/* ))} */}
+                                    // <tr>
+                                    //     <td scope="row">4 days ago</td>
+                                    //     <td>Rp 503040.00</td>
+                                    //     <td>To Receive</td>
+                                    //     <td>
+                                    //         <Link href="" className="btn btn-primary rounded-pill">Detail</Link>
+                                    //         <button className="btn btn-primary rounded-pill">Receive Order</button>
+                                    //     </td>
+                                    // </tr>
+                                    // <tr>
+                                    //     <td scope="row">3 days ago</td>
+                                    //     <td>Rp 503040.00</td>
+                                    //     <td>Completed</td>
+                                    //     <td>
+                                    //         <Link href="" className="btn btn-primary rounded-pill">Detail</Link>
+                                    //         <button className="btn btn-primary rounded-pill">Receive Order</button>
+                                    //     </td>
+                                    // </tr>
+                                ))}
                                 </tbody>
                             </table>
                         </div>

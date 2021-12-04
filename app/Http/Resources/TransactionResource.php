@@ -15,6 +15,7 @@ class TransactionResource extends JsonResource
             'status_transaksi' => $this->status_transaksi,
             'bukti_pembayaran' => $this->bukti_pembayaran,
             'kode_voucher' => $this->kode_voucher,
+            'kurir' => $this->kurir,
             'jenis_pengiriman' => $this->jenis_pengiriman,
             'jenis_pembayaran' => $this->jenis_pembayaran,
             'transaction_details' => TransactionDetailResource::collection($this->whenLoaded('transactionDetails')),
