@@ -7,8 +7,6 @@ import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/fre
 const Home = () => {
     const { products } = usePage().props;
 
-    console.log(products);
-
     return (
         <App>
             <React.Fragment>

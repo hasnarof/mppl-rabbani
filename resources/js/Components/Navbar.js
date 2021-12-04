@@ -1,7 +1,20 @@
 import React from 'react';
+import { usePage } from '@inertiajs/inertia-react';
+import { Inertia } from '@inertiajs/inertia';
+
+
 
 //navbar page home
 const Navbar = () => {
+    const { auth, csrfToken } = usePage().props;
+
+    const handleSubmit=()=>{
+        console.log('helo');
+        Inertia.post('/logout', {
+            _token: csrfToken,
+        })
+    }
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light shadow-sm p-3 mb-5 bg-body rounded fixed-top">
@@ -20,23 +33,39 @@ const Navbar = () => {
                             <li className="nav-item">
                                 <a className="nav-link" href="/products">EXPLORE</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">TRANSACTION</a>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#">TRANSACTION</a>
                             </li>
                         </ul>
 
                         {/* <!-- Right Side Of Navbar --> */}
-                        <ul id="btn-login-regis" class="navbar-nav ml-auto">
+                        <ul id="btn-login-regis" className="">
                             {/* <!-- Authentication Links masih belommmm --> */}
-                            <li class="nav-item">
-                                <a class="nav-link btn btn-primary mx-2 rounded-pill w-" href="/login">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link btn btn-primary rounded-pill" href="/register">Register</a>
-                            </li>
+                            {auth.user == null ?
+                            <div className="navbar-nav me-auto">
+                                <li className="nav-item">
+                                    <a className="nav-link btn btn-primary mx-2 rounded-pill" href="/login">Login</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link btn btn-primary rounded-pill" href="/register">Register</a>
+                                </li>
+                            </div>
+                            :
+                            <div className="nav-item dropdown">
+                                <a id="navbarDropdown" className="nav-link text-reset dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                                    {auth.user.name}
+                                </a>
+
+                                <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a onClick={handleSubmit} href="#" className="dropdown-item">
+                                    Logout
+                                    </a>
+                                </div>
+                            </div>
+                            }
                         </ul>
                     </div>
-                </div> 
+                </div>
             </nav>
         </div>
     );
