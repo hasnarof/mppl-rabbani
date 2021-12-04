@@ -38,12 +38,33 @@ class UserSeeder extends Seeder
                 'password'=>Hash::make('hasnacantik123'),
                 'role'=>'user',
                 'phone_number'=>'081234345656',
+                'avatar'=>'avatar/2.jpg',
                 'resipient_address'=>'Jl. Kembang Sepatu No. 1',
                 'resipient_country'=>'Indonesia',
                 'resipient_province'=>'Jawa Barat',
                 'resipient_city_id'=>115,
                 'resipient_city'=>'Depok',
                 'resipient_postal_code'=>'16418',
+                'created_at'=>now(),
+
+            ]
+        ];
+        $users = [
+            [
+                'name'=> 'Muthia Qurrota Akyun',
+                'username'=>'ayu.muth',
+                'email'=>'ayu.muth@gmail.com',
+                'email_verified_at'=>now(),
+                'password'=>Hash::make('muthiacantik123'),
+                'role'=>'user',
+                'phone_number'=>'081234345656',
+                'avatar'=>'avatar/3.jpg',
+                'resipient_address'=>'Jl. Kembang Sepatu No. 1',
+                'resipient_country'=>'Indonesia',
+                'resipient_province'=>'Jawa Timur',
+                'resipient_city_id'=>409,
+                'resipient_city'=>'Sidoarjo',
+                'resipient_postal_code'=>'61219',
                 'created_at'=>now(),
 
             ]

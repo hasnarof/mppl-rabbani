@@ -43,7 +43,7 @@ class ProductRepository extends Repository
     public function findOne($id)
     {
         try {
-            $data = $this->model->with('productDetails')->find($id);
+            $data = $this->model->with('productDetails','reviews.user')->find($id);
             $data->colors = $this->productDetailsByColor($id);
             $data->sizes = $this->productDetailsBySize($id);
             return ['success' => true, 'data' => $data];

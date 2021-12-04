@@ -70,14 +70,18 @@ const App =(props)=> {
     <>
     <div>
         <Navbar></Navbar>
-        <Basket cartItems={cartItems} totalPrice={totalPrice} onAdd={onAdd} onRemove={onRemove}></Basket>
-    </div>
-    {alert && <div className="container"><div className={`alert alert-${alert.type} alert-dismissible fade show`} role="alert">
-        {alert.message}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div></div>}
+        <div style={{paddingTop: '100px'}}>
 
-    <main>{childrenWithProps}</main>
+                <Basket cartItems={cartItems} totalPrice={totalPrice} onAdd={onAdd} onRemove={onRemove}></Basket>
+            </div>
+            {alert && <div className="container"><div className={`alert alert-${alert.type} alert-dismissible fade show`} role="alert">
+                {alert.message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div></div>}
+
+            <main>{childrenWithProps}</main>
+
+        </div>
     </>
     )
 }
