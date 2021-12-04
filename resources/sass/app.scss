@@ -14,7 +14,7 @@
 
 // DAFTAR PRODUK
 #daftar-produk .row{
-    margin-top: 2% !important;
+    margin-top: 2%;
     margin-bottom: 2%;
 }
 #daftar-produk .row .search{
@@ -164,6 +164,33 @@
     border-color: #D93081;
 }
 
+// Daftar Testimonial 
+#testimonial {
+    margin-top: 2% !important;
+    margin-bottom: 2%;
+}
+#testimonial h1{
+    font-weight: 600;
+    color: #D93081;
+}
+#testimonial .card{
+    padding: 30px 20px 30px 20px;
+    background-color: #fff;
+    margin-top: 20px;
+}
+#testimonial .col-2 .image {
+    border-radius: 50%;
+    width:60px;
+}
+#testimonial .col-3 .text{
+    font-size: 18px;
+    font-weight: 600;
+    margin-right: 15px;
+}
+#testimonial .col-3 .rating{
+    padding-top: -20px;
+}
+
 #basket {
     position: absolute;
     z-index: 100;
@@ -197,8 +224,21 @@
     color: #D93081;
     border-color: #D93081;
 }
+#home-best-seller .card h5{
+    color: #D93081;
+    text-align: center;
+    font-weight: 600;
+    font-size: large;
+}
+#home-best-seller .card p{
+    text-align: center;
+    font-weight: 600;
+}
+#home-best-seller .card .center{
+    text-align: center;
+}
 
-.center{
+.container .center{
     text-align: center;
 }
 
