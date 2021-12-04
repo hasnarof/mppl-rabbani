@@ -1,4 +1,4 @@
 # *
-avatars/
+# public/avatars
 public/payments
 !.gitignore

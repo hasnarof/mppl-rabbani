@@ -7,8 +7,6 @@ import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/fre
 const Home = () => {
     const { products } = usePage().props;
 
-    console.log(products);
-
     return (
         <App>
             <React.Fragment>
@@ -53,7 +51,7 @@ const Home = () => {
                                         </a>
                                         <div className="card-body">
                                             <h5 className="card-title">{item.nama}</h5>
-                                            <p className="card-text">{item.harga}</p>
+                                            {<p className="card-text">Rp {item.harga}</p>}
                                         </div>
                                     </div>
                                 </div>
@@ -79,7 +77,7 @@ const Home = () => {
                                         </a>
                                         <div className="card-body center">
                                             <h5 className="card-title">{item.nama}</h5>
-                                            <p className="card-text">{item.harga}</p>
+                                            {<p className="card-text">Rp {item.harga}</p>}
                                         </div>
                                     </div>
                                 </div>
