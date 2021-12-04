@@ -14,7 +14,7 @@ const Reviews = (props) => {
                                     <div className="col-2 text-center">
                                         <img src={`/storage/${item.user.avatar}`} alt="Avatar" className="image"></img>
                                     </div>
-                                    <div className="col-3">
+                                    <div className="col-4">
                                         <p className="text">{item.user.name}</p>
                                         <div className="rating">
                                             <Rating readonly initialRating={item.rating}

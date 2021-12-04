@@ -104,9 +104,9 @@ const Products = () => {
                                     </a>
                                     <div className="card-body">
                                         <h5 className="card-title">{item.nama}</h5>
-                                        <p className="card-text">{item.harga}</p>
+                                        {<p className="card-text">Rp {item.harga}</p>}
                                     </div>
-                                    </div>
+                                </div>
                                 </div> 
                                 ))}
                             </div>
@@ -121,7 +121,7 @@ const Products = () => {
                                     </a>
                                     <div className="card-body">
                                         <h5 className="card-title">{item.nama}</h5>
-                                        <p className="card-text">{item.harga}</p>
+                                        {<p className="card-text">Rp {item.harga}</p>}
                                     </div>
                                     </div>
                                 </div>

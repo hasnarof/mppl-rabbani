@@ -24,7 +24,7 @@ const ProductDetail = (props) => {
                             <p className="back">Back</p>
                         </div>
                         <h1>{product.nama}</h1>
-                        <h2>{product.product_details[0].harga}</h2>
+                        {<h2>Rp {product.product_details[0].harga}</h2>}
                         <div className="info">
                             <h3>Detail Produk</h3>
                             <p dangerouslySetInnerHTML={{ __html: product.detail }}></p>
