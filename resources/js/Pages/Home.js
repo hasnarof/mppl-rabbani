@@ -42,7 +42,7 @@ const Home = () => {
             <div className="background-color">
                 <div className="container">
                     <h1 id="bestseller" className="mb-8 mt-8"><strong>Best Seller</strong></h1>
-                        <div className="row row-cols-1 row-cols-md-3 g-4">
+                        <div className="row row-cols-1 row-cols-md-4 g-4">
                             {products.data.map((item, index)=> (
                                 <div id="home-best-seller" className="col">
                                     <div className="card  mx-auto">
@@ -68,7 +68,7 @@ const Home = () => {
 
                 <div className="container">
                     <h1 id="bestseller" className="mb-8 mt-8"><strong>Best Seller</strong></h1>
-                        <div className="row row-cols-1 row-cols-md-3 g-4">
+                        <div className="row row-cols-1 row-cols-md-4 g-4">
                             {products.data.map((item, index)=> (
                                 <div id="home-best-seller" className="col">
                                     <div className="card  mx-auto">

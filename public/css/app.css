@@ -11291,7 +11291,7 @@ textarea.form-control-lg {
 }
 
 #daftar-produk .row {
-  margin-top: 2% !important;
+  margin-top: 2%;
   margin-bottom: 2%;
 }
 
@@ -11462,6 +11462,37 @@ textarea.form-control-lg {
   border-color: #D93081;
 }
 
+#testimonial {
+  margin-top: 2% !important;
+  margin-bottom: 2%;
+}
+
+#testimonial h1, #testimonial .h1 {
+  font-weight: 600;
+  color: #D93081;
+}
+
+#testimonial .card {
+  padding: 30px 20px 30px 20px;
+  background-color: #fff;
+  margin-top: 20px;
+}
+
+#testimonial .col-2 .image {
+  border-radius: 50%;
+  width: 60px;
+}
+
+#testimonial .col-3 .text {
+  font-size: 18px;
+  font-weight: 600;
+  margin-right: 15px;
+}
+
+#testimonial .col-3 .rating {
+  padding-top: -20px;
+}
+
 #basket {
   position: absolute;
   z-index: 100;
@@ -11496,7 +11527,23 @@ textarea.form-control-lg {
   border-color: #D93081;
 }
 
-.center {
+#home-best-seller .card h5, #home-best-seller .card .h5 {
+  color: #D93081;
+  text-align: center;
+  font-weight: 600;
+  font-size: large;
+}
+
+#home-best-seller .card p {
+  text-align: center;
+  font-weight: 600;
+}
+
+#home-best-seller .card .center {
+  text-align: center;
+}
+
+.container .center {
   text-align: center;
 }
 
