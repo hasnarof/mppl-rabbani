@@ -40,7 +40,7 @@ const Navbar = () => {
 
                         {/* <!-- Right Side Of Navbar --> */}
                         <ul id="btn-login-regis" className="">
-                            {/* <!-- Authentication Links masih belommmm --> */}
+                            {/* <!-- Authentication Links --> */}
                             {auth.user == null ?
                             <div className="navbar-nav me-auto">
                                 <li className="nav-item">
