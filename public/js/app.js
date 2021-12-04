@@ -13096,7 +13096,7 @@ var Home = function Home() {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
                   href: "/product/".concat(item.id),
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-                    src: "/storage/".concat(item.image),
+                    src: "/storage/app/public/products/CLOTHING/".concat(item.image),
                     className: "card-img-top",
                     alt: "img"
                   })
