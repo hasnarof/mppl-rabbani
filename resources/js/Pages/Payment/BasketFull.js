@@ -51,27 +51,119 @@ const BasketFull = (props) => {
     }, [kurir])
     return (
         <App>
-            <div className="container">
-            <h1>Cart</h1>
-                {cartItems.map(item => (
-                    <ul>{item.product.nama}, {item.productColor.warna}, {item.productSize.ukuran} - {item.qty} x {item.productColor.harga}
-                        <RemoveButton className="btn btn-danger" product={item.product} productColor={item.productColor} productSize={item.productSize}>-</RemoveButton>
-                        <AddButton className="btn btn-primary" product={item.product} productColor={item.productColor} productSize={item.productSize}>+</AddButton>
-                    </ul>
-                ))}
-                <p>Total Biaya: Rp{totalPrice}</p>
-                <p>Pilih kurir:</p>
-                <select name="kurir" id="kurir" onChange={ e => changeKurir(e.target.value) }>
-                    <option value="jne">JNE</option>
-                    <option value="tiki">TIKI</option>
-                    <option value="pos">POS Indonesia</option>
-                </select>
-                <p>Lokasi alamat: {auth.user.resipient_address}, {auth.user.resipient_city}, {auth.user.resipient_province} {auth.user.resipient_postal_code}</p>
-                <p>Alamat Rabbani: Bekasi, Jawa Barat</p>
-                <p>Ongkir: Rp{ongkir}</p>
-                <p>Total Biaya dengan Ongkir: Rp{totalPrice + ongkir}</p>
-                <button className="btn btn-primary" onClick={checkout}>Checkout</button>
+            <div id="cart">
+                <div className="container">
+                    <h1>Shopping Cart</h1>
+                    <div className="row">
+                        <div className="card col-8">
+                            <div className="table-responsive">
+                            {/* {cartItems.map(item => ( */}
+                                <table className="table align-middle">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">Product</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div className="form-check">
+                                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
+                                                </div>
+                                            </td>
+                                            <td><img src=""/></td>
+                                            <td>HARAA VOAL</td>
+                                            <td>2</td>
+                                            <td>Rp 70.000</td>
+                                            <td className="text-end">Rp 140.000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div className="form-check">
+                                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
+                                                </div>
+                                            </td>
+                                            <td><img src=""/></td>
+                                            <td>HARAA VOAL</td>
+                                            <td>2</td>
+                                            <td>
+                                                {/* Rp {(item.harga_per_produk/1000).toFixed(3)} */}
+                                            </td >
+                                            <td className="text-end">Rp 140.000</td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td colSpan="4"></td>
+                                            <td>In Total</td>
+                                            <td className="text-end">Rp {totalPrice}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colSpan="4"></td>
+                                            <td>Delivery</td>
+                                            <td className="text-end">Rp {ongkir}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colSpan="4"></td>
+                                            <td>Total Amount</td>
+                                            <td className="text-end">Rp {totalPrice + ongkir}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                {/* ))}  */}
+                            </div>
+                        </div>
+                        <div className="card col-3">
+                            <h3>Order Summary</h3>
+                            <div className="summary">
+                                <h4>Shipping</h4>
+                                <p>
+                                    <select name="kurir" id="kurir" onChange={ e => changeKurir(e.target.value) }>
+                                        <option value="jne">JNE</option>
+                                        <option value="tiki">TIKI</option>
+                                        <option value="pos">POS Indonesia</option>
+                                    </select>
+                                </p>
+                            </div>
+                            <div className="summary">
+                                <h4>Delivery Address</h4>
+                                <p>
+                                    {auth.user.resipient_address}, {auth.user.resipient_city}, {auth.user.resipient_province} {auth.user.resipient_postal_code}
+                                </p>
+                            </div>
+                            <div className="summary">
+                                <h4>Rabbani Address</h4>
+                                <p>
+                                    Bekasi, Jawa Barat
+                                </p>
+                            </div>
+                            <div className="summary">
+                                <h4>Payment Method</h4>
+                                <p>
+                                    <select name="kurir" id="kurir" onChange={ e => changeKurir(e.target.value) }>
+                                        <option value="jne">JNE</option>
+                                        <option value="tiki">TIKI</option>
+                                        <option value="pos">POS Indonesia</option>
+                                    </select>
+                                </p>
+                            </div>
+                            <button className="btn btn-primary rounded-pill" onClick={checkout}>Checkout</button>
+                        </div>
+                    </div>
 
+                    {/* {cartItems.map(item => (
+                        <ul>{item.product.nama}, {item.productColor.warna}, {item.productSize.ukuran} - {item.qty} x {item.productColor.harga}
+                            <RemoveButton className="btn btn-danger" product={item.product} productColor={item.productColor} productSize={item.productSize}>-</RemoveButton>
+                            <AddButton className="btn btn-primary" product={item.product} productColor={item.productColor} productSize={item.productSize}>+</AddButton>
+                        </ul>
+                    ))} */}
+
+                </div>
             </div>
         </App>
     );
