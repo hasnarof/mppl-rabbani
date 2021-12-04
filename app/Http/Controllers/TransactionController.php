@@ -62,8 +62,8 @@ class TransactionController extends Controller
                 'product_detail_id' => $productDetail->id,
                 'jumlah_produk' => $quantity,
                 'harga_per_produk' => $price,
-                'ukuran_produk' => $warna,
-                'variasi_warna' => $ukuran,
+                'ukuran_produk' => $ukuran,
+                'variasi_warna' => $warna,
             ]);
 
             if ($transactionDetailResponse['success'] === false) {
@@ -154,7 +154,7 @@ class TransactionController extends Controller
         $init = new RajaOngkir(false);
         $cost = $init->getCost(55,$kotaPembeli, 1, $kurir); // asal bekasi kota
         // $cost = $init->getCost(55,155, 1, 'pos'); // asal bekasi kota
-        // $cost = array( json_decode($cost) );
+        $cost = array( json_decode($cost) ); // ini jangan di uncomment yah
         $cost = $cost[0]->rajaongkir->results;
         $jenisLayanan = $cost[0]->costs[0]; // ekonomis
         $end = $jenisLayanan->cost[0]->value;

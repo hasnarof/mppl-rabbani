@@ -13401,6 +13401,8 @@ var BasketFull = function BasketFull(props) {
   var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.auth;
 
   var checkout = function checkout() {
+    console.log(ongkir);
+    console.log(kurir);
     _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_5__.Inertia.post('/checkout', {
       cartItems: cartItems,
       ongkir: ongkir,
@@ -13415,6 +13417,7 @@ var BasketFull = function BasketFull(props) {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     setOngkir('Loading ...');
     axios__WEBPACK_IMPORTED_MODULE_6___default().get('/cek_ongkir/' + auth.user.resipient_city_id + '/' + kurir).then(function (response) {
+      console.log(response);
       setOngkir(response.data);
     }, function (error) {
       console.log(error);

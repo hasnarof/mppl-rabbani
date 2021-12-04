@@ -29,6 +29,8 @@ const BasketFull = (props) => {
     const { auth } = usePage().props;
 
     const checkout=()=>{
+        console.log(ongkir)
+        console.log(kurir)
         Inertia.post('/checkout', {cartItems:cartItems, ongkir: ongkir, kurir: kurir});
     }
 
@@ -40,6 +42,7 @@ const BasketFull = (props) => {
         setOngkir('Loading ...');
         axios.get('/cek_ongkir/'+auth.user.resipient_city_id+'/'+kurir)
             .then((response) => {
+                console.log(response)
                 setOngkir(response.data);
             }, (error) => {
             console.log(error);

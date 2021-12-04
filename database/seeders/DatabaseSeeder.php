@@ -2,7 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Transaction;
 use Illuminate\Database\Seeder;
+use Database\Seeders\TransactionSeeder;
+use Database\Seeders\TransactionDetailSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,6 +21,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ProductSeeder::class);
         $this->call(ProvinceSeeder::class);
         $this->call(CitySeeder::class);
+        $this->call(TransactionSeeder::class);
+        $this->call(TransactionDetailSeeder::class);
 
     }
 }
