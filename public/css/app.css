@@ -12048,7 +12048,7 @@ textarea.form-control-lg {
 }
 
 #admin-transaksi {
-  margin-top: 100px;
+  margin-top: 50px;
   margin-bottom: 2%;
   padding-top: 1%;
   padding-bottom: 1%;
@@ -12109,4 +12109,32 @@ textarea.form-control-lg {
   background-color: #fff;
   color: #495057;
   border-color: #495057;
+}
+
+#navbar-admin .navbar {
+  background: #6c757d;
+}
+#navbar-admin #navbar-icon-admin a {
+  color: #D93081;
+}
+
+#product-admin h1, #product-admin .h1 {
+  font-weight: 600;
+  color: #D93081;
+  margin-top: 8px;
+}
+#product-admin #btn-product-admin .btn-primary {
+  background-color: #D93081;
+  color: #fff;
+  border-color: #D93081;
+  border-radius: 20px;
+  margin-left: 4px;
+}
+#product-admin #btn-product-admin .btn-primary:hover {
+  background-color: #fff;
+  color: #D93081;
+  border-color: #D93081;
+}
+#product-admin .text-center {
+  margin-top: 32px;
 }

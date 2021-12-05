@@ -23,7 +23,6 @@ class AdminProductController extends Controller
         return Inertia::render('Admin/Product/Products',[
             'all_products'=>$all_products,
         ]);
-
     }
 
     public function create()

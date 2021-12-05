@@ -19647,7 +19647,7 @@ var Navbar = function Navbar(props) {
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("nav", {
-      className: "navbar navbar-expand-lg navbar-light shadow-sm p-3 mb-5 bg-body rounded fixed-top",
+      className: "navbar navbar-expand-lg navbar-light shadow-sm p-3 mb-5 bg-body fixed-top",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "container",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
@@ -20447,13 +20447,14 @@ var Products = function Products() {
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Layouts_AppAdmin__WEBPACK_IMPORTED_MODULE_2__["default"], {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      id: "product-admin",
       className: "container card",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
         children: "All Products"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "table-responsive",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
-          "class": "table",
+          className: "table align-middle",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("thead", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
               scope: "row",
@@ -20504,6 +20505,7 @@ var Products = function Products() {
                   className: "text-end",
                   children: ["Rp ", (item.colors[0].harga / 1000).toFixed(3)]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("td", {
+                  id: "btn-product-admin",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
                     href: "/product/".concat(item.id),
                     className: "btn btn-primary rounded-pill",
@@ -20614,13 +20616,13 @@ var Transactions = function Transactions() {
                     children: "Confirm Payment"
                   })]
                 })]
-              });
+              })
             })
           })]
         })
-      })]
-    })
-  });
+      })
+    }),
+  }),
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Transactions);
@@ -20780,7 +20782,7 @@ var Home = function Home() {
           id: "bestseller",
           className: "mb-8 mt-8",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
-            children: "Best Seller"
+            children: "New Arrival"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "row row-cols-1 row-cols-md-4 g-4",
