@@ -21,10 +21,6 @@ const ProductDetail = (props) => {
             <div id="detail-produk" className="container">
             <div className="row row-cols-1 row-cols-md-3 g-4">
                     <div className="col col-4">
-                        <div>
-                            <i class="fas fa-arrow-left"></i>
-                            <p className="back">Back</p>
-                        </div>
                         <h1>{product.nama}</h1>
                         {<h2>Rp {product.product_details[0].harga}</h2>}
                         <div className="info">
@@ -107,7 +103,9 @@ const ProductDetail = (props) => {
                         ))}
                         <div className="container row">
                             <div className="right">
-                                <a><p className="testi">See All</p></a>
+                                <a><
+                                    p className="testi">See All</p>
+                                </a>
                                 <i class="fas fa-arrow-right"></i>
                             </div>
                         </div>
