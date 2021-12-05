@@ -20194,15 +20194,35 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var Create = function Create(props) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     name: "",
-    category: "",
+    product_category: "",
+    gender_category: "",
     price: "",
     size: "",
+    colors: [],
     description: "",
     files: []
   }),
       _useState2 = _slicedToArray(_useState, 2),
       values = _useState2[0],
       setValues = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      files = _useState4[0],
+      setFiles = _useState4[1];
+
+  function handleFileChange(e, index) {
+    var file = e.target.files[0];
+    var array = files;
+
+    if (array[index] == undefined) {
+      array.push(file);
+    } else {
+      array[index] = file;
+    }
+
+    setFiles(array);
+  }
 
   function handleChange(e) {
     var key = e.target.id;
@@ -20215,32 +20235,42 @@ var Create = function Create(props) {
   function handleSubmit(e) {
     e.preventDefault(); // let form = $('#createProduct').serialize();
 
-    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__.Inertia.post("/admin/create_product", values);
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__.Inertia.post("/admin/create_product", {
+      form: values,
+      files: files,
+      colorsSize: colorsIndex
+    });
   }
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
-      _useState4 = _slicedToArray(_useState3, 2),
-      colorsIndex = _useState4[0],
-      setColorsIndex = _useState4[1];
-
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
       _useState6 = _slicedToArray(_useState5, 2),
-      colorsArray = _useState6[0],
-      setColorsArray = _useState6[1];
+      colorsIndex = _useState6[0],
+      setColorsIndex = _useState6[1];
 
-  var addColor = function addColor() {
-    setValues.apply(void 0, _toConsumableArray(values).concat([values.files[colorsIndex] = undefined]));
-    setColorsIndex(colorsIndex + 1);
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState8 = _slicedToArray(_useState7, 2),
+      colorsArray = _useState8[0],
+      setColorsArray = _useState8[1];
+
+  function addColor() {
     setColorsArray([].concat(_toConsumableArray(colorsArray), [colorsIndex]));
-  };
+    setColorsIndex(colorsIndex + 1);
+    console.log(colorsIndex, colorsArray);
+  }
 
-  var removeColor = function removeColor(id) {
+  function removeColor() {
     var array = _toConsumableArray(colorsArray);
 
-    array.splice(colorsIndex, 1);
+    array.splice(colorsIndex - 1, 1);
     setColorsArray(array);
+
+    var array2 = _toConsumableArray(files);
+
+    array2.splice(colorsIndex - 1, 1);
+    setFiles(array2);
     setColorsIndex(colorsIndex - 1);
-  };
+    console.log(colorsIndex, colorsArray);
+  }
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Layouts_AppAdmin__WEBPACK_IMPORTED_MODULE_2__["default"], {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
@@ -20248,6 +20278,7 @@ var Create = function Create(props) {
       className: "background-color",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "container",
+<<<<<<< HEAD
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "card",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
@@ -20266,6 +20297,67 @@ var Create = function Create(props) {
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
                     id: "name",
                     value: values.name,
+=======
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+          children: "Create Product"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "row",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "col",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
+              onSubmit: handleSubmit,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                htmlFor: "name",
+                children: "Product Name"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                id: "name",
+                value: values.name,
+                onChange: handleChange
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                htmlFor: "product_category",
+                children: "Product Category"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                id: "product_category",
+                value: values.product_category,
+                onChange: handleChange
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                htmlFor: "gender_category",
+                children: "Gender Category"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                id: "gender_category",
+                value: values.gender_category,
+                onChange: handleChange
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                htmlFor: "price",
+                children: "Price"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                id: "price",
+                value: values.price,
+                onChange: handleChange
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                htmlFor: "size",
+                children: "Size Variance"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                id: "size",
+                value: values.size,
+                onChange: handleChange
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h5", {
+                children: "Color Variance"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                type: "button",
+                className: "btn btn-primary",
+                onClick: addColor,
+                children: "+"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), colorsArray.map(function (index) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                  className: "card shadow",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
+                    htmlFor: "color-".concat(index),
+                    children: ["Color #", index + 1]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                    id: "color-".concat(index),
+                    value: values.colors[index],
+>>>>>>> hasna
                     onChange: handleChange
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {})]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -20274,6 +20366,7 @@ var Create = function Create(props) {
                     htmlFor: "category",
                     children: "Product Category"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+<<<<<<< HEAD
                     id: "category",
                     value: values.category,
                     onChange: handleChange
@@ -20325,6 +20418,19 @@ var Create = function Create(props) {
                         }
                       })]
                     });
+=======
+                    type: "file",
+                    value: undefined,
+                    name: "file",
+                    onChange: function onChange(e) {
+                      return handleFileChange(e, index);
+                    }
+                  }), index == colorsIndex - 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                    type: "button",
+                    className: "btn btn-danger",
+                    onClick: removeColor,
+                    children: "Delete"
+>>>>>>> hasna
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                   className: "detail",
