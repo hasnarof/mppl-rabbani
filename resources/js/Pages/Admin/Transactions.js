@@ -46,9 +46,9 @@ const Transactions = () => {
                                 </table>
                             </div>
                         </div>
-                    </div>    
+                    </div>   
                 </div>
-            </div>
+            </div>     
         </AppAdmin>
     );
 }
