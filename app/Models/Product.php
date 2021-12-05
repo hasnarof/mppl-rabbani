@@ -12,6 +12,8 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['nama','detail','kategori_pakaian','kategori_gender','is_best_seller','created_at','updated_at'];
+
     public function productDetails()
     {
         return $this->hasMany(ProductDetail::class);

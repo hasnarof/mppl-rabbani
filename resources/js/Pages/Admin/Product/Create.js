@@ -7,12 +7,27 @@ const Create = (props) => {
 
     const [values, setValues] = useState({
         name: "",
-        category: "",
+        product_category: "",
+        gender_category: "",
         price: "",
         size: "",
+        colors: [],
         description: "",
         files: [],
     })
+
+    const [files, setFiles] = useState([]);
+
+    function handleFileChange(e, index){
+        let file = e.target.files[0];
+        let array = files;
+        if(array[index] == undefined) {
+            array.push(file);
+        } else {
+            array[index] = file;
+        }
+        setFiles(array);
+    }
 
     function handleChange(e) {
         const key = e.target.id;
@@ -26,22 +41,29 @@ const Create = (props) => {
     function handleSubmit(e) {
         e.preventDefault()
         // let form = $('#createProduct').serialize();
-        Inertia.post(`/admin/create_product`, values);
+        Inertia.post(`/admin/create_product`, {form: values, files: files, colorsSize: colorsIndex});
     }
 
     const [colorsIndex, setColorsIndex] = useState(0);
     const [colorsArray, setColorsArray] = useState([]);
-    const addColor=()=>{
-        setValues(...values, values.files[colorsIndex] = undefined);
-        setColorsIndex(colorsIndex+1);
+    function addColor(){
         setColorsArray([...colorsArray, colorsIndex]);
+        setColorsIndex(colorsIndex+1);
+
+        console.log(colorsIndex,colorsArray);
+
 
     }
-    const removeColor=(id)=>{
+    function removeColor(){
         let array = [...colorsArray];
-        array.splice(colorsIndex, 1);
+        array.splice(colorsIndex-1, 1);
         setColorsArray(array);
+        let array2 = [...files];
+        array2.splice(colorsIndex-1, 1);
+        setFiles(array2);
         setColorsIndex(colorsIndex-1);
+
+        console.log(colorsIndex,colorsArray);
     }
 
 
@@ -56,8 +78,11 @@ const Create = (props) => {
                                 <label htmlFor="name">Product Name</label>
                                 <input id="name" value={values.name} onChange={handleChange} />
                                 <br></br>
-                                <label htmlFor="category">Product Category</label>
-                                <input id="category" value={values.category} onChange={handleChange} />
+                                <label htmlFor="product_category">Product Category</label>
+                                <input id="product_category" value={values.product_category} onChange={handleChange} />
+                                <br></br>
+                                <label htmlFor="gender_category">Gender Category</label>
+                                <input id="gender_category" value={values.gender_category} onChange={handleChange} />
                                 <br></br>
 
                                 <label htmlFor="price">Price</label>
@@ -77,7 +102,8 @@ const Create = (props) => {
                                         <input id={`color-${index}`} value={values.colors[index]} onChange={handleChange} />
 
                                         <br></br>
-                                        <input type="file" value={undefined} onChange={e => setData(`values.files[${index}]`, e.target.files[0])}/>
+                                        <input type="file" value={undefined} name="file" onChange={e => handleFileChange(e, index)} />
+                                        {index == colorsIndex-1 && <button type="button" className="btn btn-danger" onClick={removeColor}>Delete</button>}
                                     </div>
                                 ))}
 
