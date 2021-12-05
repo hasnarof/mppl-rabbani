@@ -46,6 +46,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('transaction/receive_order/', [TransactionController::class, 'receiveOrder']);
 
     Route::get('product/{product_id}/reviews', [ReviewController::class, 'reviews']);
+    Route::post('products/filter', [ProductController::class, 'filter']);
     Route::get('create_review/{product_id}', [ReviewController::class, 'create']);
     Route::post('create_review/{product_id}', [ReviewController::class, 'store']);
 

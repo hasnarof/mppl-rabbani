@@ -71,6 +71,8 @@ const App =(props)=> {
     <>
     <div className="background-color">
         <Navbar setCartOpen={setCartOpen}></Navbar>
+        {isCartOpen && <Basket cartItems={cartItems} totalPrice={totalPrice} onAdd={onAdd} onRemove={onRemove} setCartOpen={setCartOpen}></Basket>}
+
         <div style={{paddingTop: '100px'}}>
 
                 {isCartOpen && <Basket cartItems={cartItems} totalPrice={totalPrice} onAdd={onAdd} onRemove={onRemove} setCartOpen={setCartOpen}></Basket>}
