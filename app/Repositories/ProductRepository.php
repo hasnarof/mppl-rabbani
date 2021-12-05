@@ -38,7 +38,7 @@ class ProductRepository extends Repository
                 $data->colors = $this->productDetailsByColor($data->id);
                 $data->sizes = $this->productDetailsBySize($data->id);
             }
-            return ['success' => true, 'data' => $data];
+            return ['success' => true, 'data' => $datas];
         } catch (Exception $e) {
             return ['success' => false, 'message' => $e->getMessage()];
         }

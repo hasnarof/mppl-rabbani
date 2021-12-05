@@ -18,6 +18,7 @@ class AdminProductController extends Controller
             $product->colors = $product->productDetailsByColor();
             $product->sizes = $product->productDetailsBySize();
         }
+        
         // $product = Product::with('productDetails','reviews.user')->find($id);
         // $product->colors = $product->productDetailsByColor();
         // $product->sizes = $product->productDetailsBySize();
