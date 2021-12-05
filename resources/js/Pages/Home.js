@@ -67,7 +67,7 @@ const Home = () => {
                 </a>
 
                 <div className="container">
-                    <h1 id="bestseller" className="mb-8 mt-8"><strong>Best Seller</strong></h1>
+                    <h1 id="bestseller" className="mb-8 mt-8"><strong>New Arrival</strong></h1>
                         <div className="row row-cols-1 row-cols-md-4 g-4">
                             {products.data.map((item, index)=> (
                                 <div id="home-best-seller" className="col">
