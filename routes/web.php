@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReviewController;
@@ -60,3 +61,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('admin/transactions', [AdminTransactionController::class, 'transactions']);
     // Route::get('admin/confirm_payment/{transaction_id}', [AdminTransactionController::class, 'confirmPayment']);
     Route::post('admin/confirm_payment/', [AdminTransactionController::class, 'confirmPayment']);
+
+    Route::get('admin/products', [AdminProductController::class, 'products']);
+    Route::get('admin/create_product', [AdminProductController::class, 'create']);
+    Route::post('admin/create_product', [AdminProductController::class, 'store']);
+    Route::get('admin/edit_product/{product_id}', [AdminProductController::class, 'store']);
+    Route::post('admin/edit_product', [AdminProductController::class, 'update']);
+    Route::post('admin/product/destroy', [AdminProductController::class, 'destroy']);

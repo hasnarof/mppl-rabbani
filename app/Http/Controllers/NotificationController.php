@@ -27,14 +27,19 @@ class NotificationController extends Controller
 
     public function readNotification(Request $request)
     {
+        $id = $request['notificationId'];
+        $id = $request->input('notificationId');
+        // echo $id;
+        // error_log($id);
         auth()->user()
             ->unreadNotifications
-            ->when($request->input('id'), function ($query) use ($request) {
-                return $query->where('id', $request->input('id'));
+            ->when($id, function ($query) use ($id) {
+                return $query->where('id', $id);
             })
             ->markAsRead();
 
-        // return response()->noContent();
-        return auth()->user()->unreadNotifications;
+        // $notifications = auth()->user()->unreadNotifications;
+        return response()->noContent();
+        // return json_encode($notifications);
     }
 }

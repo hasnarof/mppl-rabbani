@@ -70,13 +70,24 @@ const AppAdmin =(props)=> {
     <>
     <div>
         <Navbar></Navbar>
+<<<<<<< HEAD
     </div>
     {alert && <div className="container"><div className={`alert alert-${alert.type} alert-dismissible fade show`} role="alert">
         {alert.message}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div></div>}
+=======
+        <div style={{paddingTop: '100px'}}>
+            {/* <Basket cartItems={cartItems} totalPrice={totalPrice} onAdd={onAdd} onRemove={onRemove}></Basket> */}
+            {alert && <div className="container"><div className={`alert alert-${alert.type} alert-dismissible fade show`} role="alert">
+                {alert.message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div></div>}
+>>>>>>> master
 
-    <main>{childrenWithProps}</main>
+            <main>{childrenWithProps}</main>
+        </div>
+    </div>
     </>
     )
 }

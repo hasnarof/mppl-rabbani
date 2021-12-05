@@ -12,7 +12,6 @@ const Navbar = (props) => {
     const {setCartOpen} = props;
 
     const handleSubmit=()=>{
-        console.log('helo');
         Inertia.post('/logout', {
             _token: csrfToken,
         })

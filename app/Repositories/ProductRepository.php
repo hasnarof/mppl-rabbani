@@ -33,7 +33,11 @@ class ProductRepository extends Repository
     public function getAll()
     {
         try {
-            $data = $this->model->with('productDetails')->get();
+            $datas = $this->model->with('productDetails')->get();
+            foreach ($datas as $data) {
+                $data->colors = $this->productDetailsByColor($data->id);
+                $data->sizes = $this->productDetailsBySize($data->id);
+            }
             return ['success' => true, 'data' => $data];
         } catch (Exception $e) {
             return ['success' => false, 'message' => $e->getMessage()];

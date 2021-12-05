@@ -1,29 +1,37 @@
 import App from '../../Layouts/App'
 import { Inertia } from '@inertiajs/inertia';
 import {useState, useEffect} from 'react'
+import { usePage } from '@inertiajs/inertia-react';
 
 
 const Reviews = (props) => {
     const notifications = props.notifications;
+    const {csrfToken} = usePage().props;
 
     const [processedNotifications,setProcessedNotifications] = useState(notifications);
 
     const handleSubmit=(notificationId)=>{
-        // Inertia.post('/read_notification', {
-        //     id: notificationId,
-        // }).then((response)=>{
-        //     console.log(response);
-        // }
-
-        // )
         $.ajax({
             url: "/read_notification",
             type: "post",
-            data: {notificationId: notificationId},
-        }).then((response)=>{
-            console.log(response);
+            data: {_token: csrfToken,notificationId: notificationId},
+            success:function(response) {
+                removeNotification(notificationId);
+            },
+            error: function (data, textStatus, errorThrown) {
+                console.log(data);
+            },
         });
+
+
     }
+
+    const removeNotification = (id) => {
+        const exist = processedNotifications.find((x) => x.id == id);
+        if (exist) {
+            setProcessedNotifications(processedNotifications.filter((x) => x.id != id))
+        }
+    };
 
     return (
         <App>
