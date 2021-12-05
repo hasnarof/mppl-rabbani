@@ -101,10 +101,14 @@
     .detail{
         padding-top: 10px;
     }
-    .detail label{
+    .detail label,
+    .detail h5{
         font-size: 14px;
         font-weight: 500;
         text-transform: uppercase;
+    }
+    .detail .card .btn-danger{
+        margin-top: 20px;
     }
     .detail input{
         width: 100%;
