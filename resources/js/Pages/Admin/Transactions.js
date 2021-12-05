@@ -31,7 +31,7 @@ const Transactions = () => {
                                     <td>{item.status_transaksi}</td>
                                     <td>
                                         <Link href={`/transaction/${item.id}`} className="btn btn-primary rounded-pill">Detail Transaction</Link>
-                                        {item.status_transaksi == 'To Confirm Payment' && <button className="btn btn-primary rounded-pill" onClick={()=>{confirmPayment(item.id)}}>Confirm Payment</button>}
+                                        {item.status_transaksi === 'To Payment Confirm' && <button className="btn btn-primary rounded-pill" onClick={()=>{confirmPayment(item.id)}}>Confirm Payment</button>}
                                     </td>
                                 </tr>
                             ))}
