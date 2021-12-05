@@ -68,7 +68,7 @@ const AppAdmin =(props)=> {
 
     return (
     <>
-    <div>
+    <div className="background-color">
         <Navbar></Navbar>
         <div style={{paddingTop: '100px'}}>
             {/* <Basket cartItems={cartItems} totalPrice={totalPrice} onAdd={onAdd} onRemove={onRemove}></Basket> */}

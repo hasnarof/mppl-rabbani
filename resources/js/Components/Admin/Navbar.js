@@ -1,10 +1,8 @@
 import React from 'react';
 import { usePage } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faBell } from '@fortawesome/free-solid-svg-icons'
-
-
 
 //navbar page home
 const Navbar = (props) => {
@@ -17,8 +15,8 @@ const Navbar = (props) => {
     }
 
     return (
-        <div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm p-3 mb-5 rounded fixed-top">
+        <div id="navbar-admin">
+            <nav className="navbar navbar-expand-lg navbar-dark shadow-sm p-3 mb-5 fixed-top">
                 <div className="container">
                     <a href="/" className="navbar-brand">
                         <img src={`/img/logo_rabbani.png`} width="115" alt="logo" className="d-inline-block align-middle mr-2"/>
@@ -29,20 +27,22 @@ const Navbar = (props) => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="/">HOME</a>
+                                <a className="nav-link active" aria-current="page" href="/admin/home">HOME</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/products">EXPLORE</a>
+                                <a className="nav-link" href="/admin/products">EXPLORE</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">TRANSACTION</a>
+                                <a className="nav-link" href="/admin/transactions">TRANSACTION</a>
                             </li>
                         </ul>
 
                         {/* <!-- Right Side Of Navbar --> */}
-                        <a href="/notifications">
-                            <FontAwesomeIcon icon={faBell} size="lg" className="m-2"></FontAwesomeIcon>
-                        </a>
+                        <div id="navbar-icon-admin">
+                            <a href="/notifications">
+                                <FontAwesomeIcon icon={faBell} size="lg" className="m-1"></FontAwesomeIcon>
+                            </a>
+                        </div>    
                         <ul id="btn-login-regis" className="">
                             {/* <!-- Authentication Links --> */}
                             {auth.user == null ?

@@ -11,7 +11,7 @@ const Products = () => {
     }
     return (
         <AppAdmin>
-            <div className="container card">
+            <div id="product-admin" className="container card">
                 <h1>All Products</h1>
                 <div className="table-responsive">
                     <table class="table">
@@ -37,7 +37,7 @@ const Products = () => {
                                     <td>{item.sizes.map((child, i)=>(<span>{child.ukuran}, </span>))}</td>
                                     <td>{item.kategori_pakaian}</td>
                                     <td className="text-end">Rp {(item.colors[0].harga/1000).toFixed(3)}</td>
-                                    <td>
+                                    <td id="btn-product-admin">
                                         <Link href={`/product/${item.id}`} className="btn btn-primary rounded-pill">Detail</Link>
                                         <Link href={`/admin/edit_product/${item.id}`} className="btn btn-primary rounded-pill">Edit</Link>
                                         <button onClick={()=>handleSubmit(item.id)} className="btn btn-primary rounded-pill">Delete</button>

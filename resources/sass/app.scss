@@ -717,7 +717,7 @@
 
 //ADMIN TRANSAKSI
 #admin-transaksi {
-    margin-top: 100px;
+    margin-top: 50px;
     margin-bottom: 2%;
     padding-top: 1%;
     padding-bottom: 1%;
@@ -791,3 +791,36 @@
         border-color: #495057;
     }
 }
+
+//NAVBAR ADMIN 
+#navbar-admin { 
+    .navbar{
+        background:#6c757d;
+    }
+
+    #navbar-icon-admin a {
+        color:#D93081;
+    }
+}
+
+//PRODUCT ADMIN
+#product-admin {
+    h1{
+        font-weight: 600;
+        color: #D93081;
+        margin-top: 8px;
+    }
+    #btn-product-admin .btn-primary{
+        background-color: #D93081;
+        color: #fff;
+        border-color: #D93081;
+        border-radius: 20px;
+        margin-left: 4px;
+    }
+
+    #btn-product-admin .btn-primary:hover{
+        background-color: #fff;
+        color: #D93081;
+        border-color: #D93081;
+    }
+}    

@@ -19,7 +19,7 @@ const Navbar = (props) => {
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-light shadow-sm p-3 mb-5 bg-body rounded fixed-top">
+            <nav className="navbar navbar-expand-lg navbar-light shadow-sm p-3 mb-5 bg-body fixed-top">
                 <div className="container">
                     <a href="/" className="navbar-brand">
                         <img src={`/img/logo_rabbani.png`} width="115" alt="logo" className="d-inline-block align-middle mr-2"/>
