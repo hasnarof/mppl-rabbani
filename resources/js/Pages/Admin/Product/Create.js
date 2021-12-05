@@ -47,47 +47,62 @@ const Create = (props) => {
 
     return (
         <AppAdmin>
-            <div>
+            <div id="create-produk" className="background-color">
                 <div className="container">
-                    <h1>Create Product</h1>
-                    <div className="row">
-                        <div className="col">
-                            <form onSubmit={handleSubmit}>
-                                <label htmlFor="name">Product Name</label>
-                                <input id="name" value={values.name} onChange={handleChange} />
-                                <br></br>
-                                <label htmlFor="category">Product Category</label>
-                                <input id="category" value={values.category} onChange={handleChange} />
-                                <br></br>
-
-                                <label htmlFor="price">Price</label>
-                                <input id="price" value={values.price} onChange={handleChange} />
-                                <br></br>
-
-                                <label htmlFor="size">Size Variance</label>
-                                <input id="size" value={values.size} onChange={handleChange} />
-                                <br></br>
-
-                                <h5>Color Variance</h5>
-                                <button type="button" className="btn btn-primary" onClick={addColor}>+</button>
-                                <br></br>
-                                {colorsArray.map((index)=>(
-                                    <div className="card shadow">
-                                        <label htmlFor={`color-${index}`}>Color #{index + 1}</label>
-                                        <input id={`color-${index}`} value={values.colors[index]} onChange={handleChange} />
-
+                    <div className="card">
+                        <h1>Create Product</h1>
+                        <div className="row">
+                            <div className="col">
+                                <form onSubmit={handleSubmit}>
+                                    <div className="detail">
+                                        <label htmlFor="name">Product Name</label>
                                         <br></br>
-                                        <input type="file" value={undefined} onChange={e => setData(`values.files[${index}]`, e.target.files[0])}/>
+                                        <input id="name" value={values.name} onChange={handleChange} />
+                                        <br></br>
                                     </div>
-                                ))}
+                                    <div className="detail">
+                                        <label htmlFor="category">Product Category</label>
+                                        <br></br>
+                                        <input id="category" value={values.category} onChange={handleChange} />
+                                        <br></br>
+                                    </div>
+                                    <div className="detail">
+                                        <label htmlFor="price">Price</label>
+                                        <br></br>
+                                        <input id="price" value={values.price} onChange={handleChange} />
+                                        <br></br>
+                                    </div>
+                                    <div className="detail">
+                                        <label htmlFor="size">Size Variance</label>
+                                        <br></br>
+                                        <input id="size" value={values.size} onChange={handleChange} />
+                                        <br></br>
+                                    </div>
+                                    <div className="detail">
+                                        <h5>Color Variance</h5>
+                                        <button type="button" className="btn btn-primary" onClick={addColor}>+</button>
+                                        <br></br>
+                                        {colorsArray.map((index)=>(
+                                            <div className="card shadow">
+                                                <label htmlFor={`color-${index}`}>Color #{index + 1}</label>
+                                                <input id={`color-${index}`} value={values.colors[index]} onChange={handleChange} />
 
-                                <label htmlFor="description">Description</label>
-                                <input type="textarea" id="description" value={values.description} onChange={handleChange} />
-                                <br></br>
-
-                                <button className="btn btn-primary" onClick={handleSubmit}>Submit</button>
-
-                            </form>
+                                                <br></br>
+                                                <input type="file" value={undefined} onChange={e => setData(`values.files[${index}]`, e.target.files[0])}/>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div className="detail">
+                                        <label htmlFor="description">Description</label>
+                                        <br></br>
+                                        <input type="textarea" id="description" value={values.description} onChange={handleChange} />
+                                        <br></br>
+                                    </div>
+                                    <div className="detail full">
+                                        <button className="btn btn-primary rounded-pill" onClick={handleSubmit}>Submit</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>

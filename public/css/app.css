@@ -11361,6 +11361,45 @@ textarea.form-control-lg {
   border-color: #D93081;
 }
 
+#create-produk {
+  margin-bottom: 2%;
+}
+
+#create-produk .card {
+  padding: 30px;
+}
+#create-produk h1, #create-produk .h1 {
+  font-weight: 600;
+  color: #D93081;
+}
+#create-produk .detail {
+  padding-top: 10px;
+}
+#create-produk .detail label {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+#create-produk .detail input {
+  width: 100%;
+}
+#create-produk .detail #description {
+  height: 100px;
+}
+#create-produk .detail button {
+  background-color: #D93081;
+  color: #fff;
+  border-color: #D93081;
+}
+#create-produk .detail button:hover {
+  background-color: #fff;
+  color: #D93081;
+  border-color: #D93081;
+}
+#create-produk .full .btn-primary {
+  width: 100%;
+}
+
 #btn-basket .btn-primary {
   background-color: #D93081;
   color: #fff;

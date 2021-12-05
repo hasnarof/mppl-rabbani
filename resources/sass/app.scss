@@ -86,6 +86,47 @@
     border-color: #D93081;
 }
 
+// ADMIN CREATE PRODUCT
+#create-produk{
+    margin-bottom: 2%;
+}
+#create-produk{
+    .card{
+        padding: 30px;
+    }
+    h1{
+        font-weight: 600;
+        color: #D93081;
+    }
+    .detail{
+        padding-top: 10px;
+    }
+    .detail label{
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+    .detail input{
+        width: 100%;
+    }
+    .detail #description{
+        height: 100px;
+    } 
+    .detail button{
+        background-color: #D93081;
+        color: #fff;
+        border-color: #D93081;
+    }
+    .detail button:hover{
+        background-color: #fff;
+        color: #D93081;
+        border-color: #D93081;
+    }
+    .full .btn-primary{
+        width: 100%;
+    }
+}
+
 //BASKET 
 #btn-basket {
     .btn-primary{
