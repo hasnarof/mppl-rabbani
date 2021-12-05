@@ -70,7 +70,6 @@ const AppAdmin =(props)=> {
     <>
     <div>
         <Navbar></Navbar>
-        {/* <Basket cartItems={cartItems} totalPrice={totalPrice} onAdd={onAdd} onRemove={onRemove}></Basket> */}
     </div>
     {alert && <div className="container"><div className={`alert alert-${alert.type} alert-dismissible fade show`} role="alert">
         {alert.message}

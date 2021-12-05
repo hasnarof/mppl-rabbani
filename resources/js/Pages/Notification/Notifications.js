@@ -27,24 +27,24 @@ const Reviews = (props) => {
 
     return (
         <App>
-
-            <div id="testimonial" className="container">
-                <h1>My Notifications</h1>
-                {processedNotifications.map((item, index)=>(
-                            <div className="container">
-                                { item.data.type == 'transactionNotification' && <div className="card shadow d-flex flex-row justify-content-between">
-                                    <div className="">
-                                        <p>{item.data['body']}</p>
-                                    </div>
-                                    <div>
-                                        <a className="btn btn-primary btn-sm me-2" href={`/transaction/${item.data.transactionId}`} >Lihat Transaksi</a>
-                                        <a className="btn btn-primary btn-sm" href="#" onClick={()=>handleSubmit(item.id)}>Mark as Read</a>
-
-                                    </div>
-                                </div>}
-                            </div>
-
-                        ))}
+            <div id="notification" className="background-color">
+                <div id="testimonial" className="container">
+                    <h1>My Notifications</h1>
+                    {processedNotifications.map((item, index)=>(
+                        <div className="container">
+                            { item.data.type == 'transactionNotification' && 
+                            <div className="card shadow d-flex flex-row justify-content-between">
+                                <div className="">
+                                    <p>{item.data['body']}</p>
+                                </div>
+                                <div id="btn-notif">
+                                    <a className="btn btn-primary btn-sm me-2" href={`/transaction/${item.data.transactionId}`} >Lihat Transaksi</a>
+                                    <a className="btn btn-secondary btn-sm" href="#" onClick={()=>handleSubmit(item.id)}>Mark as Read</a>
+                                </div>
+                            </div>}
+                        </div>
+                    ))}
+                </div>            
             </div>
         </App>
     )

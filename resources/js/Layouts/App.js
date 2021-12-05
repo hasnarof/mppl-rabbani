@@ -69,7 +69,7 @@ const App =(props)=> {
 
     return (
     <>
-    <div>
+    <div className="background-color">
         <Navbar setCartOpen={setCartOpen}></Navbar>
         <div style={{paddingTop: '100px'}}>
 

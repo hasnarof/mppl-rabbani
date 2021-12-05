@@ -11303,6 +11303,10 @@ textarea.form-control-lg {
   border-color: #D93081;
 }
 
+#navbar-icon a {
+  color: #D93081;
+}
+
 #login .image {
   margin-top: -6%;
 }
@@ -11357,6 +11361,31 @@ textarea.form-control-lg {
   border-color: #D93081;
 }
 
+#btn-basket .btn-primary {
+  background-color: #D93081;
+  color: #fff;
+  width: 10%;
+  border-color: #D93081;
+  border-radius: 20px;
+}
+#btn-basket .btn-primary:hover {
+  background-color: #fff;
+  color: #D93081;
+  border-color: #D93081;
+}
+#btn-basket .btn-secondary {
+  background-color: #fff;
+  color: #D93081;
+  width: 10%;
+  border-color: #D93081;
+  border-radius: 20px;
+}
+#btn-basket .btn-secondary:hover {
+  background-color: #D93081;
+  color: #fff;
+  border-color: #D93081;
+}
+
 #button-register .btn-primary {
   margin-top: 4px;
   background-color: #D93081;
@@ -11365,7 +11394,6 @@ textarea.form-control-lg {
   border-color: #D93081;
   border-radius: 20px;
 }
-
 #button-register .btn-primary:hover {
   background-color: #fff;
   color: #D93081;
@@ -11385,7 +11413,6 @@ textarea.form-control-lg {
   border-color: #D93081;
   border-radius: 20px;
 }
-
 #btn-reset-pass .btn-primary:hover {
   background-color: #fff;
   color: #D93081;
@@ -11449,7 +11476,7 @@ textarea.form-control-lg {
   transition: 0.3s;
 }
 
-#daftar-produk #search-addon a button {
+#daftar-produk #search-addon a button:hover {
   background: #D93081;
   color: #0c0b09;
   text-decoration: none;
@@ -11932,4 +11959,68 @@ textarea.form-control-lg {
   position: relative;
   border-radius: 50px;
   border: 1px solid #454035;
+}
+
+#admin-transaksi {
+  margin-top: 100px;
+  margin-bottom: 2%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+#admin-transaksi .card {
+  padding: 30px;
+}
+#admin-transaksi h1, #admin-transaksi .h1 {
+  font-weight: 600;
+  color: #D93081;
+}
+#admin-transaksi #btn-detail-tran .btn-primary {
+  background-color: #D93081;
+  color: #fff;
+  width: 150px;
+  border-color: #D93081;
+  border-radius: 20px;
+  margin-bottom: 5px;
+}
+#admin-transaksi #btn-detail-tran .btn-primary:hover {
+  background-color: #fff;
+  color: #D93081;
+  border-color: #D93081;
+}
+#admin-transaksi #btn-confirm-tran .btn-primary {
+  background-color: #D93081;
+  color: #fff;
+  width: 150px;
+  border-color: #D93081;
+  border-radius: 20px;
+}
+#admin-transaksi #btn-confirm-tran .btn-primary:hover {
+  background-color: #fff;
+  color: #D93081;
+  border-color: #D93081;
+}
+
+#notification #btn-notif .btn-primary {
+  background-color: #D93081;
+  color: #fff;
+  width: 150px;
+  border-color: #D93081;
+  border-radius: 20px;
+}
+#notification #btn-notif .btn-primary:hover {
+  background-color: #fff;
+  color: #D93081;
+  border-color: #D93081;
+}
+#notification #btn-notif .btn-secondary {
+  background-color: #495057;
+  color: #fff;
+  width: 150px;
+  border-color: #495057;
+  border-radius: 20px;
+}
+#notification #btn-notif .btn-secondary:hover {
+  background-color: #fff;
+  color: #495057;
+  border-color: #495057;
 }

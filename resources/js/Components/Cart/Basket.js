@@ -50,7 +50,7 @@ const Basket = (props) => {
                                 <h5>Total: Rp{totalPrice}</h5>
                             </div>
                         </div>
-                        <div class="modal-footer">
+                        <div id="btn-basket" class="modal-footer">
                             <button type="button" class="btn btn-secondary" onClick={()=>setCartOpen(false)}>Close</button>
                             <button className="btn btn-primary" onClick={checkout}>Checkout</button>
                         </div>

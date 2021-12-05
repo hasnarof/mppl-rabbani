@@ -8,27 +8,27 @@ const Navbar = () => {
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav className="navbar navbar-expand-lg navbar-light shadow-sm p-3 mb-5 bg-body rounded fixed-top">
                 <div className="container">
-                    <a className="navbar-brand" href="#">Navbar</a>
+                    <a href="/" className="navbar-brand">
+                        <img src={`/img/logo_rabbani.png`} width="115" alt="logo" className="d-inline-block align-middle mr-2"/>
+                    </a>
                     {auth.user == null && <p className="text-white">User tidak login</p>}
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
+                        <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul className="navbar-nav">
-                        <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link" href="#">Features</a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li className="nav-item dropdown">
-                        </li>
-                    </ul>
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <a className="nav-link active" aria-current="page" href="/">HOME</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="/products">EXPLORE</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="/admin/transactions">TRANSACTION</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </nav>
