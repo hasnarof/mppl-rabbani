@@ -71,7 +71,6 @@ const Create = (props) => {
         <AppAdmin>
             <div id="create-produk" className="background-color">
                 <div className="container">
-<<<<<<< HEAD
                     <div className="card">
                         <h1>Create Product</h1>
                         <div className="row">
@@ -82,46 +81,17 @@ const Create = (props) => {
                                         <br></br>
                                         <input id="name" value={values.name} onChange={handleChange} />
                                         <br></br>
-=======
-                    <h1>Create Product</h1>
-                    <div className="row">
-                        <div className="col">
-                            <form onSubmit={handleSubmit}>
-                                <label htmlFor="name">Product Name</label>
-                                <input id="name" value={values.name} onChange={handleChange} />
-                                <br></br>
-                                <label htmlFor="product_category">Product Category</label>
-                                <input id="product_category" value={values.product_category} onChange={handleChange} />
-                                <br></br>
-                                <label htmlFor="gender_category">Gender Category</label>
-                                <input id="gender_category" value={values.gender_category} onChange={handleChange} />
-                                <br></br>
-
-                                <label htmlFor="price">Price</label>
-                                <input id="price" value={values.price} onChange={handleChange} />
-                                <br></br>
-
-                                <label htmlFor="size">Size Variance</label>
-                                <input id="size" value={values.size} onChange={handleChange} />
-                                <br></br>
-
-                                <h5>Color Variance</h5>
-                                <button type="button" className="btn btn-primary" onClick={addColor}>+</button>
-                                <br></br>
-                                {colorsArray.map((index)=>(
-                                    <div className="card shadow">
-                                        <label htmlFor={`color-${index}`}>Color #{index + 1}</label>
-                                        <input id={`color-${index}`} value={values.colors[index]} onChange={handleChange} />
-
-                                        <br></br>
-                                        <input type="file" value={undefined} name="file" onChange={e => handleFileChange(e, index)} />
-                                        {index == colorsIndex-1 && <button type="button" className="btn btn-danger" onClick={removeColor}>Delete</button>}
->>>>>>> hasna
                                     </div>
                                     <div className="detail">
-                                        <label htmlFor="category">Product Category</label>
+                                        <label htmlFor="product_category">Product Category</label>
                                         <br></br>
-                                        <input id="category" value={values.category} onChange={handleChange} />
+                                        <input id="product_category" value={values.product_category} onChange={handleChange} />
+                                        <br></br>
+                                    </div>
+                                    <div className="detail">
+                                        <label htmlFor="gender_category">Gender Category</label>
+                                        <br></br>
+                                        <input id="gender_category" value={values.gender_category} onChange={handleChange} />
                                         <br></br>
                                     </div>
                                     <div className="detail">
@@ -146,7 +116,8 @@ const Create = (props) => {
                                                 <input id={`color-${index}`} value={values.colors[index]} onChange={handleChange} />
 
                                                 <br></br>
-                                                <input type="file" value={undefined} onChange={e => setData(`values.files[${index}]`, e.target.files[0])}/>
+                                                <input type="file" value={undefined} name="file" onChange={e => handleFileChange(e, index)} />
+                                                {index == colorsIndex-1 && <button type="button" className="btn btn-danger rounded-pill" onClick={removeColor}>Delete</button>}
                                             </div>
                                         ))}
                                     </div>

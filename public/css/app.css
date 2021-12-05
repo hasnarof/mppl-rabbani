@@ -11375,10 +11375,15 @@ textarea.form-control-lg {
 #create-produk .detail {
   padding-top: 10px;
 }
-#create-produk .detail label {
+#create-produk .detail label,
+#create-produk .detail h5,
+#create-produk .detail .h5 {
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;
+}
+#create-produk .detail .card .btn-danger {
+  margin-top: 20px;
 }
 #create-produk .detail input {
   width: 100%;
