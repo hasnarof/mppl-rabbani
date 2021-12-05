@@ -127,9 +127,6 @@ const TransactionDetail = () => {
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
         </App>

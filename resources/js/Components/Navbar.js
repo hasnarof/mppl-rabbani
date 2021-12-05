@@ -36,17 +36,19 @@ const Navbar = (props) => {
                                 <a className="nav-link" href="/products">EXPLORE</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">TRANSACTION</a>
+                                <a className="nav-link" href="/transactions">TRANSACTION</a>
                             </li>
                         </ul>
 
                         {/* <!-- Right Side Of Navbar --> */}
-                        <a href="/notifications">
-                            <FontAwesomeIcon icon={faBell} size="lg" className="m-2"></FontAwesomeIcon>
-                        </a>
-                        <a href="#">
-                            <FontAwesomeIcon icon={faShoppingCart} size="lg" className="m-2" onClick={()=>setCartOpen(true)}></FontAwesomeIcon>
-                        </a>
+                        <div id="navbar-icon">
+                            <a href="/notifications">
+                                <FontAwesomeIcon icon={faBell} size="lg" className="m-2"></FontAwesomeIcon>
+                            </a>
+                            <a href="#">
+                                <FontAwesomeIcon icon={faShoppingCart} size="lg" className="ms-2 mb-2 mt-2" onClick={()=>setCartOpen(true)}></FontAwesomeIcon>
+                            </a>
+                        </div>    
                         <ul id="btn-login-regis" className="">
                             {/* <!-- Authentication Links --> */}
                             {auth.user == null ?

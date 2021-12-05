@@ -37,24 +37,6 @@ const Transactions = () => {
                                             {item.status_transaksi == 'To Receive' && <button className="btn btn-primary rounded-pill" onClick={()=>{receiveOrder(item.id)}}>Receive Order</button>}
                                         </td>
                                     </tr>
-                                    // <tr>
-                                    //     <td scope="row">4 days ago</td>
-                                    //     <td>Rp 503040.00</td>
-                                    //     <td>To Receive</td>
-                                    //     <td>
-                                    //         <Link href="" className="btn btn-primary rounded-pill">Detail</Link>
-                                    //         <button className="btn btn-primary rounded-pill">Receive Order</button>
-                                    //     </td>
-                                    // </tr>
-                                    // <tr>
-                                    //     <td scope="row">3 days ago</td>
-                                    //     <td>Rp 503040.00</td>
-                                    //     <td>Completed</td>
-                                    //     <td>
-                                    //         <Link href="" className="btn btn-primary rounded-pill">Detail</Link>
-                                    //         <button className="btn btn-primary rounded-pill">Receive Order</button>
-                                    //     </td>
-                                    // </tr>
                                 ))}
                                 </tbody>
                             </table>
