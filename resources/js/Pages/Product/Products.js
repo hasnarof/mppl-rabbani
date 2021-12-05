@@ -8,7 +8,7 @@ import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/fre
 const Products = () => {
     const { new_arrivals, all_products } = usePage().props;
 
-    console.log('products');
+    console.log(all_products);
 
     return (
         <App>
@@ -92,13 +92,13 @@ const Products = () => {
                             <div className="input-group rounded">
                                 <input type="search" className="form-control rounded-pill search" placeholder="Search" aria-label="Search"
                                 aria-describedby="search-addon" />
-                                <div className="ms-1" id="search-addon"> 
+                                <div className="ms-1" id="search-addon">
                                     <a href="#" class="search">
                                         <button>
                                             <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
                                         </button>
                                     </a>
-                                </div>    
+                                </div>
                             </div>
 
                             <h1 className="mt-4">New Arrivals</h1>
@@ -114,7 +114,7 @@ const Products = () => {
                                         {<p className="card-text">Rp {item.harga}</p>}
                                     </div>
                                 </div>
-                                </div> 
+                                </div>
                                 ))}
                             </div>
 
@@ -137,7 +137,7 @@ const Products = () => {
                         </div>
                     </div>
                 </div>
-                
+
                 <footer id="footer">
                     <div class="footer-top">
                         <div class="container">
