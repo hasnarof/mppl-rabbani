@@ -2,7 +2,7 @@ import React from 'react';
 import { usePage } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingCart, faBell } from '@fortawesome/free-solid-svg-icons'
+import { faShoppingCart, faBell, faComment } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -42,13 +42,16 @@ const Navbar = (props) => {
 
                         {/* <!-- Right Side Of Navbar --> */}
                         <div id="navbar-icon">
+                            <a href="/chatify">
+                                <FontAwesomeIcon icon={faComment} size="lg" className="m-2"></FontAwesomeIcon>
+                            </a>
                             <a href="/notifications">
                                 <FontAwesomeIcon icon={faBell} size="lg" className="m-2"></FontAwesomeIcon>
                             </a>
                             <a href="#">
                                 <FontAwesomeIcon icon={faShoppingCart} size="lg" className="ms-2 mb-2 mt-2" onClick={()=>setCartOpen(true)}></FontAwesomeIcon>
                             </a>
-                        </div>    
+                        </div>
                         <ul id="btn-login-regis" className="">
                             {/* <!-- Authentication Links --> */}
                             {auth.user == null ?

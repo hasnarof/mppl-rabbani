@@ -35,6 +35,7 @@ const TransactionDetail = () => {
                                     <thead>
                                         <tr>
                                             <th>Picture</th>
+                                            {/* <th>No</th> */}
                                             <th>Product Name</th>
                                             <th>Quantity</th>
                                             <th>Price</th>
@@ -45,6 +46,7 @@ const TransactionDetail = () => {
                                         {transaction.data.transaction_details.map((item, index)=>(
                                             <tr>
                                                 <td><img src={`/storage/${item.product_detail.image}`} width={100} /></td>
+                                                {/* <td>{index + 1}</td> */}
                                                 <td>{item.product_detail.nama}</td>
                                                 <td>{item.jumlah_produk}</td>
                                                 <td><p className="text-end">Rp {(item.harga_per_produk/1000).toFixed(3)}</p></td>

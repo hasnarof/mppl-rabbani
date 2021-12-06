@@ -19,6 +19,7 @@ const Transactions = () => {
                             <table class="table align-middle">
                                 <thead>
                                     <tr>
+                                    <th>No Order</th>
                                     <th scope="col">Checkout Date</th>
                                     <th scope="col">Total Cost</th>
                                     <th scope="col">Status</th>
@@ -29,6 +30,7 @@ const Transactions = () => {
 
                                 {transactions.data.map((item, index)=>(
                                     <tr>
+                                        <td>#{item.id}</td>
                                         <td scope="row">{item.created_at}</td>
                                         <td>Rp {(item.total_harga/1000).toFixed(3)}</td>
                                         <td>{item.status_transaksi}</td>
