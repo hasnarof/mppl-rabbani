@@ -27,15 +27,15 @@ const Products = () => {
                                     <h5 class="card-title">Categories</h5>
                                     <form id="filterForm" onSubmit={handleSubmit}>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="category" value="Kerudung" id="flexCheckDefault"></input>
+                                            <input class="form-check-input" type="checkbox" name="category" value="Hijab" id="flexCheckDefault"></input>
                                             <label class="form-check-label" for="flexCheckDefault">
-                                                Clothing
+                                                Hijab
                                             </label>
                                         </div>
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" name="category" value="Clothing" id="flexCheckDefault"></input>
                                             <label class="form-check-label" for="flexCheckDefault">
-                                                Kerudung
+                                                Clothing
                                             </label>
                                         </div>
                                         <div class="form-check">
@@ -73,7 +73,7 @@ const Products = () => {
                                     </a>
                                     <div className="card-body">
                                         <h5 className="card-title">{item.nama}</h5>
-                                        {<p className="card-text">Rp {item.colors[0].harga}</p>}
+                                        {<p className="card-text">Rp {(item.colors[0].harga/1000).toFixed(3)}</p>}
                                     </div>
                                     </div>
                                 </div>

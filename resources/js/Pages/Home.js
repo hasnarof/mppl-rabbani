@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 const Home = () => {
-    const { products } = usePage().props;
+    const { all_products, best_seller } = usePage().props;
 
     return (
         <App>
@@ -43,15 +43,15 @@ const Home = () => {
                 <div className="container">
                     <h1 id="bestseller" className="mb-8 mt-8"><strong>Best Seller</strong></h1>
                         <div className="row row-cols-1 row-cols-md-4 g-4">
-                            {products.data.map((item, index)=> (
+                            {best_seller.map((item, index)=> (
                                 <div id="home-best-seller" className="col">
                                     <div className="card  mx-auto">
                                         <a href={`/product/${item.id}`} >
-                                            <img src={`/storage/${item.image}`} className="card-img-top" alt="img"></img>
+                                            <img src={`/storage/${item.colors[0].image}`} className="card-img-top" alt="img"></img>
                                         </a>
                                         <div className="card-body">
                                             <h5 className="card-title">{item.nama}</h5>
-                                            {<p className="card-text">Rp {item.harga}</p>}
+                                            {<p className="card-text">Rp {(item.colors[0].harga/1000).toFixed(3)}</p>}
                                         </div>
                                     </div>
                                 </div>
@@ -67,17 +67,17 @@ const Home = () => {
                 </a>
 
                 <div className="container">
-                    <h1 id="bestseller" className="mb-8 mt-8"><strong>New Arrival</strong></h1>
+                    <h1 id="bestseller" className="mb-8 mt-8"><strong>All Products</strong></h1>
                         <div className="row row-cols-1 row-cols-md-4 g-4">
-                            {products.data.map((item, index)=> (
+                            {all_products.map((item, index)=> (
                                 <div id="home-best-seller" className="col">
                                     <div className="card  mx-auto">
                                         <a href={`/product/${item.id}`} >
-                                            <img src={`/storage/${item.image}`} className="card-img-top" alt="img"></img>
+                                            <img src={`/storage/${item.colors[0].image}`} className="card-img-top" alt="img"></img>
                                         </a>
                                         <div className="card-body center">
                                             <h5 className="card-title">{item.nama}</h5>
-                                            {<p className="card-text">Rp {item.harga}</p>}
+                                            {<p className="card-text">Rp {(item.colors[0].harga/1000).toFixed(3)}</p>}
                                         </div>
                                     </div>
                                 </div>
