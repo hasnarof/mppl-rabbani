@@ -19309,8 +19309,8 @@ var Navbar = function Navbar(props) {
           href: "/",
           className: "navbar-brand",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-            src: "/img/logo_rabbani.png",
-            width: "115",
+            src: "/img/logo_rabbani3.png",
+            width: "135",
             alt: "logo",
             className: "d-inline-block align-middle mr-2"
           })
@@ -19658,8 +19658,8 @@ var Navbar = function Navbar(props) {
           href: "/",
           className: "navbar-brand",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-            src: "/img/logo_rabbani.png",
-            width: "115",
+            src: "/img/logo_rabbani3.png",
+            width: "135",
             alt: "logo",
             className: "d-inline-block align-middle mr-2"
           })

@@ -25,7 +25,7 @@
             <div class="container">
                 <a href="/" class="navbar-brand">
                 <!-- Logo Image -->
-                    <img src="{{asset('img/logo_rabbani.png')}}" width="115" alt="logo" class="d-inline-block align-middle mr-2">
+                    <img src="{{asset('img/logo_rabbani3.png')}}" width="115" alt="logo" class="d-inline-block align-middle mr-2">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
