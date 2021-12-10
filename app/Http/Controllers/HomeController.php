@@ -19,14 +19,29 @@ class HomeController extends Controller
 
     public function landingPage()
     {
-        $response = $this->repository->getAll();
+        // $response = $this->repository->getAll();
 
-        if ($response['success'] !== false) {
-            return Inertia::render('Home', [
-                'products'=>ProductResource::collection($response['data']),
-            ]);
+        // if ($response['success'] !== false) {
+        //     return Inertia::render('Home', [
+        //         'products'=>ProductResource::collection($response['data']),
+        //     ]);
+        // }
+        // return $response['message'];
+
+        $best_seller = Product::where('is_best_seller',1)->with('productDetails')->get();
+        $all_products = Product::with('productDetails')->get();
+        foreach ($best_seller as $key => $product) {
+            $product->colors = $product->productDetailsByColor();
+            $product->sizes = $product->productDetailsBySize();
         }
-        return $response['message'];
+        foreach ($all_products as $key => $product) {
+            $product->colors = $product->productDetailsByColor();
+            $product->sizes = $product->productDetailsBySize();
+        }
+        return Inertia::render('Home',[
+            'all_products'=>$all_products,
+            'best_seller'=>$best_seller,
+        ]);
     }
 
     public function testReact()

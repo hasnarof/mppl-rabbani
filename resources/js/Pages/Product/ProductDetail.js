@@ -15,6 +15,13 @@ const ProductDetail = (props) => {
 
     const [cartItems, setCartItems] = useState([]);
 
+    function clickAddToCart() {
+        // $('#addToCart').trigger('click');
+        // console.log($('#addToCart'));
+        let button = document.getElementById('addToCart');
+        button.click();
+    }
+
 
     return (
         <App>
@@ -50,7 +57,8 @@ const ProductDetail = (props) => {
                             </p>
                         </div>
 
-                        <AddButton className="btn btn-primary" product={product} productColor={productColor} productSize={productSize}>Add to Cart</AddButton>
+
+                        <button onClick={clickAddToCart} className="btn btn-primary" >Add to Cart</button>
 
                     </div>
                     <div className="col col-4 center">
@@ -181,7 +189,7 @@ const ProductDetail = (props) => {
                         </div>
                     </div>
                 </footer>
-            {/* <AddButton className="btn btn-primary" product={product} productColor={productColor} productSize={productSize}>Add to Cart</AddButton> */}
+            <AddButton id="addToCart" className="btn btn-primary" product={product} productColor={productColor} productSize={productSize}>Add to Cart</AddButton>
         </App>
     );
 };

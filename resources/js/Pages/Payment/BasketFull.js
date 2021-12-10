@@ -70,48 +70,42 @@ const BasketFull = (props) => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
+                                        {/* {cartItems.map(item => (
+                        <ul>{item.product.nama}, {item.productColor.warna}, {item.productSize.ukuran} - {item.qty} x {item.productColor.harga}
+                            <RemoveButton className="btn btn-danger" product={item.product} productColor={item.productColor} productSize={item.productSize}>-</RemoveButton>
+                            <AddButton className="btn btn-primary" product={item.product} productColor={item.productColor} productSize={item.productSize}>+</AddButton>
+                        </ul>
+                    ))} */}
+                                        {cartItems.map((item,index)=>(
+                                            <tr>
+                                                 <td>
                                                 <div className="form-check">
                                                     <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
                                                 </div>
-                                            </td>
-                                            <td><img src=""/></td>
-                                            <td>HARAA VOAL</td>
-                                            <td>2</td>
-                                            <td>Rp 70.000</td>
-                                            <td className="text-end">Rp 140.000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div className="form-check">
-                                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                                                </div>
-                                            </td>
-                                            <td><img src=""/></td>
-                                            <td>HARAA VOAL</td>
-                                            <td>2</td>
-                                            <td>
-                                                {/* Rp {(item.harga_per_produk/1000).toFixed(3)} */}
-                                            </td >
-                                            <td className="text-end">Rp 140.000</td>
-                                        </tr>
+                                                </td>
+                                                <td><img src={`/storage/${item.productColor.image}`} width="100"/></td>
+                                                <td>{item.product.nama}</td>
+                                                <td>{item.qty}</td>
+                                                <td>Rp {item.productColor.harga}</td>
+                                                <td className="text-end">Rp {(item.qty * item.productColor.harga/1000).toFixed(3)}</td>
+                                            </tr>
+                                        ))}
                                     </tbody>
                                     <tbody>
                                         <tr>
                                             <td colSpan="4"></td>
                                             <td>In Total</td>
-                                            <td className="text-end">Rp {totalPrice}</td>
+                                            <td className="text-end">Rp {(totalPrice/1000).toFixed(3)}</td>
                                         </tr>
                                         <tr>
                                             <td colSpan="4"></td>
                                             <td>Delivery</td>
-                                            <td className="text-end">Rp {ongkir}</td>
+                                            <td className="text-end">Rp {(ongkir/1000).toFixed(3)}</td>
                                         </tr>
                                         <tr>
                                             <td colSpan="4"></td>
                                             <td>Total Amount</td>
-                                            <td className="text-end">Rp {totalPrice + ongkir}</td>
+                                            <td className="text-end">Rp {((totalPrice + ongkir)/1000).toFixed(3)}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -121,7 +115,7 @@ const BasketFull = (props) => {
                         <div className="card col-3">
                             <h3>Order Summary</h3>
                             <div className="summary">
-                                <h4>Shipping</h4>
+                                <h4>Courir</h4>
                                 <p>
                                     <select name="kurir" id="kurir" onChange={ e => changeKurir(e.target.value) }>
                                         <option value="jne">JNE</option>
@@ -142,26 +136,12 @@ const BasketFull = (props) => {
                                     Bekasi, Jawa Barat
                                 </p>
                             </div>
-                            <div className="summary">
-                                <h4>Payment Method</h4>
-                                <p>
-                                    <select name="kurir" id="kurir" onChange={ e => changeKurir(e.target.value) }>
-                                        <option value="jne">JNE</option>
-                                        <option value="tiki">TIKI</option>
-                                        <option value="pos">POS Indonesia</option>
-                                    </select>
-                                </p>
-                            </div>
+
                             <button className="btn btn-primary rounded-pill" onClick={checkout}>Checkout</button>
                         </div>
                     </div>
 
-                    {/* {cartItems.map(item => (
-                        <ul>{item.product.nama}, {item.productColor.warna}, {item.productSize.ukuran} - {item.qty} x {item.productColor.harga}
-                            <RemoveButton className="btn btn-danger" product={item.product} productColor={item.productColor} productSize={item.productSize}>-</RemoveButton>
-                            <AddButton className="btn btn-primary" product={item.product} productColor={item.productColor} productSize={item.productSize}>+</AddButton>
-                        </ul>
-                    ))} */}
+
 
                 </div>
             </div>

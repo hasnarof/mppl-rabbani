@@ -6,6 +6,8 @@ use Inertia\Inertia;
 use App\Models\Product;
 use App\Http\Resources\ProductResource;
 use App\Repositories\ProductRepository;
+use Illuminate\Http\Request;
+
 
 class ProductController extends Controller
 {
@@ -16,24 +18,34 @@ class ProductController extends Controller
 
     public function products()
     {
-        if (request()->all()) {
-            $response = $this->repository->filterBy(request()->all());
-            return $response; // handle
+        // if (request()->all()) {
+        //     $response = $this->repository->filterBy(request()->all());
+        //     return $response; // handle
+        // }
+
+        // $responseAll = $this->repository->getAll();
+        // $responseRecent = $this->repository->getRecent();
+
+        // if ($responseAll['success'] !== false && $responseRecent['success'] !== false) {
+        //     $all_products = ProductResource::collection($responseAll['data']);
+        //     $new_arrivals = ProductResource::collection($responseRecent['data']);
+
+        //     return Inertia::render('Product/Products',[
+        //         'new_arrivals'=>$new_arrivals,
+        //         'all_products'=>$all_products,
+        //     ]);
+        // }
+        // return abort(500);
+
+        $all_products = Product::all();
+        foreach ($all_products as $key => $product) {
+            $product->colors = $product->productDetailsByColor();
+            $product->sizes = $product->productDetailsBySize();
         }
 
-        $responseAll = $this->repository->getAll();
-        $responseRecent = $this->repository->getRecent();
-
-        if ($responseAll['success'] !== false && $responseRecent['success'] !== false) {
-            $all_products = ProductResource::collection($responseAll['data']);
-            $new_arrivals = ProductResource::collection($responseRecent['data']);
-
-            return Inertia::render('Product/Products',[
-                'new_arrivals'=>$new_arrivals,
-                'all_products'=>$all_products,
-            ]);
-        }
-        return abort(500);
+        return Inertia::render('Product/Products',[
+            'all_products'=>$all_products,
+        ]);
     }
 
     public function productDetail($id)
@@ -55,5 +67,20 @@ class ProductController extends Controller
         }
 
         return abort(404);
+    }
+
+    public function filter(Request $request)
+    {
+        $form = array();
+        parse_str($request['form'], $form);
+        $all_products = Product::where('kategori_pakaian',$form['category'])->get();
+        foreach ($all_products as $key => $product) {
+            $product->colors = $product->productDetailsByColor();
+            $product->sizes = $product->productDetailsBySize();
+        }
+
+        return Inertia::render('Product/Products',[
+            'all_products'=>$all_products,
+        ]);
     }
 }

@@ -4,11 +4,17 @@ import { usePage } from '@inertiajs/inertia-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { Inertia } from '@inertiajs/inertia'
+
 
 const Products = () => {
     const { new_arrivals, all_products } = usePage().props;
 
-    console.log(all_products);
+    function handleSubmit(e) {
+        e.preventDefault()
+        let form = $('#filterForm').serialize();
+        Inertia.post(`/products/filter`, {form: form});
+    }
 
     return (
         <App>
@@ -19,74 +25,30 @@ const Products = () => {
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">Categories</h5>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Clothing
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Footwear
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Accessories
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Hijab
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Pashmina
-                                        </label>
-                                    </div>
+                                    <form id="filterForm" onSubmit={handleSubmit}>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="category" value="Hijab" id="flexCheckDefault"></input>
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Hijab
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="category" value="Clothing" id="flexCheckDefault"></input>
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Clothing
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="category" value="Pashmina" id="flexCheckDefault"></input>
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Pashmina
+                                            </label>
+                                        </div>
+                                        <button className="btn btn-primary">Filter</button>
+                                    </form>
                                 </div>
                             </div>
 
-                            <div class="card mt-4">
-                                <div class="card-body">
-                                    <h5 class="card-title">Material</h5>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Cotton
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Paris
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Rayon
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Silk
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Voal
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div className="col-10">
                             <div className="input-group rounded">
@@ -101,34 +63,17 @@ const Products = () => {
                                 </div>
                             </div>
 
-                            <h1 className="mt-4">New Arrivals</h1>
-                            <div className="row row-cols-1 row-cols-md-4 g-4">
-                                {new_arrivals.data.map((item, index)=> (
-                                <div className="col">
-                                    <div className="card">
-                                    <a href={`/product/${item.id}`}>
-                                        <img src={`/storage/${item.image}`} className="card-img-top" alt="img"></img>
-                                    </a>
-                                    <div className="card-body">
-                                        <h5 className="card-title">{item.nama}</h5>
-                                        {<p className="card-text">Rp {item.harga}</p>}
-                                    </div>
-                                </div>
-                                </div>
-                                ))}
-                            </div>
-
                             <h1 className="mt-4">Our Products</h1>
                             <div className="row row-cols-1 row-cols-md-4 g-4">
-                                {all_products.data.map((item, index)=> (
+                                {all_products.map((item, index)=> (
                                 <div className="col">
                                     <div className="card">
                                     <a href={`/product/${item.id}`}>
-                                        <img src={`/storage/${item.image}`} className="card-img-top" alt="img"></img>
+                                        <img src={`/storage/${item.colors[0].image}`} className="card-img-top" alt="img"></img>
                                     </a>
                                     <div className="card-body">
                                         <h5 className="card-title">{item.nama}</h5>
-                                        {<p className="card-text">Rp {item.harga}</p>}
+                                        {<p className="card-text">Rp {(item.colors[0].harga/1000).toFixed(3)}</p>}
                                     </div>
                                     </div>
                                 </div>

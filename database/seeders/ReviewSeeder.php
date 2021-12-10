@@ -16,16 +16,16 @@ class ReviewSeeder extends Seeder
     {
         $reviews =  [
             [
-                'user_id'=>2,
-                'product_id'=>'1',
+                'user_id'=>4,
+                'product_id'=>'2',
                 'rating'=>5,
                 'ulasan'=>'Bahannya adem.',
                 'created_at'=>now(),
                 'updated_at'=>now(),
             ],
             [
-                'user_id'=>3,
-                'product_id'=>'1',
+                'user_id'=>5,
+                'product_id'=>'2',
                 'rating'=>4,
                 'ulasan'=>'Sukaaa banget deh!',
                 'created_at'=>now(),

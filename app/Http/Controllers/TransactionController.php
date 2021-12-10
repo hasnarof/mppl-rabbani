@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\TransactionResource;
 use Inertia\Inertia;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
-use App\Repositories\TransactionRepository;
 use App\Providers\RajaOngkir;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\TransactionResource;
+use App\Repositories\TransactionRepository;
 use App\Repositories\ProductDetailRepository;
 use App\Repositories\TransactionDetailRepository;
-use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
 {
@@ -102,11 +103,19 @@ class TransactionController extends Controller
 
     public function transactionDetail($id)
     {
+        // $transaction = Transaction::with('user','transactionDetails')->where('id', $id)->first();
+
+        // return Inertia::render('Payment/TransactionDetail',[
+        //     'transaction' => $transaction,
+        // ]);
+
         $response = $this->repository->findOne($id);
+        // $user = User::find($response['data']->user_id);
 
         if ($response['success'] !== false) {
             return Inertia::render('Payment/TransactionDetail',[
                 'transaction' => new TransactionResource($response['data']),
+                // 'user'=>$user,
             ]);
         }
         return $response['message'];
