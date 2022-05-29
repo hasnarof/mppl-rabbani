@@ -1,6 +1,6 @@
 # Hijaby Mall
 
-This is an e-commerce website built by Laravel, React, Bootstrap, Inertia JS, and MySQL.
+This is a full stack e-commerce website built by Laravel, React, Bootstrap, Inertia JS, and MySQL.
 
 ## Features
 
