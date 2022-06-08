@@ -873,3 +873,24 @@
         margin-top: 32px;
     }
 }    
+
+#button-cart .btn-danger{
+    background-color: #D93081;
+    color: #ffffff;
+    border-color: #D93081;
+}
+#button-cart .btn-danger:hover{
+    background-color: #ffffff;
+    color: #D93081;
+    border-color: #D93081;
+}
+#button-cart .btn-cart{
+    background-color: #D93081;
+    color: #ffffff;
+    border-color: #D93081;
+}
+#button-cart .btn-cart:hover{
+    background-color: #ffffff;
+    color: #D93081;
+    border-color: #D93081;
+}

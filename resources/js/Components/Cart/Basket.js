@@ -35,10 +35,10 @@ const Basket = (props) => {
                                                     </div>
 
                                                 {/* </div> */}
-                                                <div className="col-md-3 d-flex">
+                                                <div id="button-cart" className="col-md-3 d-flex">
                                                     <button className="btn btn-danger" onClick={()=>onRemove(item.product, item.productColor, item.productSize)}>-</button>
                                                     <span className="p-2">{item.qty}</span>
-                                                    <button className="btn btn-primary" onClick={()=>onAdd(item.product, item.productColor, item.productSize)}>+</button>
+                                                    <button className="btn btn-primary btn-cart" onClick={()=>onAdd(item.product, item.productColor, item.productSize)}>+</button>
                                                 </div>
                                             </div>
                                         </div>
