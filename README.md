@@ -20,3 +20,7 @@ php artisan serve
 ```
 
 Then, open `localhost:8000`.
+
+## Demo
+
+[Demo video](https://youtu.be/Mxg6I3yc3zU)
